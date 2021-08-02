@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "thermal:block/crops/frost_melon_top",
+    "side": "thermal:block/crops/frost_melon_side"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "variants": {
+    "charged=0": [
+      {
+        "model": "thermal:block/phytosoil"
+      },
+      {
+        "model": "thermal:block/phytosoil",
+        "y": 90
+      },
+      {
+        "model": "thermal:block/phytosoil",
+        "y": 180
+      },
+      {
+        "model": "thermal:block/phytosoil",
+        "y": 270
+      }
+    ],
+    "charged=1": [
+      {
+        "model": "thermal:block/phytosoil_charged"
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 90
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 180
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 270
+      }
+    ],
+    "charged=2": [
+      {
+        "model": "thermal:block/phytosoil_charged"
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 90
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 180
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 270
+      }
+    ],
+    "charged=3": [
+      {
+        "model": "thermal:block/phytosoil_charged"
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 90
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 180
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 270
+      }
+    ],
+    "charged=4": [
+      {
+        "model": "thermal:block/phytosoil_charged"
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 90
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 180
+      },
+      {
+        "model": "thermal:block/phytosoil_charged",
+        "y": 270
+      }
+    ]
+  }
+}

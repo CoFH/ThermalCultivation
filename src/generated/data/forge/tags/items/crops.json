@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:crops/barley",
+    "#forge:crops/bell_pepper",
+    "#forge:crops/coffee",
+    "#forge:crops/corn",
+    "#forge:crops/eggplant",
+    "#forge:crops/flax",
+    "#forge:crops/green_bean",
+    "#forge:crops/hops",
+    "#forge:crops/onion",
+    "#forge:crops/peanut",
+    "#forge:crops/radish",
+    "#forge:crops/rice",
+    "#forge:crops/sadiroot",
+    "#forge:crops/spinach",
+    "#forge:crops/strawberry",
+    "#forge:crops/tea",
+    "#forge:crops/tomato"
+  ]
+}

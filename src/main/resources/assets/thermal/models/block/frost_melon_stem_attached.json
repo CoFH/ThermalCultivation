@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/stem_fruit",
+  "textures": {
+    "stem": "thermal:block/crops/frost_melon_stem",
+    "upperstem": "thermal:block/crops/frost_melon_stem_attached"
+  }
+}

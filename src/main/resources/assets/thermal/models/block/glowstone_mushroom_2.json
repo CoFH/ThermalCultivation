@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "thermal:block/mushrooms/glowstone_mushroom_2"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "thermal:block/mushrooms/gunpowder_mushroom_0"
+  }
+}

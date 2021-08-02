@@ -1,0 +1,18 @@
+{
+  "type": "thermal:insolator",
+  "ingredient": {
+    "item": "thermal:corn_seeds"
+  },
+  "result": [
+    {
+      "item": "thermal:corn",
+      "chance": 2.5
+    },
+    {
+      "item": "thermal:corn_seeds",
+      "chance": 1.1
+    }
+  ],
+  "energy_mod": 1.25,
+  "water_mod": 1.25
+}

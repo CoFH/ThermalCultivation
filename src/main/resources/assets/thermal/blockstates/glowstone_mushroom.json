@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "thermal:block/glowstone_mushroom_0"
+    },
+    "age=1": {
+      "model": "thermal:block/glowstone_mushroom_1"
+    },
+    "age=2": {
+      "model": "thermal:block/glowstone_mushroom_2"
+    },
+    "age=3": {
+      "model": "thermal:block/glowstone_mushroom_3"
+    },
+    "age=4": {
+      "model": "thermal:block/glowstone_mushroom_4"
+    }
+  }
+}

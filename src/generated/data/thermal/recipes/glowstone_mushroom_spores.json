@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:red_mushroom"
+    },
+    {
+      "tag": "forge:dusts/glowstone"
+    },
+    {
+      "item": "thermal:phytogro"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    }
+  ],
+  "result": {
+    "item": "thermal:glowstone_mushroom_spores"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:seeds/barley",
+    "#forge:seeds/bell_pepper",
+    "#forge:seeds/coffee",
+    "#forge:seeds/corn",
+    "#forge:seeds/eggplant",
+    "#forge:seeds/flax",
+    "#forge:seeds/frost_melon",
+    "#forge:seeds/green_bean",
+    "#forge:seeds/hops",
+    "#forge:seeds/onion",
+    "#forge:seeds/peanut",
+    "#forge:seeds/radish",
+    "#forge:seeds/rice",
+    "#forge:seeds/sadiroot",
+    "#forge:seeds/spinach",
+    "#forge:seeds/strawberry",
+    "#forge:seeds/tea",
+    "#forge:seeds/tomato"
+  ]
+}

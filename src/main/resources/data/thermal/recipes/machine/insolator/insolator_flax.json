@@ -1,0 +1,17 @@
+{
+  "type": "thermal:insolator",
+  "ingredient": {
+    "item": "thermal:flax_seeds"
+  },
+  "result": [
+    {
+      "item": "thermal:flax",
+      "chance": 2.5
+    },
+    {
+      "item": "thermal:flax_seeds",
+      "chance": 1.1
+    }
+  ],
+  "water_mod": 0.5
+}

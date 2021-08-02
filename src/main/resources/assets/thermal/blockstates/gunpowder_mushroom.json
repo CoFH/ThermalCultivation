@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "thermal:block/gunpowder_mushroom_0"
+    },
+    "age=1": {
+      "model": "thermal:block/gunpowder_mushroom_1"
+    },
+    "age=2": {
+      "model": "thermal:block/gunpowder_mushroom_2"
+    },
+    "age=3": {
+      "model": "thermal:block/gunpowder_mushroom_3"
+    },
+    "age=4": {
+      "model": "thermal:block/gunpowder_mushroom_4"
+    }
+  }
+}

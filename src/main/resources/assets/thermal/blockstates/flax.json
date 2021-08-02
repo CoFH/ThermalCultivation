@@ -1,0 +1,46 @@
+{
+  "variants": {
+    "age=0,top=false": {
+      "model": "thermal:block/flax_0"
+    },
+    "age=1,top=false": {
+      "model": "thermal:block/flax_1"
+    },
+    "age=2,top=false": {
+      "model": "thermal:block/flax_2"
+    },
+    "age=3,top=false": {
+      "model": "thermal:block/flax_3"
+    },
+    "age=4,top=false": {
+      "model": "thermal:block/flax_4"
+    },
+    "age=5,top=false": {
+      "model": "thermal:block/flax_5"
+    },
+    "age=6,top=false": {
+      "model": "thermal:block/flax_6"
+    },
+    "age=0,top=true": {
+      "model": "block/air"
+    },
+    "age=1,top=true": {
+      "model": "block/air"
+    },
+    "age=2,top=true": {
+      "model": "thermal:block/flax_2_top"
+    },
+    "age=3,top=true": {
+      "model": "thermal:block/flax_3_top"
+    },
+    "age=4,top=true": {
+      "model": "thermal:block/flax_4_top"
+    },
+    "age=5,top=true": {
+      "model": "thermal:block/flax_5_top"
+    },
+    "age=6,top=true": {
+      "model": "thermal:block/flax_6_top"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "thermal:gourmand_fuel",
+  "ingredient": {
+    "item": "thermal:chocolate_cake"
+  },
+  "energy": 25600
+}

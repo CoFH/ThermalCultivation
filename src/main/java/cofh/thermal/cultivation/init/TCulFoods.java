@@ -28,7 +28,7 @@ public class TCulFoods {
             .effect(() -> new EffectInstance(FIRE_RESISTANCE, 200, 0), 1.0F)
             .setAlwaysEdible()
             .build();
-    public static final Food GREEN_BEAN = new Food.Builder().hunger(1).saturation(0.3F).fastToEat().build();
+    public static final Food GREEN_BEAN = new Food.Builder().hunger(1).saturation(0.3F).build();
     public static final Food ONION = new Food.Builder().hunger(1).saturation(0.3F).build();
     public static final Food PEANUT = new Food.Builder().hunger(2).saturation(0.3F).fastToEat().build();
     public static final Food RADISH = new Food.Builder().hunger(1).saturation(0.3F).build();

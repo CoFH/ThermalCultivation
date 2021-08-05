@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "thermal:item/seeds/green_bean_seeds"
+    "layer0": "thermal:item/green_bean_seeds"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "cofh_core:block/crop_cross",
   "textures": {
-    "cross": "thermal:block/crops/green_bean_6"
+    "cross": "thermal:block/green_bean_6"
   }
 }

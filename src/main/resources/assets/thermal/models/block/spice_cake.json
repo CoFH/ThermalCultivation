@@ -1,9 +1,9 @@
 {
   "textures": {
-    "particle": "thermal:block/foods/spice_cake_side",
-    "bottom": "thermal:block/foods/spice_cake_bottom",
-    "top": "thermal:block/foods/spice_cake_top",
-    "side": "thermal:block/foods/spice_cake_side"
+    "particle": "thermal:block/spice_cake_side",
+    "bottom": "thermal:block/spice_cake_bottom",
+    "top": "thermal:block/spice_cake_top",
+    "side": "thermal:block/spice_cake_side"
   },
   "elements": [
     {

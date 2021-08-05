@@ -30,8 +30,8 @@ public class TCulBlockStateProvider extends BlockStateProviderCoFH {
 
         DeferredRegisterCoFH<Block> reg = BLOCKS;
 
-        axisBlock(reg.getSup(block(ID_BARLEY)), "barley_block", STORAGE);
-        axisBlock(reg.getSup(block(ID_FLAX)), "flax_block", STORAGE);
+        axisBlock(reg.getSup(block(ID_BARLEY)), "barley_block");
+        axisBlock(reg.getSup(block(ID_FLAX)), "flax_block");
     }
 
 }

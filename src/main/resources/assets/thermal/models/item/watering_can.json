@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "thermal:item/tools/watering_can"
+    "layer0": "thermal:item/watering_can"
   },
   "display": {
     "thirdperson_righthand": {

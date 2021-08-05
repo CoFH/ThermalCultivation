@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "thermal:block/mushrooms/redstone_mushroom_3"
+    "cross": "thermal:block/redstone_mushroom_3"
   }
 }

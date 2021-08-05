@@ -15,10 +15,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.*;
-import static cofh.thermal.lib.common.ThermalIDs.*;
 import static cofh.thermal.core.util.RegistrationHelper.seeds;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 import static cofh.thermal.lib.common.ThermalFlags.*;
+import static cofh.thermal.lib.common.ThermalIDs.*;
 
 @Mod(ID_THERMAL_CULTIVATION)
 public class ThermalCultivation {

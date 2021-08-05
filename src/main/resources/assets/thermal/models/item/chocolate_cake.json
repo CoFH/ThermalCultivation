@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "thermal:item/foods/chocolate_cake"
+    "layer0": "thermal:item/chocolate_cake"
   }
 }

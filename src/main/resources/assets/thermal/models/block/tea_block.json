@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "particle": "thermal:block/storage/tea_block_top",
-    "down": "thermal:block/storage/tea_block_bottom",
-    "up": "thermal:block/storage/tea_block_top",
-    "north": "thermal:block/storage/tea_block_side_1",
-    "east": "thermal:block/storage/tea_block_side_2",
-    "south": "thermal:block/storage/tea_block_side_2",
-    "west": "thermal:block/storage/tea_block_side_2"
+    "particle": "thermal:block/tea_block_top",
+    "down": "thermal:block/tea_block_bottom",
+    "up": "thermal:block/tea_block_top",
+    "north": "thermal:block/tea_block_side_1",
+    "east": "thermal:block/tea_block_side_2",
+    "south": "thermal:block/tea_block_side_2",
+    "west": "thermal:block/tea_block_side_2"
   }
 }

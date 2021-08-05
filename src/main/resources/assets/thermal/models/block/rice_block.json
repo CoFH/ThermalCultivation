@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "particle": "thermal:block/storage/rice_block_top",
-    "down": "thermal:block/storage/rice_block_bottom",
-    "up": "thermal:block/storage/rice_block_top",
-    "north": "thermal:block/storage/rice_block_side_1",
-    "east": "thermal:block/storage/rice_block_side_2",
-    "south": "thermal:block/storage/rice_block_side_2",
-    "west": "thermal:block/storage/rice_block_side_2"
+    "particle": "thermal:block/rice_block_top",
+    "down": "thermal:block/rice_block_bottom",
+    "up": "thermal:block/rice_block_top",
+    "north": "thermal:block/rice_block_side_1",
+    "east": "thermal:block/rice_block_side_2",
+    "south": "thermal:block/rice_block_side_2",
+    "west": "thermal:block/rice_block_side_2"
   }
 }

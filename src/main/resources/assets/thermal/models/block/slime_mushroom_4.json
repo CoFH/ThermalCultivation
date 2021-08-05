@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "thermal:block/mushrooms/slime_mushroom_4"
+    "cross": "thermal:block/slime_mushroom_4"
   }
 }

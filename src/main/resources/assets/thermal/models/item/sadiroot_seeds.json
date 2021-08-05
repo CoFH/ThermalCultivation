@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "thermal:item/seeds/sadiroot_seeds"
+    "layer0": "thermal:item/sadiroot_seeds"
   }
 }

@@ -7,6 +7,7 @@ public class TCulIDs {
     }
 
     // region CROPS
+    public static final String ID_AMARANTH = "amaranth";
     public static final String ID_BARLEY = "barley";
     public static final String ID_CORN = "corn";
     public static final String ID_FLAX = "flax";

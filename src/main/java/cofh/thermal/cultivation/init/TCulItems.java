@@ -32,6 +32,7 @@ public class TCulItems {
     private static void registerCrops() {
 
         // ANNUAL
+        registerCropAndSeed(ID_AMARANTH);
         registerCropAndSeed(ID_BARLEY);
         registerCropAndSeed(ID_CORN, CORN);
         registerCropAndSeed(ID_FLAX);

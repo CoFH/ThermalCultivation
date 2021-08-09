@@ -10,6 +10,7 @@
   "block.thermal.chocolate_cake": "Chocolate Cake",
   "block.thermal.spice_cake": "Spice Cake",
 
+  "block.thermal.amaranth_block": "Amaranth Bale",
   "block.thermal.barley_block": "Barley Bale",
   "block.thermal.bell_pepper_block": "Crate of Bell Peppers",
   "block.thermal.coffee_block": "Sack of Coffee",
@@ -28,6 +29,8 @@
   "block.thermal.tea_block": "Sack of Tea",
   "block.thermal.tomato_block": "Crate of Tomatoes",
 
+  "item.thermal.amaranth": "Amaranth",
+  "item.thermal.amaranth_seeds": "Amaranth Seeds",
   "item.thermal.barley": "Barley",
   "item.thermal.barley_seeds": "Barley Seeds",
   "item.thermal.bell_pepper": "Bell Pepper",

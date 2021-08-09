@@ -34,6 +34,7 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         DeferredRegisterCoFH<Item> reg = ITEMS;
 
         // CROPS
+        generated(reg.getSup(ID_AMARANTH));
         generated(reg.getSup(ID_BARLEY));
         generated(reg.getSup(ID_BELL_PEPPER));
         generated(reg.getSup(ID_COFFEE));
@@ -53,6 +54,7 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         generated(reg.getSup(ID_TOMATO));
 
         // SEEDS
+        generated(reg.getSup(seeds(ID_AMARANTH)));
         generated(reg.getSup(seeds(ID_BARLEY)));
         generated(reg.getSup(seeds(ID_BELL_PEPPER)));
         generated(reg.getSup(seeds(ID_COFFEE)));
@@ -91,6 +93,7 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
 
         DeferredRegisterCoFH<Block> reg = BLOCKS;
 
+        blockItem(reg.getSup(block(ID_AMARANTH)));
         blockItem(reg.getSup(block(ID_BARLEY)));
         blockItem(reg.getSup(block(ID_BELL_PEPPER)));
         blockItem(reg.getSup(block(ID_COFFEE)));

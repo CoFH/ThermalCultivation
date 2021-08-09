@@ -52,6 +52,7 @@ public class TCulBlocks {
     private static void registerPlants() {
 
         // ANNUAL
+        registerTallAnnual(ID_AMARANTH);
         registerAnnual(ID_BARLEY);
         registerTallAnnual(ID_CORN);
         registerFlax(ID_FLAX);

@@ -40,6 +40,7 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         DeferredRegisterCoFH<Block> regBlocks = BLOCKS;
         DeferredRegisterCoFH<Item> regItems = ITEMS;
 
+        createTallCropTable(ID_AMARANTH);
         createCropTable(ID_BARLEY);
         createTallCropTable(ID_CORN);
         createFlaxCropTable(ID_FLAX);
@@ -84,6 +85,7 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         blockLootTables.put(regBlocks.get(ID_PHYTOSOIL), getSimpleDropTable(regBlocks.get(ID_PHYTOSOIL)));
         blockLootTables.put(regBlocks.get(ID_PHYTOSOIL_TILLED), getSimpleDropTable(regBlocks.get(ID_PHYTOSOIL)));
 
+        createSimpleDropTable(regBlocks.get(block(ID_AMARANTH)));
         createSimpleDropTable(regBlocks.get(block(ID_BARLEY)));
         createSimpleDropTable(regBlocks.get(block(ID_BELL_PEPPER)));
         createSimpleDropTable(regBlocks.get(block(ID_COFFEE)));

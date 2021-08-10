@@ -35,6 +35,7 @@ public class TCulCommonSetupEvents {
             Int2ObjectMap<List<VillagerTrades.ITrade>> trades = event.getTrades();
 
             List<VillagerTrades.ITrade> noviceTrades = trades.get(1);
+            noviceTrades.add(new BasicTrade(cloneStack(ITEMS.get(ID_AMARANTH), 20), cloneStack(Items.EMERALD), 16, 2, 0.05F));
             noviceTrades.add(new BasicTrade(cloneStack(ITEMS.get(ID_BARLEY), 20), cloneStack(Items.EMERALD), 16, 2, 0.05F));
             noviceTrades.add(new BasicTrade(cloneStack(ITEMS.get(ID_CORN), 22), cloneStack(Items.EMERALD), 16, 2, 0.05F));
             noviceTrades.add(new BasicTrade(cloneStack(ITEMS.get(ID_ONION), 24), cloneStack(Items.EMERALD), 16, 2, 0.05F));
@@ -51,6 +52,7 @@ public class TCulCommonSetupEvents {
             noviceTrades.add(new BasicTrade(cloneStack(ITEMS.get(ID_TOMATO), 22), cloneStack(Items.EMERALD), 16, 2, 0.05F));
 
             List<VillagerTrades.ITrade> apprenticeTrades = trades.get(2);
+            apprenticeTrades.add(new BasicTrade(cloneStack(Items.EMERALD), cloneStack(ITEMS.get(seeds(ID_AMARANTH)), 2), 12, 5, 0.05F));
             apprenticeTrades.add(new BasicTrade(cloneStack(Items.EMERALD), cloneStack(ITEMS.get(seeds(ID_BARLEY)), 2), 12, 5, 0.05F));
             apprenticeTrades.add(new BasicTrade(cloneStack(Items.EMERALD), cloneStack(ITEMS.get(seeds(ID_CORN)), 2), 12, 5, 0.05F));
             apprenticeTrades.add(new BasicTrade(cloneStack(Items.EMERALD), cloneStack(ITEMS.get(seeds(ID_FLAX)), 2), 12, 5, 0.05F));

@@ -74,11 +74,6 @@ public class TCulBlocks {
         // registerTallPerennial(ID_HOPS);
         registerPerennial(ID_TEA);
 
-        //        registerMushroom(ID_GLOWSTONE_MUSHROOM);
-        //        registerMushroom(ID_GUNPOWDER_MUSHROOM);
-        //        registerMushroom(ID_REDSTONE_MUSHROOM);
-        //        registerMushroom(ID_SLIME_MUSHROOM);
-
         BLOCKS.register(ID_GLOWSTONE_MUSHROOM, () -> new CropsBlockMushroom(create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F, 0.0F).sound(SoundType.NETHER_WART).setLightLevel((state) -> state.get(AGE_0_4) == 4 ? 12 : 0)).seed(ITEMS.getSup(spores(ID_GLOWSTONE_MUSHROOM))));
         registerMushroom(ID_GUNPOWDER_MUSHROOM);
         BLOCKS.register(ID_REDSTONE_MUSHROOM, () -> new CropsBlockMushroom(create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F, 0.0F).sound(SoundType.NETHER_WART).setLightLevel((state) -> state.get(AGE_0_4) == 4 ? 7 : 0)) {
@@ -111,6 +106,7 @@ public class TCulBlocks {
 
     private static void registerStorage() {
 
+        registerBlock(block(ID_AMARANTH), () -> new HayBlock(create(Material.ORGANIC, MaterialColor.RED).hardnessAndResistance(0.5F).sound(SoundType.PLANT).harvestTool(ToolType.HOE)));
         registerBlock(block(ID_BARLEY), () -> new HayBlock(create(Material.ORGANIC, MaterialColor.GOLD).hardnessAndResistance(0.5F).sound(SoundType.PLANT).harvestTool(ToolType.HOE)));
         registerBlock(block(ID_CORN), () -> new Block(create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)));
         registerBlock(block(ID_FLAX), () -> new HayBlock(create(Material.ORGANIC, MaterialColor.PURPLE).hardnessAndResistance(0.5F).sound(SoundType.PLANT).harvestTool(ToolType.HOE)));

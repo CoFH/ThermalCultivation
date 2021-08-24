@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "#forge:crops/amaranth",
     "#forge:crops/barley",
     "#forge:crops/bell_pepper",
     "#forge:crops/coffee",

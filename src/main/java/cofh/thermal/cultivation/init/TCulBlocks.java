@@ -7,6 +7,7 @@ import cofh.lib.block.impl.TilledSoilBlock;
 import cofh.lib.block.impl.crops.AttachedStemBlockCoFH;
 import cofh.lib.block.impl.crops.CropsBlockMushroom;
 import cofh.lib.block.impl.crops.StemBlockCoFH;
+import cofh.thermal.cultivation.block.AmaranthCrop;
 import cofh.thermal.cultivation.block.FlaxCrop;
 import cofh.thermal.cultivation.block.FrostMelonBlock;
 import net.minecraft.block.*;
@@ -44,15 +45,16 @@ public class TCulBlocks {
 
         FireBlock fire = (FireBlock) Blocks.FIRE;
 
+        fire.setFireInfo(BLOCKS.get(block(ID_AMARANTH)), 60, 20);
         fire.setFireInfo(BLOCKS.get(block(ID_BARLEY)), 60, 20);
-        fire.setFireInfo(BLOCKS.get(block(ID_CORN)), 60, 20);
+        fire.setFireInfo(BLOCKS.get(block(ID_FLAX)), 60, 20);
     }
 
     // region HELPERS
     private static void registerPlants() {
 
         // ANNUAL
-        registerTallAnnual(ID_AMARANTH);
+        registerAmaranth(ID_AMARANTH);
         registerAnnual(ID_BARLEY);
         registerTallAnnual(ID_CORN);
         registerFlax(ID_FLAX);
@@ -133,6 +135,11 @@ public class TCulBlocks {
 
         registerBlock(ID_PHYTOSOIL, () -> new SoilBlock(create(Material.EARTH).tickRandomly().hardnessAndResistance(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND).setLightLevel((state) -> state.get(CHARGED) > 0 ? 7 : 0)));
         registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(create(Material.EARTH).tickRandomly().hardnessAndResistance(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND).setLightLevel((state) -> state.get(CHARGED) > 0 ? 7 : 0)).dirt(BLOCKS.getSup(ID_PHYTOSOIL)));
+    }
+
+    public static void registerAmaranth(String id) {
+
+        BLOCKS.register(id, () -> new AmaranthCrop(create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
     }
 
     public static void registerFlax(String id) {

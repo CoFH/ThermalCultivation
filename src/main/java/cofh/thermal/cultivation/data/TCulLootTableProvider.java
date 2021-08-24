@@ -40,10 +40,10 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         DeferredRegisterCoFH<Block> regBlocks = BLOCKS;
         DeferredRegisterCoFH<Item> regItems = ITEMS;
 
-        createTallCropTable(ID_AMARANTH);
+        createTallCropAltTable(ID_AMARANTH);
         createCropTable(ID_BARLEY);
         createTallCropTable(ID_CORN);
-        createFlaxCropTable(ID_FLAX);
+        createTallCropAltTable(ID_FLAX);
         createCropTable(ID_ONION);
         createCropTable(ID_RADISH);
         createCropTable(ID_RICE);
@@ -113,7 +113,7 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_7, 7));
     }
 
-    protected void createFlaxCropTable(String id) {
+    protected void createTallCropAltTable(String id) {
 
         blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_6, 6));
     }

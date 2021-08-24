@@ -60,6 +60,7 @@ public class ThermalCultivation {
             {
                 float chance = 0.65F;
 
+                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_AMARANTH));
                 ComposterBlock.registerCompostable(chance, ITEMS.get(ID_BARLEY));
                 ComposterBlock.registerCompostable(chance, ITEMS.get(ID_CORN));
                 ComposterBlock.registerCompostable(chance, ITEMS.get(ID_FLAX));
@@ -90,6 +91,7 @@ public class ThermalCultivation {
             {
                 float chance = 0.3F;
 
+                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_AMARANTH)));
                 ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_BARLEY)));
                 ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_CORN)));
                 ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_FLAX)));
@@ -127,6 +129,7 @@ public class ThermalCultivation {
 
         RenderType cutout = RenderType.getCutout();
 
+        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_AMARANTH), cutout);
         RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_BARLEY), cutout);
         RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_CORN), cutout);
         RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_FLAX), cutout);

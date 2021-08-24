@@ -144,6 +144,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .addCriterion("has_slime_ball", hasItem(Tags.Items.SLIMEBALLS))
                 .build(consumer);
 
+        generateStorageRecipes(consumer, reg.get(block(ID_AMARANTH)), reg.get(ID_AMARANTH), forgeTag("crops/amaranth"));
         generateStorageRecipes(consumer, reg.get(block(ID_BARLEY)), reg.get(ID_BARLEY), forgeTag("crops/barley"));
         generateStorageRecipes(consumer, reg.get(block(ID_BELL_PEPPER)), reg.get(ID_BELL_PEPPER), forgeTag("crops/bell_pepper"));
         generateStorageRecipes(consumer, reg.get(block(ID_COFFEE)), reg.get(ID_COFFEE), forgeTag("crops/coffee"));

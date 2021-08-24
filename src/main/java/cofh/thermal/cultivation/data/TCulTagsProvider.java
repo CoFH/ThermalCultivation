@@ -51,6 +51,7 @@ public class TCulTagsProvider {
         @Override
         protected void registerTags() {
 
+            getOrCreateBuilder(ItemTagsCoFH.CROPS_AMARANTH).add(ITEMS.get(ID_AMARANTH));
             getOrCreateBuilder(ItemTagsCoFH.CROPS_BARLEY).add(ITEMS.get(ID_BARLEY));
             getOrCreateBuilder(ItemTagsCoFH.CROPS_BELL_PEPPER).add(ITEMS.get(ID_BELL_PEPPER));
             getOrCreateBuilder(ItemTagsCoFH.CROPS_COFFEE).add(ITEMS.get(ID_COFFEE));
@@ -70,6 +71,7 @@ public class TCulTagsProvider {
             getOrCreateBuilder(ItemTagsCoFH.CROPS_TOMATO).add(ITEMS.get(ID_TOMATO));
 
             getOrCreateBuilder(Tags.Items.CROPS).addTags(
+                    ItemTagsCoFH.CROPS_AMARANTH,
                     ItemTagsCoFH.CROPS_BARLEY,
                     ItemTagsCoFH.CROPS_BELL_PEPPER,
                     ItemTagsCoFH.CROPS_COFFEE,
@@ -89,6 +91,7 @@ public class TCulTagsProvider {
                     ItemTagsCoFH.CROPS_TOMATO
             );
 
+            getOrCreateBuilder(ItemTagsCoFH.SEEDS_AMARANTH).add(ITEMS.get(seeds(ID_AMARANTH)));
             getOrCreateBuilder(ItemTagsCoFH.SEEDS_BARLEY).add(ITEMS.get(seeds(ID_BARLEY)));
             getOrCreateBuilder(ItemTagsCoFH.SEEDS_BELL_PEPPER).add(ITEMS.get(seeds(ID_BELL_PEPPER)));
             getOrCreateBuilder(ItemTagsCoFH.SEEDS_COFFEE).add(ITEMS.get(seeds(ID_COFFEE)));
@@ -109,6 +112,7 @@ public class TCulTagsProvider {
             getOrCreateBuilder(ItemTagsCoFH.SEEDS_TOMATO).add(ITEMS.get(seeds(ID_TOMATO)));
 
             getOrCreateBuilder(Tags.Items.SEEDS).addTags(
+                    ItemTagsCoFH.SEEDS_AMARANTH,
                     ItemTagsCoFH.SEEDS_BARLEY,
                     ItemTagsCoFH.SEEDS_BELL_PEPPER,
                     ItemTagsCoFH.SEEDS_COFFEE,

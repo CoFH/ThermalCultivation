@@ -1,34 +1,25 @@
 {
   "variants": {
     "age=0,top=false": {
-      "model": "thermal:block/corn_0"
+      "model": "thermal:block/amaranth_0"
     },
     "age=1,top=false": {
-      "model": "thermal:block/corn_1"
+      "model": "thermal:block/amaranth_1"
     },
     "age=2,top=false": {
-      "model": "thermal:block/corn_2"
+      "model": "thermal:block/amaranth_2"
     },
     "age=3,top=false": {
-      "model": "thermal:block/corn_3"
+      "model": "thermal:block/amaranth_3"
     },
     "age=4,top=false": {
-      "model": "thermal:block/corn_4"
+      "model": "thermal:block/amaranth_4"
     },
     "age=5,top=false": {
-      "model": "thermal:block/corn_5"
+      "model": "thermal:block/amaranth_5"
     },
     "age=6,top=false": {
-      "model": "thermal:block/corn_6"
-    },
-    "age=7,top=false": {
-      "model": "thermal:block/corn_7"
-    },
-    "age=8,top=false": {
-      "model": "thermal:block/corn_8"
-    },
-    "age=9,top=false": {
-      "model": "thermal:block/corn_9"
+      "model": "thermal:block/amaranth_6"
     },
     "age=0,top=true": {
       "model": "block/air"
@@ -43,22 +34,13 @@
       "model": "block/air"
     },
     "age=4,top=true": {
-      "model": "thermal:block/corn_4_top"
+      "model": "thermal:block/amaranth_4_top"
     },
     "age=5,top=true": {
-      "model": "thermal:block/corn_5_top"
+      "model": "thermal:block/amaranth_5_top"
     },
     "age=6,top=true": {
-      "model": "thermal:block/corn_6_top"
-    },
-    "age=7,top=true": {
-      "model": "thermal:block/corn_7_top"
-    },
-    "age=8,top=true": {
-      "model": "thermal:block/corn_8_top"
-    },
-    "age=9,top=true": {
-      "model": "thermal:block/corn_9_top"
+      "model": "thermal:block/amaranth_6_top"
     }
   }
 }

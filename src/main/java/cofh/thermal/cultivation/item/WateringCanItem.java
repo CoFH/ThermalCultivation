@@ -3,6 +3,7 @@ package cofh.thermal.cultivation.item;
 import cofh.core.item.FluidContainerItemAugmentable;
 import cofh.core.util.ProxyUtils;
 import cofh.core.util.helpers.ChatHelper;
+import cofh.lib.item.IColorableItem;
 import cofh.lib.item.IMultiModeItem;
 import cofh.lib.util.RayTracer;
 import cofh.lib.util.Utils;
@@ -13,6 +14,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.IDyeableArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.nbt.CompoundNBT;
@@ -45,7 +47,7 @@ import static cofh.lib.util.helpers.AugmentableHelper.setAttributeFromAugmentAdd
 import static cofh.thermal.lib.common.ThermalAugmentRules.createAllowValidator;
 import static net.minecraftforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE;
 
-public class WateringCanItem extends FluidContainerItemAugmentable implements IMultiModeItem {
+public class WateringCanItem extends FluidContainerItemAugmentable implements IColorableItem, IDyeableArmorItem, IMultiModeItem {
 
     private static final Set<Triple<BlockPos, BlockState, Block>> WATERED_BLOCKS = new ObjectOpenHashSet<>();
 
@@ -65,8 +67,9 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IM
 
         super(builder, fluidCapacity, IS_WATER);
 
-        ProxyUtils.registerItemModelProperty(this, new ResourceLocation("filled"), (stack, world, entity) -> getFluidAmount(stack) > 0 ? 1F : 0F);
-        ProxyUtils.registerItemModelProperty(this, new ResourceLocation("active"), (stack, world, entity) -> getFluidAmount(stack) > 0 && hasActiveTag(stack) ? 1F : 0F);
+        ProxyUtils.registerItemModelProperty(this, new ResourceLocation("color"), (stack, world, entity) -> (hasColor(stack) ? 1.0F : 0));
+        ProxyUtils.registerItemModelProperty(this, new ResourceLocation("state"), (stack, world, entity) -> (getFluidAmount(stack) > 0 ? 0.5F : 0) + (hasActiveTag(stack) ? 0.25F : 0));
+        ProxyUtils.registerColorable(this);
 
         numSlots = () -> ThermalConfig.toolAugments;
         augValidator = createAllowValidator(TAG_AUGMENT_TYPE_UPGRADE, TAG_AUGMENT_TYPE_FLUID, TAG_AUGMENT_TYPE_AREA_EFFECT);
@@ -237,6 +240,18 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IM
         if (getMode(container) >= getNumModes(container)) {
             setMode(container, getNumModes(container) - 1);
         }
+    }
+    // endregion
+
+    // region IColorableItem
+    @Override
+    public int getColor(ItemStack item, int colorIndex) {
+
+        if (colorIndex == 0) {
+            CompoundNBT nbt = item.getChildTag("display");
+            return nbt != null && nbt.contains("color", 99) ? nbt.getInt("color") : 0xFFFFFF;
+        }
+        return 0xFFFFFF;
     }
     // endregion
 

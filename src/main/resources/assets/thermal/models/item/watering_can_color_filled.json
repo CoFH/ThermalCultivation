@@ -1,0 +1,6 @@
+{
+  "parent": "thermal:item/watering_can_filled",
+  "textures": {
+    "layer0": "thermal:item/watering_can_color"
+  }
+}

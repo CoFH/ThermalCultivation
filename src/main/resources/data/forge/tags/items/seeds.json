@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "#forge:seeds/amaranth",
     "#forge:seeds/barley",
     "#forge:seeds/bell_pepper",
     "#forge:seeds/coffee",

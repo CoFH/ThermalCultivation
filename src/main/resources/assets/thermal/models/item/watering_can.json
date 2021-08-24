@@ -32,15 +32,35 @@
   "overrides": [
     {
       "predicate": {
-        "filled": 1
+        "state": 0.5
       },
       "model": "thermal:item/watering_can_filled"
     },
     {
       "predicate": {
-        "active": 1
+        "state": 0.75
       },
       "model": "thermal:item/watering_can_active"
+    },
+    {
+      "predicate": {
+        "color": 1
+      },
+      "model": "thermal:item/watering_can_color"
+    },
+    {
+      "predicate": {
+        "color": 1,
+        "state": 0.5
+      },
+      "model": "thermal:item/watering_can_color_filled"
+    },
+    {
+      "predicate": {
+        "color": 1,
+        "state": 0.75
+      },
+      "model": "thermal:item/watering_can_color_active"
     }
   ]
 }

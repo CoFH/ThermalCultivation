@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
 
+import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.*;
@@ -66,8 +67,8 @@ public class TCulItems {
         registerSpores(ID_SLIME_MUSHROOM);
 
         // OTHER
-        ITEMS.register(ID_FROST_MELON_SLICE, () -> new ItemCoFH(new Item.Properties().group(THERMAL_ITEMS).food(FROST_MELON_SLICE).rarity(Rarity.UNCOMMON)));
-        ITEMS.register(seeds(ID_FROST_MELON), () -> new BlockNamedItemCoFH(BLOCKS.get(ID_FROST_MELON_STEM), new Item.Properties().group(THERMAL_ITEMS).rarity(Rarity.UNCOMMON)));
+        ITEMS.register(ID_FROST_MELON_SLICE, () -> new ItemCoFH(new Item.Properties().group(THERMAL_ITEMS).food(FROST_MELON_SLICE).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(seeds(ID_FROST_MELON), () -> new BlockNamedItemCoFH(BLOCKS.get(ID_FROST_MELON_STEM), new Item.Properties().group(THERMAL_ITEMS).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION));
     }
 
     private static void registerFoods() {
@@ -85,14 +86,14 @@ public class TCulItems {
                 ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);
                 return entityLiving instanceof PlayerEntity && ((PlayerEntity) entityLiving).abilities.isCreativeMode ? itemstack : new ItemStack(Items.BOWL);
             }
-        });
+        }.setModId(ID_THERMAL_CULTIVATION));
     }
 
     private static void registerTools() {
 
         ItemGroup group = THERMAL_TOOLS;
 
-        ITEMS.register("watering_can", () -> new WateringCanItem(new Item.Properties().maxStackSize(1).group(group), 8000));
+        ITEMS.register("watering_can", () -> new WateringCanItem(new Item.Properties().maxStackSize(1).group(group), 8000).setModId(ID_THERMAL_CULTIVATION));
     }
 
 }

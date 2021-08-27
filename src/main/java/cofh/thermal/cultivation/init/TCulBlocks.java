@@ -25,7 +25,7 @@ import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
-import static net.minecraft.block.AbstractBlock.Properties.create;
+import static net.minecraft.block.AbstractBlock.Properties.of;
 
 public class TCulBlocks {
 
@@ -45,68 +45,68 @@ public class TCulBlocks {
 
         FireBlock fire = (FireBlock) Blocks.FIRE;
 
-        fire.setFireInfo(BLOCKS.get(block(ID_AMARANTH)), 60, 20);
-        fire.setFireInfo(BLOCKS.get(block(ID_BARLEY)), 60, 20);
-        fire.setFireInfo(BLOCKS.get(block(ID_FLAX)), 60, 20);
+        fire.setFlammable(BLOCKS.get(block(ID_AMARANTH)), 60, 20);
+        fire.setFlammable(BLOCKS.get(block(ID_BARLEY)), 60, 20);
+        fire.setFlammable(BLOCKS.get(block(ID_FLAX)), 60, 20);
 
         // CROPS
         {
             float chance = 0.65F;
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_AMARANTH));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_BARLEY));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_CORN));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_FLAX));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_ONION));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_RADISH));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_RICE));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_SADIROOT));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_SPINACH));
+            ComposterBlock.add(chance, ITEMS.get(ID_AMARANTH));
+            ComposterBlock.add(chance, ITEMS.get(ID_BARLEY));
+            ComposterBlock.add(chance, ITEMS.get(ID_CORN));
+            ComposterBlock.add(chance, ITEMS.get(ID_FLAX));
+            ComposterBlock.add(chance, ITEMS.get(ID_ONION));
+            ComposterBlock.add(chance, ITEMS.get(ID_RADISH));
+            ComposterBlock.add(chance, ITEMS.get(ID_RICE));
+            ComposterBlock.add(chance, ITEMS.get(ID_SADIROOT));
+            ComposterBlock.add(chance, ITEMS.get(ID_SPINACH));
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_BELL_PEPPER));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_EGGPLANT));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_GREEN_BEAN));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_PEANUT));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_STRAWBERRY));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_TOMATO));
+            ComposterBlock.add(chance, ITEMS.get(ID_BELL_PEPPER));
+            ComposterBlock.add(chance, ITEMS.get(ID_EGGPLANT));
+            ComposterBlock.add(chance, ITEMS.get(ID_GREEN_BEAN));
+            ComposterBlock.add(chance, ITEMS.get(ID_PEANUT));
+            ComposterBlock.add(chance, ITEMS.get(ID_STRAWBERRY));
+            ComposterBlock.add(chance, ITEMS.get(ID_TOMATO));
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_COFFEE));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_TEA));
+            ComposterBlock.add(chance, ITEMS.get(ID_COFFEE));
+            ComposterBlock.add(chance, ITEMS.get(ID_TEA));
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_FROST_MELON));
+            ComposterBlock.add(chance, ITEMS.get(ID_FROST_MELON));
         }
         {
             float chance = 0.5F;
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(ID_FROST_MELON_SLICE));
+            ComposterBlock.add(chance, ITEMS.get(ID_FROST_MELON_SLICE));
         }
         // SEEDS
         {
             float chance = 0.3F;
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_AMARANTH)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_BARLEY)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_CORN)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_FLAX)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_ONION)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_RADISH)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_RICE)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_SADIROOT)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_SPINACH)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_AMARANTH)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_BARLEY)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_CORN)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_FLAX)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_ONION)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_RADISH)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_RICE)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_SADIROOT)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_SPINACH)));
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_BELL_PEPPER)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_EGGPLANT)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_GREEN_BEAN)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_PEANUT)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_STRAWBERRY)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_TOMATO)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_BELL_PEPPER)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_EGGPLANT)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_GREEN_BEAN)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_PEANUT)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_STRAWBERRY)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_TOMATO)));
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_COFFEE)));
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_TEA)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_COFFEE)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_TEA)));
 
-            ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_FROST_MELON)));
+            ComposterBlock.add(chance, ITEMS.get(seeds(ID_FROST_MELON)));
         }
-        HoeItem.HOE_LOOKUP.put(BLOCKS.get(ID_PHYTOSOIL), BLOCKS.get(ID_PHYTOSOIL_TILLED).getDefaultState());
+        HoeItem.TILLABLES.put(BLOCKS.get(ID_PHYTOSOIL), BLOCKS.get(ID_PHYTOSOIL_TILLED).defaultBlockState());
     }
 
     // region HELPERS
@@ -135,80 +135,80 @@ public class TCulBlocks {
         // registerTallPerennial(ID_HOPS);
         registerPerennial(ID_TEA);
 
-        BLOCKS.register(ID_GLOWSTONE_MUSHROOM, () -> new CropsBlockMushroom(create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F, 0.0F).sound(SoundType.NETHER_WART).setLightLevel((state) -> state.get(AGE_0_4) == 4 ? 12 : 0)).seed(ITEMS.getSup(spores(ID_GLOWSTONE_MUSHROOM))));
+        BLOCKS.register(ID_GLOWSTONE_MUSHROOM, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 12 : 0)).seed(ITEMS.getSup(spores(ID_GLOWSTONE_MUSHROOM))));
         registerMushroom(ID_GUNPOWDER_MUSHROOM);
-        BLOCKS.register(ID_REDSTONE_MUSHROOM, () -> new CropsBlockMushroom(create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F, 0.0F).sound(SoundType.NETHER_WART).setLightLevel((state) -> state.get(AGE_0_4) == 4 ? 7 : 0)) {
+        BLOCKS.register(ID_REDSTONE_MUSHROOM, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 7 : 0)) {
 
             @Override
-            public boolean canProvidePower(BlockState state) {
+            public boolean isSignalSource(BlockState state) {
 
                 return true;
             }
 
             @Override
-            public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+            public int getSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
 
-                return blockState.get(AGE_0_4) == 4 ? 7 : 0;
+                return blockState.getValue(AGE_0_4) == 4 ? 7 : 0;
             }
         }.seed(ITEMS.getSup(spores(ID_REDSTONE_MUSHROOM))));
         registerMushroom(ID_SLIME_MUSHROOM);
 
         // STEM
-        registerBlock(ID_FROST_MELON, () -> new FrostMelonBlock(create(Material.GOURD, MaterialColor.CYAN).tickRandomly().hardnessAndResistance(1.0F).harvestTool(ToolType.AXE).sound(SoundType.SNOW)), Rarity.UNCOMMON, ID_THERMAL_CULTIVATION);
-        registerBlockOnly(ID_FROST_MELON_STEM, () -> new StemBlockCoFH(create(Material.PLANTS).tickRandomly().doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.WOOD)).crop(BLOCKS.getSup(ID_FROST_MELON)).seed(ITEMS.getSup(seeds(ID_FROST_MELON))));
-        registerBlockOnly(ID_FROST_MELON_STEM_ATTACHED, () -> new AttachedStemBlockCoFH(create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0.0F).sound(SoundType.STEM)).crop(BLOCKS.getSup(ID_FROST_MELON)).seed(ITEMS.getSup(seeds(ID_FROST_MELON))));
+        registerBlock(ID_FROST_MELON, () -> new FrostMelonBlock(of(Material.VEGETABLE, MaterialColor.COLOR_CYAN).randomTicks().strength(1.0F).harvestTool(ToolType.AXE).sound(SoundType.SNOW)), Rarity.UNCOMMON, ID_THERMAL_CULTIVATION);
+        registerBlockOnly(ID_FROST_MELON_STEM, () -> new StemBlockCoFH(of(Material.PLANT).randomTicks().noCollission().strength(0.0F).sound(SoundType.WOOD)).crop(BLOCKS.getSup(ID_FROST_MELON)).seed(ITEMS.getSup(seeds(ID_FROST_MELON))));
+        registerBlockOnly(ID_FROST_MELON_STEM_ATTACHED, () -> new AttachedStemBlockCoFH(of(Material.PLANT).noCollission().strength(0.0F).sound(SoundType.HARD_CROP)).crop(BLOCKS.getSup(ID_FROST_MELON)).seed(ITEMS.getSup(seeds(ID_FROST_MELON))));
     }
 
     private static void registerFoods() {
 
-        registerBlock(ID_CHOCOLATE_CAKE, () -> new CakeBlockCoFH(create(Material.CAKE).hardnessAndResistance(0.5F).sound(SoundType.CLOTH), TCulFoods.CHOCOLATE_CAKE), ID_THERMAL_CULTIVATION);
-        registerBlock(ID_SPICE_CAKE, () -> new CakeBlockCoFH(create(Material.CAKE).hardnessAndResistance(0.5F).sound(SoundType.CLOTH), TCulFoods.SPICE_CAKE), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_CHOCOLATE_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), TCulFoods.CHOCOLATE_CAKE), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_SPICE_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), TCulFoods.SPICE_CAKE), ID_THERMAL_CULTIVATION);
     }
 
     private static void registerStorage() {
 
-        registerBlock(block(ID_AMARANTH), () -> new HayBlock(create(Material.ORGANIC, MaterialColor.RED).hardnessAndResistance(0.5F).sound(SoundType.PLANT).harvestTool(ToolType.HOE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_BARLEY), () -> new HayBlock(create(Material.ORGANIC, MaterialColor.GOLD).hardnessAndResistance(0.5F).sound(SoundType.PLANT).harvestTool(ToolType.HOE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_CORN), () -> new Block(create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_FLAX), () -> new HayBlock(create(Material.ORGANIC, MaterialColor.PURPLE).hardnessAndResistance(0.5F).sound(SoundType.PLANT).harvestTool(ToolType.HOE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_ONION), () -> new Block(create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_RADISH), () -> new Block(create(Material.WOOD, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_SADIROOT), () -> new Block(create(Material.WOOD, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_SPINACH), () -> new Block(create(Material.WOOD, MaterialColor.GREEN).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_AMARANTH), () -> new HayBlock(of(Material.GRASS, MaterialColor.COLOR_RED).strength(0.5F).sound(SoundType.GRASS).harvestTool(ToolType.HOE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_BARLEY), () -> new HayBlock(of(Material.GRASS, MaterialColor.GOLD).strength(0.5F).sound(SoundType.GRASS).harvestTool(ToolType.HOE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_CORN), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_YELLOW).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_FLAX), () -> new HayBlock(of(Material.GRASS, MaterialColor.COLOR_PURPLE).strength(0.5F).sound(SoundType.GRASS).harvestTool(ToolType.HOE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_ONION), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_RADISH), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_SADIROOT), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_SPINACH), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
 
-        registerBlock(block(ID_BELL_PEPPER), () -> new Block(create(Material.WOOD, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_EGGPLANT), () -> new Block(create(Material.WOOD, MaterialColor.PURPLE_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_GREEN_BEAN), () -> new Block(create(Material.WOOD, MaterialColor.GREEN).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_HOPS), () -> new Block(create(Material.WOOD, MaterialColor.GREEN).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_STRAWBERRY), () -> new Block(create(Material.WOOD, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_TOMATO), () -> new Block(create(Material.WOOD, MaterialColor.RED).hardnessAndResistance(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_BELL_PEPPER), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_EGGPLANT), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_PURPLE).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_GREEN_BEAN), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_HOPS), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_STRAWBERRY), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_TOMATO), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
 
-        registerBlock(block(ID_RICE), () -> new DirectionalBlock4Way(create(Material.WOOL, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.WART)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_RICE), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
 
-        registerBlock(block(ID_COFFEE), () -> new DirectionalBlock4Way(create(Material.WOOL, MaterialColor.RED_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.WART)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_PEANUT), () -> new DirectionalBlock4Way(create(Material.WOOL, MaterialColor.BROWN_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.WART)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_TEA), () -> new DirectionalBlock4Way(create(Material.WOOL, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(0.5F).sound(SoundType.WART)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_COFFEE), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_RED).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_PEANUT), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_BROWN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_TEA), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_GREEN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
     }
 
     private static void registerMisc() {
 
-        registerBlock(ID_PHYTOSOIL, () -> new SoilBlock(create(Material.EARTH).tickRandomly().hardnessAndResistance(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND).setLightLevel((state) -> state.get(CHARGED) > 0 ? 7 : 0)), ID_THERMAL_CULTIVATION);
-        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(create(Material.EARTH).tickRandomly().hardnessAndResistance(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GROUND).setLightLevel((state) -> state.get(CHARGED) > 0 ? 7 : 0)).dirt(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_PHYTOSOIL, () -> new SoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).dirt(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
     }
 
     public static void registerAmaranth(String id) {
 
-        BLOCKS.register(id, () -> new AmaranthCrop(create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
+        BLOCKS.register(id, () -> new AmaranthCrop(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
     }
 
     public static void registerFlax(String id) {
 
-        BLOCKS.register(id, () -> new FlaxCrop(create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
+        BLOCKS.register(id, () -> new FlaxCrop(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
     }
 
     public static void registerMushroom(String id) {
 
-        BLOCKS.register(id, () -> new CropsBlockMushroom(create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F, 0.0F).sound(SoundType.NETHER_WART)).seed(ITEMS.getSup(spores(id))));
+        BLOCKS.register(id, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART)).seed(ITEMS.getSup(spores(id))));
     }
 
     // endregion

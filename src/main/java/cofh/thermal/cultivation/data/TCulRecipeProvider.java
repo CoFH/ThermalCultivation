@@ -35,114 +35,114 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
     }
 
     @Override
-    protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
 
         DeferredRegisterCoFH<Item> reg = ITEMS;
 
-        ShapedRecipeBuilder.shapedRecipe(reg.get("watering_can"))
-                .key('B', Items.BUCKET)
-                .key('C', ItemTagsCoFH.INGOTS_COPPER)
-                .patternLine("C  ")
-                .patternLine("CBC")
-                .patternLine(" C ")
-                .addCriterion("has_bucket", hasItem(Items.BUCKET))
-                .build(consumer);
+        ShapedRecipeBuilder.shaped(reg.get("watering_can"))
+                .define('B', Items.BUCKET)
+                .define('C', ItemTagsCoFH.INGOTS_COPPER)
+                .pattern("C  ")
+                .pattern("CBC")
+                .pattern(" C ")
+                .unlockedBy("has_bucket", has(Items.BUCKET))
+                .save(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(reg.get(ID_PHYTOSOIL))
-                .key('C', Items.CHARCOAL)
-                .key('P', reg.get("phytogro"))
-                .key('X', Blocks.DIRT)
-                .patternLine("CPC")
-                .patternLine("PXP")
-                .patternLine("CPC")
-                .addCriterion("has_phytogro", hasItem(reg.get("phytogro")))
-                .build(consumer);
+        ShapedRecipeBuilder.shaped(reg.get(ID_PHYTOSOIL))
+                .define('C', Items.CHARCOAL)
+                .define('P', reg.get("phytogro"))
+                .define('X', Blocks.DIRT)
+                .pattern("CPC")
+                .pattern("PXP")
+                .pattern("CPC")
+                .unlockedBy("has_phytogro", has(reg.get("phytogro")))
+                .save(consumer);
 
-        ShapelessRecipeBuilder.shapelessRecipe(Items.STRING)
-                .addIngredient(reg.get(ID_FLAX))
-                .addCriterion("has_flax", hasItem(reg.get(ID_FLAX)))
-                .build(consumer);
+        ShapelessRecipeBuilder.shapeless(Items.STRING)
+                .requires(reg.get(ID_FLAX))
+                .unlockedBy("has_flax", has(reg.get(ID_FLAX)))
+                .save(consumer);
 
-        ShapelessRecipeBuilder.shapelessRecipe(reg.get(seeds(ID_FROST_MELON)))
-                .addIngredient(reg.get(ID_FROST_MELON_SLICE))
-                .addCriterion("has_frost_melon", hasItem(reg.get(ID_FROST_MELON_SLICE)))
-                .build(consumer);
+        ShapelessRecipeBuilder.shapeless(reg.get(seeds(ID_FROST_MELON)))
+                .requires(reg.get(ID_FROST_MELON_SLICE))
+                .unlockedBy("has_frost_melon", has(reg.get(ID_FROST_MELON_SLICE)))
+                .save(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(reg.get(ID_FROST_MELON))
-                .key('M', reg.get(ID_FROST_MELON_SLICE))
-                .patternLine("MMM")
-                .patternLine("MMM")
-                .patternLine("MMM")
-                .addCriterion("has_frost_melon", hasItem(reg.get(ID_FROST_MELON_SLICE)))
-                .build(consumer);
+        ShapedRecipeBuilder.shaped(reg.get(ID_FROST_MELON))
+                .define('M', reg.get(ID_FROST_MELON_SLICE))
+                .pattern("MMM")
+                .pattern("MMM")
+                .pattern("MMM")
+                .unlockedBy("has_frost_melon", has(reg.get(ID_FROST_MELON_SLICE)))
+                .save(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(reg.get(ID_CHOCOLATE_CAKE))
-                .key('A', Items.MILK_BUCKET)
-                .key('B', Items.COCOA_BEANS)
-                .key('C', Items.WHEAT)
-                .key('D', reg.get(ID_STRAWBERRY))
-                .key('E', Items.EGG)
-                .patternLine("ADA")
-                .patternLine("BEB")
-                .patternLine("CDC")
-                .addCriterion("has_cocoa_beans", hasItem(Items.COCOA_BEANS))
-                .build(consumer);
+        ShapedRecipeBuilder.shaped(reg.get(ID_CHOCOLATE_CAKE))
+                .define('A', Items.MILK_BUCKET)
+                .define('B', Items.COCOA_BEANS)
+                .define('C', Items.WHEAT)
+                .define('D', reg.get(ID_STRAWBERRY))
+                .define('E', Items.EGG)
+                .pattern("ADA")
+                .pattern("BEB")
+                .pattern("CDC")
+                .unlockedBy("has_cocoa_beans", has(Items.COCOA_BEANS))
+                .save(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(reg.get(ID_SPICE_CAKE))
-                .key('A', Items.MILK_BUCKET)
-                .key('B', Items.HONEY_BOTTLE)
-                .key('C', Items.WHEAT)
-                .key('D', reg.get(ID_SADIROOT))
-                .key('E', Items.EGG)
-                .patternLine("ADA")
-                .patternLine("BEB")
-                .patternLine("CDC")
-                .addCriterion("has_sadiroot", hasItem(reg.get(ID_SADIROOT)))
-                .build(consumer);
+        ShapedRecipeBuilder.shaped(reg.get(ID_SPICE_CAKE))
+                .define('A', Items.MILK_BUCKET)
+                .define('B', Items.HONEY_BOTTLE)
+                .define('C', Items.WHEAT)
+                .define('D', reg.get(ID_SADIROOT))
+                .define('E', Items.EGG)
+                .pattern("ADA")
+                .pattern("BEB")
+                .pattern("CDC")
+                .unlockedBy("has_sadiroot", has(reg.get(ID_SADIROOT)))
+                .save(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(reg.get(ID_XP_STEW))
-                .key('A', reg.get(ID_BARLEY))
-                .key('B', Items.BOWL)
-                .key('C', reg.get(ID_SPINACH))
-                .key('D', reg.get(ID_EGGPLANT))
-                .key('E', Items.EXPERIENCE_BOTTLE)
-                .patternLine("CDC")
-                .patternLine("AEA")
-                .patternLine(" B ")
-                .addCriterion("has_eggplant", hasItem(reg.get(ID_EGGPLANT)))
-                .build(consumer);
+        ShapedRecipeBuilder.shaped(reg.get(ID_XP_STEW))
+                .define('A', reg.get(ID_BARLEY))
+                .define('B', Items.BOWL)
+                .define('C', reg.get(ID_SPINACH))
+                .define('D', reg.get(ID_EGGPLANT))
+                .define('E', Items.EXPERIENCE_BOTTLE)
+                .pattern("CDC")
+                .pattern("AEA")
+                .pattern(" B ")
+                .unlockedBy("has_eggplant", has(reg.get(ID_EGGPLANT)))
+                .save(consumer);
 
-        ShapelessRecipeBuilder.shapelessRecipe(reg.get(spores(ID_GLOWSTONE_MUSHROOM)))
-                .addIngredient(Items.RED_MUSHROOM)
-                .addIngredient(Tags.Items.DUSTS_GLOWSTONE)
-                .addIngredient(reg.get("phytogro"))
-                .addIngredient(Items.EXPERIENCE_BOTTLE)
-                .addCriterion("has_frost_melon", hasItem(Tags.Items.DUSTS_GLOWSTONE))
-                .build(consumer);
+        ShapelessRecipeBuilder.shapeless(reg.get(spores(ID_GLOWSTONE_MUSHROOM)))
+                .requires(Items.RED_MUSHROOM)
+                .requires(Tags.Items.DUSTS_GLOWSTONE)
+                .requires(reg.get("phytogro"))
+                .requires(Items.EXPERIENCE_BOTTLE)
+                .unlockedBy("has_frost_melon", has(Tags.Items.DUSTS_GLOWSTONE))
+                .save(consumer);
 
-        ShapelessRecipeBuilder.shapelessRecipe(reg.get(spores(ID_GUNPOWDER_MUSHROOM)))
-                .addIngredient(Items.BROWN_MUSHROOM)
-                .addIngredient(Items.GUNPOWDER)
-                .addIngredient(reg.get("phytogro"))
-                .addIngredient(Items.EXPERIENCE_BOTTLE)
-                .addCriterion("has_frost_melon", hasItem(Items.GUNPOWDER))
-                .build(consumer);
+        ShapelessRecipeBuilder.shapeless(reg.get(spores(ID_GUNPOWDER_MUSHROOM)))
+                .requires(Items.BROWN_MUSHROOM)
+                .requires(Items.GUNPOWDER)
+                .requires(reg.get("phytogro"))
+                .requires(Items.EXPERIENCE_BOTTLE)
+                .unlockedBy("has_frost_melon", has(Items.GUNPOWDER))
+                .save(consumer);
 
-        ShapelessRecipeBuilder.shapelessRecipe(reg.get(spores(ID_REDSTONE_MUSHROOM)))
-                .addIngredient(Items.RED_MUSHROOM)
-                .addIngredient(Tags.Items.DUSTS_REDSTONE)
-                .addIngredient(reg.get("phytogro"))
-                .addIngredient(Items.EXPERIENCE_BOTTLE)
-                .addCriterion("has_frost_melon", hasItem(Tags.Items.DUSTS_REDSTONE))
-                .build(consumer);
+        ShapelessRecipeBuilder.shapeless(reg.get(spores(ID_REDSTONE_MUSHROOM)))
+                .requires(Items.RED_MUSHROOM)
+                .requires(Tags.Items.DUSTS_REDSTONE)
+                .requires(reg.get("phytogro"))
+                .requires(Items.EXPERIENCE_BOTTLE)
+                .unlockedBy("has_frost_melon", has(Tags.Items.DUSTS_REDSTONE))
+                .save(consumer);
 
-        ShapelessRecipeBuilder.shapelessRecipe(reg.get(spores(ID_SLIME_MUSHROOM)))
-                .addIngredient(Items.BROWN_MUSHROOM)
-                .addIngredient(Tags.Items.SLIMEBALLS)
-                .addIngredient(reg.get("phytogro"))
-                .addIngredient(Items.EXPERIENCE_BOTTLE)
-                .addCriterion("has_slime_ball", hasItem(Tags.Items.SLIMEBALLS))
-                .build(consumer);
+        ShapelessRecipeBuilder.shapeless(reg.get(spores(ID_SLIME_MUSHROOM)))
+                .requires(Items.BROWN_MUSHROOM)
+                .requires(Tags.Items.SLIMEBALLS)
+                .requires(reg.get("phytogro"))
+                .requires(Items.EXPERIENCE_BOTTLE)
+                .unlockedBy("has_slime_ball", has(Tags.Items.SLIMEBALLS))
+                .save(consumer);
 
         generateStorageRecipes(consumer, reg.get(block(ID_AMARANTH)), reg.get(ID_AMARANTH), forgeTag("crops/amaranth"));
         generateStorageRecipes(consumer, reg.get(block(ID_BARLEY)), reg.get(ID_BARLEY), forgeTag("crops/barley"));

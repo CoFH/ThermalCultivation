@@ -26,7 +26,7 @@ public class TCulClientSetupEvents {
 
         colors.register((state, reader, pos, tintIndex) -> 0x96DCF8, BLOCKS.get(ID_FROST_MELON_STEM_ATTACHED));
         colors.register((state, reader, pos, tintIndex) -> {
-            int age = state.get(StemBlock.AGE);
+            int age = state.getValue(StemBlock.AGE);
             int r = 80 + age * 10;
             int g = 255 - age * 5;
             int b = 80 + age * 24;

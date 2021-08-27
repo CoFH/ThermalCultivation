@@ -33,9 +33,9 @@ public class FrostMelonBlock extends StemGrownBlock {
         if (!worldIn.isAreaLoaded(pos, 1)) {
             return;
         }
-        BlockPos above = pos.up();
-        if (worldIn.isAirBlock(above)) {
-            worldIn.setBlockState(above, Blocks.SNOW.getDefaultState(), 2);
+        BlockPos above = pos.above();
+        if (worldIn.isEmptyBlock(above)) {
+            worldIn.setBlock(above, Blocks.SNOW.defaultBlockState(), 2);
         }
     }
 

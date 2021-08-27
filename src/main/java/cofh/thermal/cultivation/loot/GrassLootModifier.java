@@ -71,7 +71,7 @@ public class GrassLootModifier extends LootModifier {
 
             List<String> seeds = new ArrayList<>();
 
-            JsonArray seedlist = JSONUtils.getJsonArray(object, "seeds");
+            JsonArray seedlist = JSONUtils.getAsJsonArray(object, "seeds");
             for (JsonElement je : seedlist) {
                 seeds.add(je.getAsString());
             }

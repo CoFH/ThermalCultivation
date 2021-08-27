@@ -67,19 +67,19 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         createMushroomTable(ID_SLIME_MUSHROOM, Items.SLIME_BALL);
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON),
-                BlockLootTables.droppingWithSilkTouch(regBlocks.get(ID_FROST_MELON),
-                        BlockLootTables.withExplosionDecay(regBlocks.get(ID_FROST_MELON),
-                                ItemLootEntry.builder(regItems.get(ID_FROST_MELON_SLICE))
-                                        .acceptFunction(SetCount.builder(RandomValueRange.of(3.0F, 7.0F)))
-                                        .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                                        .acceptFunction(LimitCount.func_215911_a(IntClamper.func_215851_b(9))))));
+                BlockLootTables.createSilkTouchDispatchTable(regBlocks.get(ID_FROST_MELON),
+                        BlockLootTables.applyExplosionDecay(regBlocks.get(ID_FROST_MELON),
+                                ItemLootEntry.lootTableItem(regItems.get(ID_FROST_MELON_SLICE))
+                                        .apply(SetCount.setCount(RandomValueRange.between(3.0F, 7.0F)))
+                                        .apply(ApplyBonus.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
+                                        .apply(LimitCount.limitCount(IntClamper.upperBound(9))))));
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON_STEM),
-                BlockLootTables.droppingByAge(regBlocks.get(ID_FROST_MELON_STEM),
+                BlockLootTables.createStemDrops(regBlocks.get(ID_FROST_MELON_STEM),
                         regItems.get(seeds(ID_FROST_MELON))));
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON_STEM_ATTACHED),
-                BlockLootTables.dropSeedsForStem(regBlocks.get(ID_FROST_MELON_STEM),
+                BlockLootTables.createAttachedStemDrops(regBlocks.get(ID_FROST_MELON_STEM),
                         regItems.get(seeds(ID_FROST_MELON))));
 
         blockLootTables.put(regBlocks.get(ID_PHYTOSOIL), getSimpleDropTable(regBlocks.get(ID_PHYTOSOIL)));

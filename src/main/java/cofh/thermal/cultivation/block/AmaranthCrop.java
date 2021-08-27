@@ -33,7 +33,7 @@ public class AmaranthCrop extends CropsBlockTall {
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 
-        int age = state.get(getAgeProperty()) - (isTop(state) ? 3 : 0);
+        int age = state.getValue(getAgeProperty()) - (isTop(state) ? 3 : 0);
         return TALL_CROPS_BY_AGE[MathHelper.clamp(age, 0, TALL_CROPS_BY_AGE.length - 1)];
     }
 

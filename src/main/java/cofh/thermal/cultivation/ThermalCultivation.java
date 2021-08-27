@@ -65,7 +65,7 @@ public class ThermalCultivation {
     // region HELPERS
     private void registerRenderLayers() {
 
-        RenderType cutout = RenderType.getCutout();
+        RenderType cutout = RenderType.cutout();
 
         RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_AMARANTH), cutout);
         RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_BARLEY), cutout);

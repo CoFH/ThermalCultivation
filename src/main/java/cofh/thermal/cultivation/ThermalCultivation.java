@@ -3,10 +3,8 @@ package cofh.thermal.cultivation;
 import cofh.thermal.cultivation.init.TCulBlocks;
 import cofh.thermal.cultivation.init.TCulItems;
 import cofh.thermal.cultivation.loot.GrassLootModifier;
-import net.minecraft.block.ComposterBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.HoeItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -14,8 +12,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
-import static cofh.thermal.core.ThermalCore.*;
-import static cofh.thermal.core.util.RegistrationHelper.seeds;
+import static cofh.thermal.core.ThermalCore.BLOCKS;
+import static cofh.thermal.core.ThermalCore.LOOT_SERIALIZERS;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 import static cofh.thermal.lib.common.ThermalFlags.*;
 import static cofh.thermal.lib.common.ThermalIDs.*;
@@ -55,66 +53,6 @@ public class ThermalCultivation {
     // region INITIALIZATION
     private void commonSetup(final FMLCommonSetupEvent event) {
 
-        event.enqueueWork(() -> {
-            // CROPS
-            {
-                float chance = 0.65F;
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_AMARANTH));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_BARLEY));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_CORN));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_FLAX));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_ONION));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_RADISH));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_RICE));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_SADIROOT));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_SPINACH));
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_BELL_PEPPER));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_EGGPLANT));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_GREEN_BEAN));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_PEANUT));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_STRAWBERRY));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_TOMATO));
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_COFFEE));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_TEA));
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_FROST_MELON));
-            }
-            {
-                float chance = 0.5F;
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(ID_FROST_MELON_SLICE));
-            }
-            // SEEDS
-            {
-                float chance = 0.3F;
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_AMARANTH)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_BARLEY)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_CORN)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_FLAX)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_ONION)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_RADISH)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_RICE)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_SADIROOT)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_SPINACH)));
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_BELL_PEPPER)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_EGGPLANT)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_GREEN_BEAN)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_PEANUT)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_STRAWBERRY)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_TOMATO)));
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_COFFEE)));
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_TEA)));
-
-                ComposterBlock.registerCompostable(chance, ITEMS.get(seeds(ID_FROST_MELON)));
-            }
-            HoeItem.HOE_LOOKUP.put(BLOCKS.get(ID_PHYTOSOIL), BLOCKS.get(ID_PHYTOSOIL_TILLED).getDefaultState());
-        });
         event.enqueueWork(TCulBlocks::setup);
     }
 

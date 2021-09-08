@@ -13,10 +13,10 @@
       "item": "minecraft:honey_bottle"
     },
     "C": {
-      "item": "minecraft:wheat"
+      "tag": "forge:crops/wheat"
     },
     "D": {
-      "item": "thermal:sadiroot"
+      "tag": "forge:crops/sadiroot"
     },
     "E": {
       "item": "minecraft:egg"

@@ -16,7 +16,7 @@
       "item": "minecraft:wheat"
     },
     "D": {
-      "item": "thermal:strawberry"
+      "tag": "forge:crops/strawberry"
     },
     "E": {
       "item": "minecraft:egg"

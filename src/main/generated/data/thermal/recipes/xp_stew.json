@@ -7,16 +7,16 @@
   ],
   "key": {
     "A": {
-      "item": "thermal:barley"
+      "tag": "forge:crops/barley"
     },
     "B": {
       "item": "minecraft:bowl"
     },
     "C": {
-      "item": "thermal:spinach"
+      "tag": "forge:crops/spinach"
     },
     "D": {
-      "item": "thermal:eggplant"
+      "tag": "forge:crops/eggplant"
     },
     "E": {
       "item": "minecraft:experience_bottle"

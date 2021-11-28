@@ -76,6 +76,18 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .unlockedBy("has_frost_melon", has(reg.get(ID_FROST_MELON_SLICE)))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(reg.get(ID_CARROT_CAKE))
+                .define('A', Items.MILK_BUCKET)
+                .define('B', Items.SUGAR)
+                .define('C', Items.WHEAT)
+                .define('D', Tags.Items.CROPS_CARROT)
+                .define('E', Items.EGG)
+                .pattern("ADA")
+                .pattern("BEB")
+                .pattern("CDC")
+                .unlockedBy("has_carrot", has(Tags.Items.CROPS_CARROT))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(reg.get(ID_CHOCOLATE_CAKE))
                 .define('A', Items.MILK_BUCKET)
                 .define('B', Items.COCOA_BEANS)
@@ -100,15 +112,28 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .unlockedBy("has_sadiroot", has(ItemTagsCoFH.CROPS_SADIROOT))
                 .save(consumer);
 
+        //        ShapedRecipeBuilder.shaped(reg.get(ID_RATATOUILLE))
+        //                .define('B', ItemTagsCoFH.CROPS_BELL_PEPPER)
+        //                .define('E', ItemTagsCoFH.CROPS_EGGPLANT)
+        //                .define('O', ItemTagsCoFH.CROPS_ONION)
+        //                .define('S', ItemTagsCoFH.CROPS_SPINACH)
+        //                .define('T', ItemTagsCoFH.CROPS_TOMATO)
+        //                .define('Y', Items.BOWL)
+        //                .pattern("BSB")
+        //                .pattern("EOT")
+        //                .pattern(" Y ")
+        //                .unlockedBy("has_onion", has(ItemTagsCoFH.CROPS_BELL_PEPPER))
+        //                .save(consumer);
+
         ShapedRecipeBuilder.shaped(reg.get(ID_XP_STEW))
-                .define('A', ItemTagsCoFH.CROPS_BARLEY)
-                .define('B', Items.BOWL)
-                .define('C', ItemTagsCoFH.CROPS_SPINACH)
-                .define('D', ItemTagsCoFH.CROPS_EGGPLANT)
-                .define('E', Items.EXPERIENCE_BOTTLE)
-                .pattern("CDC")
-                .pattern("AEA")
-                .pattern(" B ")
+                .define('B', ItemTagsCoFH.CROPS_BARLEY)
+                .define('E', ItemTagsCoFH.CROPS_EGGPLANT)
+                .define('S', ItemTagsCoFH.CROPS_SPINACH)
+                .define('X', Items.EXPERIENCE_BOTTLE)
+                .define('Y', Items.BOWL)
+                .pattern("SES")
+                .pattern("BXB")
+                .pattern(" Y ")
                 .unlockedBy("has_eggplant", has(ItemTagsCoFH.CROPS_EGGPLANT))
                 .save(consumer);
 

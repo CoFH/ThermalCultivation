@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thermal:item/potion_cake",
+    "layer1": "thermal:item/potion_cake_frosting"
+  }
+}

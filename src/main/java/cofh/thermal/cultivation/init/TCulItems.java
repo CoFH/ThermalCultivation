@@ -75,9 +75,24 @@ public class TCulItems {
 
         ItemGroup group = THERMAL_ITEMS;
 
-        //        ITEMS.register("coffee", () -> new ItemCoFH(new Item.Properties().group(group).food(COFFEE)));
+        //        ITEMS.register("butter", () -> new ItemCoFH(new Item.Properties().group(group)));
+        //        ITEMS.register("cheese", () -> new ItemCoFH(new Item.Properties().group(group).food(CHEESE)));
         //        ITEMS.register("dough", () -> new ItemCoFH(new Item.Properties().group(group).food(DOUGH)));
         //        ITEMS.register("flour", () -> new ItemCoFH(new Item.Properties().group(group)));
+
+        //        ITEMS.register("coffee", () -> new ItemCoFH(new Item.Properties().group(group).food(COFFEE)));
+        //        ITEMS.register("tea", () -> new ItemCoFH(new Item.Properties().group(group).food(TEA)));
+
+        //        ITEMS.register(ID_RATATOUILLE, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(RATATOUILLE).rarity(Rarity.UNCOMMON)) {
+        //
+        //            @Override
+        //            public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+        //
+        //                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
+        //                return entityLiving instanceof PlayerEntity && ((PlayerEntity) entityLiving).abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
+        //            }
+        //        }.setModId(ID_THERMAL_CULTIVATION));
+
         ITEMS.register(ID_XP_STEW, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(XP_STEW).rarity(Rarity.UNCOMMON)) {
 
             @Override

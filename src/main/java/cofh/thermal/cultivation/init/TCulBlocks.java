@@ -10,21 +10,28 @@ import cofh.lib.block.impl.crops.StemBlockCoFH;
 import cofh.thermal.cultivation.block.AmaranthCrop;
 import cofh.thermal.cultivation.block.FlaxCrop;
 import cofh.thermal.cultivation.block.FrostMelonBlock;
+import cofh.thermal.cultivation.block.PotionCakeBlock;
+import cofh.thermal.cultivation.item.PotionCakeBlockItem;
+import cofh.thermal.cultivation.tileentity.PotionCakeTile;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.HoeItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
 
 import static cofh.lib.util.constants.Constants.*;
-import static cofh.thermal.core.ThermalCore.BLOCKS;
-import static cofh.thermal.core.ThermalCore.ITEMS;
+import static cofh.thermal.core.ThermalCore.*;
 import static cofh.thermal.core.util.RegistrationHelper.*;
+import static cofh.thermal.cultivation.init.TCulFoods.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
+import static cofh.thermal.cultivation.init.TCulReferences.POTION_CAKE_BLOCK;
+import static cofh.thermal.lib.common.ThermalItemGroups.THERMAL_BLOCKS;
 import static net.minecraft.block.AbstractBlock.Properties.of;
 
 public class TCulBlocks {
@@ -39,6 +46,7 @@ public class TCulBlocks {
         registerFoods();
         registerStorage();
         registerMisc();
+        registerTileEntities();
     }
 
     public static void setup() {
@@ -161,8 +169,14 @@ public class TCulBlocks {
 
     private static void registerFoods() {
 
-        registerBlock(ID_CHOCOLATE_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), TCulFoods.CHOCOLATE_CAKE), ID_THERMAL_CULTIVATION);
-        registerBlock(ID_SPICE_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), TCulFoods.SPICE_CAKE), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_CARROT_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), CARROT_CAKE).setTall(), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_CHOCOLATE_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), CHOCOLATE_CAKE), ID_THERMAL_CULTIVATION);
+
+        registerBlockAndItem(ID_POTION_CAKE,
+                () -> new PotionCakeBlock(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), POTION_CAKE),
+                () -> new PotionCakeBlockItem(BLOCKS.get(ID_POTION_CAKE), new Item.Properties().tab(THERMAL_BLOCKS)).setModId(ID_THERMAL_CULTIVATION));
+
+        registerBlock(ID_SPICE_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), SPICE_CAKE), ID_THERMAL_CULTIVATION);
     }
 
     private static void registerStorage() {
@@ -196,20 +210,24 @@ public class TCulBlocks {
         registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).dirt(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
     }
 
-    public static void registerAmaranth(String id) {
+    private static void registerAmaranth(String id) {
 
         BLOCKS.register(id, () -> new AmaranthCrop(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
     }
 
-    public static void registerFlax(String id) {
+    private static void registerFlax(String id) {
 
         BLOCKS.register(id, () -> new FlaxCrop(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
     }
 
-    public static void registerMushroom(String id) {
+    private static void registerMushroom(String id) {
 
         BLOCKS.register(id, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART)).seed(ITEMS.getSup(spores(id))));
     }
 
+    private static void registerTileEntities() {
+
+        TILE_ENTITIES.register(ID_POTION_CAKE, () -> TileEntityType.Builder.of(PotionCakeTile::new, POTION_CAKE_BLOCK).build(null));
+    }
     // endregion
 }

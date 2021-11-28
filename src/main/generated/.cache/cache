@@ -16,6 +16,7 @@ c9cb41fd6a40c7ef7f6016b85efdf10b5ce7ace6 assets/thermal/models/item/barley_block
 0c290251310b6193310f6e04a2d61514fdd42af8 assets/thermal/models/item/bell_pepper.json
 23dc0904241ee488380a069881359b722455554e assets/thermal/models/item/bell_pepper_block.json
 5bf86dd95d2c8b57e5c2b9d15a8085090fe87614 assets/thermal/models/item/bell_pepper_seeds.json
+4778fc662455cd9037e3c01110e11046476081b0 assets/thermal/models/item/carrot_cake.json
 b2cdac999b7c804680a73ef39d84da56df76d7f1 assets/thermal/models/item/chocolate_cake.json
 30d209733f03a46e2d7b2c67c8aab6f5977d366c assets/thermal/models/item/coffee.json
 3b1d2c2ad2dfa16e7168b590553b5b490de04989 assets/thermal/models/item/coffee_block.json
@@ -45,6 +46,7 @@ dc335a67ef141f4dda91f6b2cbe7a3e5600c9c42 assets/thermal/models/item/gunpowder_mu
 d7f5cc996e44c2cba9c52e5432c65a247707fbc3 assets/thermal/models/item/peanut.json
 5ce20cdcd502626fd547cf78a6c084be1de61353 assets/thermal/models/item/peanut_block.json
 cde44e5a3b910e4a780ced0d79e9b9b3f7c417ea assets/thermal/models/item/peanut_seeds.json
+5764ba88b9cab42fabb5e5579c2550f7979ef959 assets/thermal/models/item/potion_cake.json
 c8a0b95100e1f10451282e7cec9dcfabe7d0a119 assets/thermal/models/item/radish.json
 7cfe48e270a6170a19fec5c2914753da55f5d6d2 assets/thermal/models/item/radish_block.json
 8c77510a7cbe441a3920e6c735e7817b295fd552 assets/thermal/models/item/radish_seeds.json
@@ -116,6 +118,7 @@ cf11cb1f7ed3b09ac7f69b5e442437309e064ff0 data/thermal/loot_tables/blocks/barley.
 5352b92a15331f5b34670131eaf239a68bfb08e1 data/thermal/loot_tables/blocks/barley_block.json
 3d5d8b2c22d71a946c5e852bba420b0d1dd92d4a data/thermal/loot_tables/blocks/bell_pepper.json
 3784ea5c0af44f8dc240531f757ee56b4e2614ba data/thermal/loot_tables/blocks/bell_pepper_block.json
+374fc761ad454802cb3e7a484cfec94537b114d8 data/thermal/loot_tables/blocks/carrot_cake.json
 374fc761ad454802cb3e7a484cfec94537b114d8 data/thermal/loot_tables/blocks/chocolate_cake.json
 958a1ce1cee50085b27449e8c9f87fe5277088b6 data/thermal/loot_tables/blocks/coffee.json
 fd6467e6b911649e40c84a3ff358bc58199e3b10 data/thermal/loot_tables/blocks/coffee_block.json
@@ -139,6 +142,7 @@ fccd72729cfeddd46c36a1086c3674dbbab69000 data/thermal/loot_tables/blocks/onion.j
 986e298b45bc281bc7922b41f7b5b1de2294064d data/thermal/loot_tables/blocks/peanut_block.json
 3e340633b6b6dab49a2fdb342c108895dc6e6d3a data/thermal/loot_tables/blocks/phytosoil.json
 3e340633b6b6dab49a2fdb342c108895dc6e6d3a data/thermal/loot_tables/blocks/phytosoil_tilled.json
+374fc761ad454802cb3e7a484cfec94537b114d8 data/thermal/loot_tables/blocks/potion_cake.json
 98c824e4292be52c076c00481e030c0f5926f88b data/thermal/loot_tables/blocks/radish.json
 9a917e383af5ea2d24862967209666154dd81ba3 data/thermal/loot_tables/blocks/radish_block.json
 5d7d3caa9e1751a4c228d089f7e7882a8dce0681 data/thermal/loot_tables/blocks/redstone_mushroom.json
@@ -156,6 +160,7 @@ fac538eb4b2ba473557e946395474abc3a8c45d4 data/thermal/loot_tables/blocks/strawbe
 969142d2a91072bdfa83fb63532b4c1f9432a1fb data/thermal/loot_tables/blocks/tea_block.json
 bbe3e936e9fb00e98e5ecd3911825120a1d08cdb data/thermal/loot_tables/blocks/tomato.json
 3e1b2fe0b3276582cd9d1fa2727cb8af2ee814df data/thermal/loot_tables/blocks/tomato_block.json
+908356e5efc62de3f54be7c420dfd289ca67a469 data/thermal/recipes/carrot_cake.json
 4522913a102ce2269ac219b4ed4d3efc1fcfed56 data/thermal/recipes/chocolate_cake.json
 6f52a02d7c54deb8397899ba0c39bb4c2be93025 data/thermal/recipes/frost_melon.json
 774765d9e87fd8debbe721a6d8263c4cb99912fa data/thermal/recipes/frost_melon_seeds.json
@@ -202,4 +207,4 @@ f61c6285a488f6c8350e9963066519dc9c87e503 data/thermal/recipes/storage/strawberry
 2e608fd80f0a4a2711875c2fd66308bea6957441 data/thermal/recipes/storage/tomato_block.json
 57c11260c7703aaefb820562793d9f78c145fec1 data/thermal/recipes/storage/tomato_from_block.json
 f742db466f1999b00787fcaf2324e48dcd0c1734 data/thermal/recipes/watering_can.json
-9b2a22d32896b470e08c9110d6ad547ccd4a6361 data/thermal/recipes/xp_stew.json
+0403d1931884cb699f7679f160950a163c7c2df1 data/thermal/recipes/xp_stew.json

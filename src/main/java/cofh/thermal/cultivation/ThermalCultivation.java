@@ -94,6 +94,8 @@ public class ThermalCultivation {
 
         RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_FROST_MELON_STEM), cutout);
         RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_FROST_MELON_STEM_ATTACHED), cutout);
+
+        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_POTION_CAKE), cutout);
     }
     // endregion
 }

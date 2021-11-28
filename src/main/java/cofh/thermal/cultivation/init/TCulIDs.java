@@ -41,8 +41,19 @@ public class TCulIDs {
     // region FOODS
     public static final String ID_FROST_MELON_SLICE = "frost_melon_slice";
 
+    public static final String ID_BUTTER = "butter";
+    public static final String ID_CHEESE = "cheese";
+    public static final String ID_DOUGH = "dough";
+    public static final String ID_FLOUR = "flour";
+
+    public static final String ID_CARROT_CAKE = "carrot_cake";
     public static final String ID_CHOCOLATE_CAKE = "chocolate_cake";
+    public static final String ID_POTION_CAKE = "potion_cake";
+    public static final String ID_RATATOUILLE = "ratatouille";
     public static final String ID_SPICE_CAKE = "spice_cake";
+    public static final String ID_STUFFED_PUMPKIN = "stuffed_pumpkin";
+    public static final String ID_SUSHI_MAKI = "sushi_maki";
+    public static final String ID_SUSHI_NIGIRI = "sushi_nigiri";
     public static final String ID_XP_STEW = "xp_stew";
     // endregion
 

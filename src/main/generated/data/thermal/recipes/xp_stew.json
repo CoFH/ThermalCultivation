@@ -1,25 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "CDC",
-    "AEA",
-    " B "
+    "SES",
+    "BXB",
+    " Y "
   ],
   "key": {
-    "A": {
+    "B": {
       "tag": "forge:crops/barley"
     },
-    "B": {
-      "item": "minecraft:bowl"
-    },
-    "C": {
-      "tag": "forge:crops/spinach"
-    },
-    "D": {
+    "E": {
       "tag": "forge:crops/eggplant"
     },
-    "E": {
+    "S": {
+      "tag": "forge:crops/spinach"
+    },
+    "X": {
       "item": "minecraft:experience_bottle"
+    },
+    "Y": {
+      "item": "minecraft:bowl"
     }
   },
   "result": {

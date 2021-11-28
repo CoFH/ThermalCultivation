@@ -1,0 +1,28 @@
+{
+  "type": "cofh_core:crafting_shaped_potion",
+  "pattern": [
+    "ADA",
+    "BEB",
+    "CCC"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:milk_bucket"
+    },
+    "B": {
+      "item": "minecraft:sugar"
+    },
+    "C": {
+      "tag": "forge:crops/amaranth"
+    },
+    "D": {
+      "item": "minecraft:potion"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    }
+  },
+  "result": {
+    "item": "thermal:potion_cake"
+  }
+}

@@ -28,7 +28,10 @@ public class PotionCakeTile extends TileEntity {
 
     public void cacheEffects(CompoundNBT nbt) {
 
-        effects = PotionUtils.getAllEffects(nbt);
+        if (nbt != null) {
+            potionTag = nbt.copy();
+            effects = PotionUtils.getAllEffects(nbt);
+        }
     }
 
     public void applyEffects(PlayerEntity player) {
@@ -37,14 +40,13 @@ public class PotionCakeTile extends TileEntity {
             if (effect.getEffect().isInstantenous()) {
                 effect.getEffect().applyInstantenousEffect(null, null, player, effect.getAmplifier(), 0.5D);
             } else {
-                EffectInstance potion = new EffectInstance(effect.getEffect(), effect.getDuration(), effect.getAmplifier(), effect.isAmbient(), effect.isVisible());
+                EffectInstance potion = new EffectInstance(effect.getEffect(), effect.getDuration() / 4, effect.getAmplifier(), effect.isAmbient(), effect.isVisible());
                 player.addEffect(potion);
             }
         }
     }
 
     public int getColor() {
-
 
         return effects.isEmpty() ? 0xF800F8 : PotionUtils.getColor(effects);
     }
@@ -76,8 +78,7 @@ public class PotionCakeTile extends TileEntity {
 
         super.load(state, nbt);
 
-        potionTag = nbt.getCompound(TAG_POTION);
-        cacheEffects(potionTag);
+        cacheEffects(nbt.getCompound(TAG_POTION));
     }
 
     @Override

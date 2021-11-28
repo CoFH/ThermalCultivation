@@ -4,8 +4,10 @@ import cofh.lib.block.impl.CakeBlockCoFH;
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Food;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
@@ -15,6 +17,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class PotionCakeBlock extends CakeBlockCoFH {
 
@@ -33,6 +36,21 @@ public class PotionCakeBlock extends CakeBlockCoFH {
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
 
         return new PotionCakeTile();
+    }
+
+    @Override
+    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+
+        TileEntity tile = worldIn.getBlockEntity(pos);
+        if (tile instanceof PotionCakeTile) {
+            ((PotionCakeTile) tile).cacheEffects(stack.getTag());
+        }
+    }
+
+    @Override
+    public ItemStack getCloneItemStack(IBlockReader worldIn, BlockPos pos, BlockState state) {
+
+        return new ItemStack(this);
     }
 
     @Override

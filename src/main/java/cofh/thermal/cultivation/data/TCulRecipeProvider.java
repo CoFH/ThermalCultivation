@@ -100,6 +100,18 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .unlockedBy("has_cocoa_beans", has(Items.COCOA_BEANS))
                 .save(consumer);
 
+        //        ShapedRecipeBuilder.shaped(reg.get(ID_POTION_CAKE))
+        //                .define('A', Items.MILK_BUCKET)
+        //                .define('B', Items.SUGAR)
+        //                .define('C', ItemTagsCoFH.CROPS_AMARANTH)
+        //                .define('D', Items.POTION)
+        //                .define('E', Items.EGG)
+        //                .pattern("ADA")
+        //                .pattern("BEB")
+        //                .pattern("CCC")
+        //                .unlockedBy("has_amaranth", has(ItemTagsCoFH.CROPS_AMARANTH))
+        //                .save(consumer);
+
         ShapedRecipeBuilder.shaped(reg.get(ID_SPICE_CAKE))
                 .define('A', Items.MILK_BUCKET)
                 .define('B', Items.HONEY_BOTTLE)

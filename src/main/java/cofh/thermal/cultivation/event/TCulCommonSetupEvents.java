@@ -77,4 +77,13 @@ public class TCulCommonSetupEvents {
         }
     }
 
+    //    @SubscribeEvent
+    //    public static void setupWandererTrades(final WandererTradesEvent event) {
+    //
+    //        if (!ThermalConfig.enableWandererTrades.get()) {
+    //            return;
+    //        }
+    //        event.getRareTrades().add(new BasicTrade(cloneStack(Items.EMERALD, 8), cloneStack(ITEMS.get(ID_RUBBERWOOD_SAPLING)), 8, 1, 0.05F));
+    //    }
+
 }

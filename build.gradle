@@ -90,9 +90,6 @@ dependencies {
 
     compile fg.deobf("com.teamcofh:cofh_core:${mc_version}-${cofh_core_version}")
     compile fg.deobf("com.teamcofh:thermal_foundation:${mc_version}-${thermal_foundation_version}")
-
-    compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
 }
 
 signing {

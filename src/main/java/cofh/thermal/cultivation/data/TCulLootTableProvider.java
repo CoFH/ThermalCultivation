@@ -105,9 +105,11 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         createSimpleDropTable(regBlocks.get(block(ID_TOMATO)));
 
         blockLootTables.put(regBlocks.get(ID_CARROT_CAKE), getEmptyTable());
+        blockLootTables.put(regBlocks.get(ID_CHEESE_WHEEL), getEmptyTable());
         blockLootTables.put(regBlocks.get(ID_CHOCOLATE_CAKE), getEmptyTable());
         blockLootTables.put(regBlocks.get(ID_POTION_CAKE), getEmptyTable());
         blockLootTables.put(regBlocks.get(ID_SPICE_CAKE), getEmptyTable());
+        blockLootTables.put(regBlocks.get(ID_STUFFED_PUMPKIN), getEmptyTable());
     }
 
     protected void createCropTable(String id) {

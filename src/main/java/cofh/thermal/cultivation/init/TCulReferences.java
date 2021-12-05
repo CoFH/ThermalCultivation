@@ -2,6 +2,7 @@ package cofh.thermal.cultivation.init;
 
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -20,6 +21,11 @@ public class TCulReferences {
     public static final Block FROST_MELON_STEM = null;
     @ObjectHolder(ID_FROST_MELON_STEM_ATTACHED)
     public static final Block FROST_MELON_STEM_ATTACHED = null;
+    // endregion
+
+    // region ITEMS
+    @ObjectHolder(ID_JAR)
+    public static final Item JAR_ITEM = null;
     // endregion
 
     // region FOODS

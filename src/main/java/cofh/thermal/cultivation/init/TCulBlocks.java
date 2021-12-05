@@ -1,28 +1,29 @@
 package cofh.thermal.cultivation.init;
 
-import cofh.lib.block.impl.CakeBlockCoFH;
-import cofh.lib.block.impl.DirectionalBlock4Way;
-import cofh.lib.block.impl.SoilBlock;
-import cofh.lib.block.impl.TilledSoilBlock;
+import cofh.lib.block.impl.*;
 import cofh.lib.block.impl.crops.AttachedStemBlockCoFH;
+import cofh.lib.block.impl.crops.CropsBlockCoFH;
 import cofh.lib.block.impl.crops.CropsBlockMushroom;
 import cofh.lib.block.impl.crops.StemBlockCoFH;
-import cofh.thermal.cultivation.block.AmaranthCrop;
-import cofh.thermal.cultivation.block.FlaxCrop;
-import cofh.thermal.cultivation.block.FrostMelonBlock;
-import cofh.thermal.cultivation.block.PotionCakeBlock;
+import cofh.thermal.cultivation.block.*;
 import cofh.thermal.cultivation.item.PotionCakeBlockItem;
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
 import static cofh.lib.util.constants.Constants.*;
@@ -117,6 +118,8 @@ public class TCulBlocks {
         HoeItem.TILLABLES.put(BLOCKS.get(ID_PHYTOSOIL), BLOCKS.get(ID_PHYTOSOIL_TILLED).defaultBlockState());
     }
 
+    public static DamageSource SADIROOT_DAMAGE = new DamageSource("sadiroot");
+
     // region HELPERS
     private static void registerPlants() {
 
@@ -128,7 +131,27 @@ public class TCulBlocks {
         registerAnnual(ID_ONION);
         registerAnnual(ID_RADISH);
         registerAnnual(ID_RICE);
-        registerAnnual(ID_SADIROOT);
+        // registerAnnual(ID_SADIROOT);
+        // Sadiroot is a thistle!
+        BLOCKS.register(ID_SADIROOT, () -> new CropsBlockCoFH(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)) {
+
+            @Override
+            public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
+
+                if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
+                    entity.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
+                    if (!world.isClientSide && state.getValue(getAgeProperty()) > 4 && (entity.xOld != entity.getX() || entity.zOld != entity.getZ())) {
+                        double d0 = Math.abs(entity.getX() - entity.xOld);
+                        double d1 = Math.abs(entity.getZ() - entity.zOld);
+                        if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
+                            entity.hurt(SADIROOT_DAMAGE, 1.0F);
+                        }
+                    }
+                }
+                super.entityInside(state, world, pos, entity);
+            }
+        }.crop(ITEMS.getSup(ID_SADIROOT)).seed(ITEMS.getSup(seeds(ID_SADIROOT))));
+
         registerAnnual(ID_SPINACH);
 
         // PERENNIAL
@@ -169,6 +192,9 @@ public class TCulBlocks {
 
     private static void registerFoods() {
 
+        registerBlock(ID_CHEESE_WHEEL, () -> new CheeseWheelBlock(of(Material.CAKE).strength(1.0F).sound(SoundType.SHROOMLIGHT), CHEESE).serving(ITEMS.getSup(ID_CHEESE_WEDGE)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_STUFFED_PUMPKIN, () -> new FeastBlock(of(Material.PLANT).strength(0.5F).sound(SoundType.WOOD), STUFFED_PUMPKIN), ID_THERMAL_CULTIVATION);
+
         registerBlock(ID_CARROT_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), CARROT_CAKE).setTall(), ID_THERMAL_CULTIVATION);
         registerBlock(ID_CHOCOLATE_CAKE, () -> new CakeBlockCoFH(of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL), CHOCOLATE_CAKE), ID_THERMAL_CULTIVATION);
 
@@ -198,9 +224,9 @@ public class TCulBlocks {
         registerBlock(block(ID_TOMATO), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), ID_THERMAL_CULTIVATION);
 
         registerBlock(block(ID_RICE), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_PEANUT), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_BROWN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
 
         registerBlock(block(ID_COFFEE), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_RED).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_PEANUT), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_BROWN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
         registerBlock(block(ID_TEA), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_GREEN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION);
     }
 

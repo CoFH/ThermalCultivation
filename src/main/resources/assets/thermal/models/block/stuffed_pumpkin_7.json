@@ -1,0 +1,24 @@
+{
+  "textures": {
+    "particle": "thermal:block/stuffed_pumpkin_inner",
+    "bottom": "thermal:block/stuffed_pumpkin_bottom",
+    "top": "thermal:block/stuffed_pumpkin_inner",
+    "side": "thermal:block/stuffed_pumpkin_side",
+    "front": "thermal:block/stuffed_pumpkin_front"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 2, 16],
+      "faces": {
+        "down": {"texture": "#bottom", "cullface": "down"},
+        "up": {"texture": "#top"},
+        "north": {"texture": "#front"},
+        "south": {"texture": "#side"},
+        "west": {"texture": "#side"},
+        "east": {"texture": "#side"}
+      }
+    }
+  ]
+}
+  

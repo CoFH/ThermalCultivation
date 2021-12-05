@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:crops/peanut"
+    },
+    {
+      "tag": "forge:crops/peanut"
+    },
+    {
+      "tag": "forge:crops/peanut"
+    },
+    {
+      "tag": "forge:crops/peanut"
+    },
+    {
+      "tag": "forge:crops/peanut"
+    },
+    {
+      "tag": "forge:crops/peanut"
+    },
+    {
+      "item": "thermal:jar"
+    }
+  ],
+  "result": {
+    "item": "thermal:peanut_butter"
+  }
+}

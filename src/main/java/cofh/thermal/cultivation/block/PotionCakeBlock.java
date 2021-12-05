@@ -50,13 +50,18 @@ public class PotionCakeBlock extends CakeBlockCoFH {
     @Override
     public ItemStack getCloneItemStack(IBlockReader worldIn, BlockPos pos, BlockState state) {
 
-        return new ItemStack(this);
+        ItemStack stack = super.getCloneItemStack(worldIn, pos, state);
+        TileEntity tile = worldIn.getBlockEntity(pos);
+        if (tile instanceof PotionCakeTile) {
+            ((PotionCakeTile) tile).createItemStackTag(stack);
+        }
+        return stack;
     }
 
     @Override
     protected ActionResultType eatPiece(World world, BlockPos pos, BlockState state, PlayerEntity player) {
 
-        if (!player.canEat(false)) {
+        if (!player.canEat(true)) {
             return ActionResultType.PASS;
         } else {
             player.awardStat(Stats.EAT_CAKE_SLICE);

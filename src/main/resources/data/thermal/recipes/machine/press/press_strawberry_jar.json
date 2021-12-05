@@ -1,0 +1,18 @@
+{
+  "type": "thermal:press",
+  "ingredients": [
+    {
+      "tag": "forge:crops/strawberry",
+      "count": 5
+    },
+    {
+      "item": "thermal:jar"
+    }
+  ],
+  "result": [
+    {
+      "item": "thermal:jelly"
+    }
+  ],
+  "energy": 800
+}

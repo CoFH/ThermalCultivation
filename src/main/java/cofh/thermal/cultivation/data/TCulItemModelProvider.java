@@ -80,15 +80,32 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         generated(reg.getSup(spores(ID_REDSTONE_MUSHROOM)));
         generated(reg.getSup(spores(ID_SLIME_MUSHROOM)));
 
-        // FOODS
         // generated(reg.getSup("dough"));
         // generated(reg.getSup("flour"));
+
+        generated(reg.getSup(ID_JAR));
+        generated(reg.getSup(ID_PEANUT_BUTTER));
+        generated(reg.getSup(ID_JELLY));
+        generated(reg.getSup(ID_TOMATO_SAUCE));
+
+        // FOODS
+        generated(reg.getSup(ID_CHEESE_WEDGE));
         generated(reg.getSup(ID_FROST_MELON_SLICE));
-        generated(reg.getSup(ID_CARROT_CAKE));
-        generated(reg.getSup(ID_CHOCOLATE_CAKE));
-        // generated(reg.getSup(ID_POTION_CAKE));
-        generated(reg.getSup(ID_SPICE_CAKE));
+        generated(reg.getSup(ID_GREEN_BEAN_PIE));
+        generated(reg.getSup(ID_PBJ_SANDWICH));
+        generated(reg.getSup(ID_STUFFED_PEPPER));
+        generated(reg.getSup(ID_SUSHI_MAKI));
+
+        generated(reg.getSup(ID_SPRING_SALAD));
+        generated(reg.getSup(ID_HEARTY_STEW));
         generated(reg.getSup(ID_XP_STEW));
+
+        generated(reg.getSup(ID_CARROT_CAKE));
+        generated(reg.getSup(ID_CHEESE_WHEEL));
+        generated(reg.getSup(ID_CHOCOLATE_CAKE));
+        generated(reg.getSup(ID_POTION_CAKE));
+        generated(reg.getSup(ID_SPICE_CAKE));
+        generated(reg.getSup(ID_STUFFED_PUMPKIN));
     }
 
     private void registerBlockItemModels() {

@@ -2,6 +2,7 @@ package cofh.thermal.cultivation.tileentity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
@@ -49,6 +50,13 @@ public class PotionCakeTile extends TileEntity {
     public int getColor() {
 
         return effects.isEmpty() ? 0xF800F8 : PotionUtils.getColor(effects);
+    }
+
+    public ItemStack createItemStackTag(ItemStack stack) {
+
+        stack.setTag(potionTag.copy());
+
+        return stack;
     }
 
     // region NETWORK

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:crops/corn"
+    },
+    {
+      "tag": "forge:crops/green_bean"
+    },
+    {
+      "tag": "forge:crops/radish"
+    },
+    {
+      "tag": "forge:crops/strawberry"
+    },
+    {
+      "tag": "forge:crops/spinach"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "thermal:spring_salad"
+  }
+}

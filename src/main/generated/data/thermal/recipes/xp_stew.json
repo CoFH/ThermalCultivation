@@ -1,27 +1,28 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SES",
-    "BXB",
-    " Y "
-  ],
-  "key": {
-    "B": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "tag": "forge:crops/barley"
     },
-    "E": {
+    {
+      "tag": "forge:crops/barley"
+    },
+    {
       "tag": "forge:crops/eggplant"
     },
-    "S": {
+    {
       "tag": "forge:crops/spinach"
     },
-    "X": {
+    {
+      "tag": "forge:crops/spinach"
+    },
+    {
       "item": "minecraft:experience_bottle"
     },
-    "Y": {
+    {
       "item": "minecraft:bowl"
     }
-  },
+  ],
   "result": {
     "item": "thermal:xp_stew"
   }

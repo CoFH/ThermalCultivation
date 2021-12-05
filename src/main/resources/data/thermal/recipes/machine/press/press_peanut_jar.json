@@ -1,0 +1,18 @@
+{
+  "type": "thermal:press",
+  "ingredients": [
+    {
+      "tag": "forge:crops/peanut",
+      "count": 5
+    },
+    {
+      "item": "thermal:jar"
+    }
+  ],
+  "result": [
+    {
+      "item": "thermal:peanut_butter"
+    }
+  ],
+  "energy": 800
+}

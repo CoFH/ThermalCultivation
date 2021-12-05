@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "facing=north,bites=0": {"model": "thermal:block/cheese_wheel"},
+    "facing=north,bites=1": {"model": "thermal:block/cheese_wheel_1"},
+    "facing=north,bites=2": {"model": "thermal:block/cheese_wheel_2"},
+    "facing=north,bites=3": {"model": "thermal:block/cheese_wheel_3"},
+
+    "facing=south,bites=0": {"model": "thermal:block/cheese_wheel", "y": 180},
+    "facing=south,bites=1": {"model": "thermal:block/cheese_wheel_1", "y": 180},
+    "facing=south,bites=2": {"model": "thermal:block/cheese_wheel_2", "y": 180},
+    "facing=south,bites=3": {"model": "thermal:block/cheese_wheel_3", "y": 180},
+
+    "facing=west,bites=0": {"model": "thermal:block/cheese_wheel", "y": 270},
+    "facing=west,bites=1": {"model": "thermal:block/cheese_wheel_1", "y": 270},
+    "facing=west,bites=2": {"model": "thermal:block/cheese_wheel_2", "y": 270},
+    "facing=west,bites=3": {"model": "thermal:block/cheese_wheel_3", "y": 270},
+
+    "facing=east,bites=0": {"model": "thermal:block/cheese_wheel", "y": 90},
+    "facing=east,bites=1": {"model": "thermal:block/cheese_wheel_1", "y": 90},
+    "facing=east,bites=2": {"model": "thermal:block/cheese_wheel_2", "y": 90},
+    "facing=east,bites=3": {"model": "thermal:block/cheese_wheel_3", "y": 90}
+  }
+}
+

@@ -2,6 +2,7 @@ package cofh.thermal.cultivation.init;
 
 import cofh.core.item.BlockNamedItemCoFH;
 import cofh.core.item.ItemCoFH;
+import cofh.thermal.cultivation.item.JarredItem;
 import cofh.thermal.cultivation.item.WateringCanItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -76,22 +77,42 @@ public class TCulItems {
         ItemGroup group = THERMAL_ITEMS;
 
         //        ITEMS.register("butter", () -> new ItemCoFH(new Item.Properties().group(group)));
-        //        ITEMS.register("cheese", () -> new ItemCoFH(new Item.Properties().group(group).food(CHEESE)));
         //        ITEMS.register("dough", () -> new ItemCoFH(new Item.Properties().group(group).food(DOUGH)));
         //        ITEMS.register("flour", () -> new ItemCoFH(new Item.Properties().group(group)));
 
         //        ITEMS.register("coffee", () -> new ItemCoFH(new Item.Properties().group(group).food(COFFEE)));
         //        ITEMS.register("tea", () -> new ItemCoFH(new Item.Properties().group(group).food(TEA)));
 
-        //        ITEMS.register(ID_RATATOUILLE, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(RATATOUILLE).rarity(Rarity.UNCOMMON)) {
-        //
-        //            @Override
-        //            public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        //
-        //                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
-        //                return entityLiving instanceof PlayerEntity && ((PlayerEntity) entityLiving).abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
-        //            }
-        //        }.setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_JAR, () -> new ItemCoFH(new Item.Properties().tab(group)));
+        ITEMS.register(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties().tab(group)));
+        ITEMS.register(ID_JELLY, () -> new JarredItem(new Item.Properties().tab(group)));
+        ITEMS.register(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties().tab(group)));
+
+        ITEMS.register(ID_CHEESE_WEDGE, () -> new ItemCoFH(new Item.Properties().tab(group).food(CHEESE)));
+        ITEMS.register(ID_GREEN_BEAN_PIE, () -> new ItemCoFH(new Item.Properties().tab(group).food(GREEN_BEAN_PIE)));
+        ITEMS.register(ID_PBJ_SANDWICH, () -> new ItemCoFH(new Item.Properties().tab(group).food(PBJ_SANDWICH)));
+        ITEMS.register(ID_STUFFED_PEPPER, () -> new ItemCoFH(new Item.Properties().tab(group).food(STUFFED_PEPPER)));
+        ITEMS.register(ID_SUSHI_MAKI, () -> new ItemCoFH(new Item.Properties().tab(group).food(SUSHI)));
+
+        ITEMS.register(ID_SPRING_SALAD, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(SPRING_SALAD).rarity(Rarity.UNCOMMON)) {
+
+            @Override
+            public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+
+                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
+                return entityLiving instanceof PlayerEntity && ((PlayerEntity) entityLiving).abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
+            }
+        }.setModId(ID_THERMAL_CULTIVATION));
+
+        ITEMS.register(ID_HEARTY_STEW, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(HEARTY_STEW).rarity(Rarity.UNCOMMON)) {
+
+            @Override
+            public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+
+                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
+                return entityLiving instanceof PlayerEntity && ((PlayerEntity) entityLiving).abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
+            }
+        }.setModId(ID_THERMAL_CULTIVATION));
 
         ITEMS.register(ID_XP_STEW, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(XP_STEW).rarity(Rarity.UNCOMMON)) {
 
@@ -108,7 +129,7 @@ public class TCulItems {
 
         ItemGroup group = THERMAL_TOOLS;
 
-        ITEMS.register("watering_can", () -> new WateringCanItem(new Item.Properties().stacksTo(1).tab(group), 8000).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_WATERING_CAN, () -> new WateringCanItem(new Item.Properties().stacksTo(1).tab(group), 8000).setModId(ID_THERMAL_CULTIVATION));
     }
 
 }

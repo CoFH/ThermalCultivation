@@ -7,8 +7,12 @@
   "block.thermal.phytosoil": "フィト・ソイル",
   "block.thermal.phytosoil_tilled": "耕されたフィト・ソイル",
 
+  "block.thermal.carrot_cake": "にんじんケーキ",
+  "block.thermal.cheese_wheel": "ホールチーズ",
   "block.thermal.chocolate_cake": "チョコレートケーキ",
+  "block.thermal.potion_cake": "ポーションケーキ",
   "block.thermal.spice_cake": "スパイスケーキ",
+  "block.thermal.stuffed_pumpkin": "スタッフドパンプキン",
 
   "block.thermal.amaranth": "アマランサス",
   "block.thermal.amaranth_block": "アマランサスの俵",
@@ -46,6 +50,9 @@
   "block.thermal.tea_block": "茶葉袋",
   "block.thermal.tomato": "トマト",
   "block.thermal.tomato_block": "トマトクレート",
+
+  "death.attack.sadiroot": "%1$sはサディルートの棘に刺さって死んだ",
+  "death.attack.sadiroot.player": "%1$sは%2$sから逃げようとしてサディルートの棘に刺さって死んだ",
 
   "item.thermal.amaranth": "アマランサス",
   "item.thermal.amaranth_seeds": "アマランサスの種",
@@ -89,6 +96,19 @@
   "item.thermal.dough": "生地",
   "item.thermal.flour": "小麦粉",
 
+  "item.thermal.jar": "ガラスの保存瓶",
+  "item.thermal.jelly": "ゼリー入り保存瓶",
+  "item.thermal.peanut_butter": "ピーナッツバター入り保存瓶",
+  "item.thermal.tomato_sauce": "トマトソース入り保存瓶",
+
+  "item.thermal.cheese_wedge": "チーズ",
+  "item.thermal.green_bean_pie": "サヤインゲンパイ",
+  "item.thermal.hearty_stew": "たっぷりシチュー",
+  "item.thermal.onion_stew": "タマネギシチュー",
+  "item.thermal.pbj_sandwich": "PBJサンド",
+  "item.thermal.spring_salad": "スプリングサラダ",
+  "item.thermal.stuffed_pepper": "ピーマンの肉詰め",
+  "item.thermal.sushi_maki": "巻き寿司",
   "item.thermal.xp_stew": "慧眼のシチュー",
 
   "item.thermal.glowstone_mushroom": "ヨアカリタケ",

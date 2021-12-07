@@ -202,12 +202,12 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .unlockedBy("has_green_bean", has(ItemTagsCoFH.CROPS_GREEN_BEAN))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(reg.get(ID_PBJ_SANDWICH))
+        ShapelessRecipeBuilder.shapeless(reg.get(ID_PBJ_SANDWICH), 2)
                 .requires(Items.BREAD)
                 .requires(ITEMS.get(ID_PEANUT_BUTTER))
                 .requires(ITEMS.get(ID_JELLY))
                 .unlockedBy("has_bread", has(Items.BREAD))
-                .save(consumer);
+                .save(consumer, ID_THERMAL + "pbj_sandwich_2");
 
         ShapedRecipeBuilder.shaped(reg.get(ID_STUFFED_PEPPER))
                 .define('C', ITEMS.get(ID_CHEESE_WEDGE))

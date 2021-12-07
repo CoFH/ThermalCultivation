@@ -6,13 +6,13 @@
   "result": [
     {
       "item": "thermal:corn",
-      "chance": 3.5
+      "chance": 2.5
     },
     {
       "item": "thermal:corn_seeds",
       "chance": 1.1
     }
   ],
-  "energy_mod": 2.0,
-  "water_mod": 2.0
+  "energy_mod": 1.5,
+  "water_mod": 1.5
 }

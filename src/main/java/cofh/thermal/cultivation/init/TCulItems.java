@@ -15,7 +15,7 @@ import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.init.TCulFoods.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
-import static cofh.thermal.lib.common.ThermalItemGroups.THERMAL_ITEMS;
+import static cofh.thermal.lib.common.ThermalItemGroups.THERMAL_CROPS;
 import static cofh.thermal.lib.common.ThermalItemGroups.THERMAL_TOOLS;
 
 public class TCulItems {
@@ -57,8 +57,8 @@ public class TCulItems {
 
         // TODO: Implement Hops
         // registerCropAndSeed(ID_HOPS);
-        ITEMS.register(ID_HOPS, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_ITEMS)));
-        ITEMS.register(seeds(ID_HOPS), () -> new ItemCoFH(new Item.Properties().tab(THERMAL_ITEMS)));
+        ITEMS.register(ID_HOPS, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_CROPS)));
+        ITEMS.register(seeds(ID_HOPS), () -> new ItemCoFH(new Item.Properties().tab(THERMAL_CROPS)));
 
         registerCropAndSeed(ID_TEA);
 
@@ -68,13 +68,13 @@ public class TCulItems {
         registerSpores(ID_SLIME_MUSHROOM);
 
         // OTHER
-        ITEMS.register(ID_FROST_MELON_SLICE, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_ITEMS).food(FROST_MELON_SLICE).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(seeds(ID_FROST_MELON), () -> new BlockNamedItemCoFH(BLOCKS.get(ID_FROST_MELON_STEM), new Item.Properties().tab(THERMAL_ITEMS).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_FROST_MELON_SLICE, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_CROPS).food(FROST_MELON_SLICE).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(seeds(ID_FROST_MELON), () -> new BlockNamedItemCoFH(BLOCKS.get(ID_FROST_MELON_STEM), new Item.Properties().tab(THERMAL_CROPS).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION));
     }
 
     private static void registerFoods() {
 
-        ItemGroup group = THERMAL_ITEMS;
+        ItemGroup group = THERMAL_CROPS;
 
         //        ITEMS.register("butter", () -> new ItemCoFH(new Item.Properties().group(group)));
         //        ITEMS.register("dough", () -> new ItemCoFH(new Item.Properties().group(group).food(DOUGH)));
@@ -83,7 +83,7 @@ public class TCulItems {
         //        ITEMS.register("coffee", () -> new ItemCoFH(new Item.Properties().group(group).food(COFFEE)));
         //        ITEMS.register("tea", () -> new ItemCoFH(new Item.Properties().group(group).food(TEA)));
 
-        ITEMS.register(ID_JAR, () -> new ItemCoFH(new Item.Properties().tab(group)));
+        ITEMS.register(ID_JAR, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_TOOLS)));
         ITEMS.register(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties().tab(group)));
         ITEMS.register(ID_JELLY, () -> new JarredItem(new Item.Properties().tab(group)));
         ITEMS.register(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties().tab(group)));

@@ -77,6 +77,6 @@ public class TCulFoods {
             .effect(() -> new EffectInstance(PANACEA, 100, 0), 1.0F)
             .alwaysEat()
             .build();
-    public static final Food STUFFED_PUMPKIN = new Food.Builder().nutrition(6).saturationMod(0.8F).build();
+    public static final Food STUFFED_PUMPKIN = new Food.Builder().nutrition(9).saturationMod(0.8F).build();
 
 }

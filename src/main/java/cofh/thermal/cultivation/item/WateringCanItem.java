@@ -1,6 +1,5 @@
 package cofh.thermal.cultivation.item;
 
-import cofh.core.item.FluidContainerItemAugmentable;
 import cofh.core.util.ProxyUtils;
 import cofh.core.util.helpers.ChatHelper;
 import cofh.lib.item.IColorableItem;
@@ -8,6 +7,7 @@ import cofh.lib.item.IMultiModeItem;
 import cofh.lib.util.RayTracer;
 import cofh.lib.util.Utils;
 import cofh.thermal.lib.common.ThermalConfig;
+import cofh.thermal.lib.item.FluidContainerItemAugmentable;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.block.*;
 import net.minecraft.client.util.ITooltipFlag;

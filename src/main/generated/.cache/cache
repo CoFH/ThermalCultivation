@@ -125,7 +125,6 @@ b32fcb7499b3228dc5da16256c8bea7efe144e19 data/forge/tags/items/seeds/strawberry.
 7db43274e152637d667b5eecb6cfb86d8ecf1914 data/forge/tags/items/seeds/tea.json
 825f888f1e7b16f2ec4012810eee39b895b4089f data/forge/tags/items/seeds/tomato.json
 fb22893fd21de11a8dad1ccfe9163d81131f8235 data/minecraft/recipes/string.json
-3b2f9a8f019f29e952123fb3948174722dd998c9 data/minecraft/recipes/thermalpbj_sandwich_2.json
 bf26588ee90f0847fe0e177afc1f41edc3d6c4c9 data/thermal/loot_tables/blocks/amaranth.json
 d748a2fe45f4676a35bbb0a1068fb16b4bdc1264 data/thermal/loot_tables/blocks/amaranth_block.json
 cf11cb1f7ed3b09ac7f69b5e442437309e064ff0 data/thermal/loot_tables/blocks/barley.json
@@ -188,6 +187,7 @@ df5264bcd227b700af9b6befb45654d2b3b629c2 data/thermal/recipes/green_bean_pie.jso
 9d7e262e38b6beb8c0d89c184abf2a3b8f524853 data/thermal/recipes/hearty_stew.json
 438418c74c47fb0bf53b5d4b39fc4ed878206906 data/thermal/recipes/jar_4.json
 a105852a0aa367eda0742c75f9e0b55434015b88 data/thermal/recipes/jelly.json
+3b2f9a8f019f29e952123fb3948174722dd998c9 data/thermal/recipes/pbj_sandwich_2.json
 a3c394afb28ab9c5340d6a20951819f544198110 data/thermal/recipes/peanut_butter.json
 989d712e58d488655d623ea8988dfdd199cca7d2 data/thermal/recipes/phytosoil.json
 7067f37846623a04eceb1311e114e4174c18a604 data/thermal/recipes/redstone_mushroom_spores.json

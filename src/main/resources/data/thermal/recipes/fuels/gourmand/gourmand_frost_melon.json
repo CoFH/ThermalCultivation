@@ -1,0 +1,7 @@
+{
+  "type": "thermal:gourmand_fuel",
+  "ingredient": {
+    "item": "thermal:frost_melon"
+  },
+  "energy": 64000
+}

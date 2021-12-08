@@ -1,0 +1,37 @@
+{
+  "textures": {
+    "particle": "thermal:block/potion_cake_side",
+    "bottom": "thermal:block/potion_cake_bottom",
+    "top": "thermal:block/potion_cake_top",
+    "side": "thermal:block/potion_cake_side",
+    "inside": "thermal:block/potion_cake_inner",
+    "top2": "thermal:block/potion_cake_top_frosting",
+    "side2": "thermal:block/potion_cake_side_frosting",
+    "inside2": "thermal:block/potion_cake_inner_frosting"
+  },
+  "elements": [
+    {
+      "from": [7, 0, 1],
+      "to": [15, 8, 15],
+      "faces": {
+        "down": {"texture": "#bottom", "cullface": "down"},
+        "up": {"texture": "#top"},
+        "north": {"texture": "#side"},
+        "south": {"texture": "#side"},
+        "west": {"texture": "#inside"},
+        "east": {"texture": "#side"}
+      }
+    },
+    {
+      "from": [7, 0, 1],
+      "to": [15, 8, 15],
+      "faces": {
+        "up": {"texture": "#top2", "tintindex": 0},
+        "north": {"texture": "#side2", "tintindex": 0},
+        "south": {"texture": "#side2", "tintindex": 0},
+        "west": {"texture": "#inside2", "tintindex": 0},
+        "east": {"texture": "#side2", "tintindex": 0}
+      }
+    }
+  ]
+}

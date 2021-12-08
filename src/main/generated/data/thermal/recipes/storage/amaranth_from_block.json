@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "thermal:amaranth_block"
+    }
+  ],
+  "result": {
+    "item": "thermal:amaranth",
+    "count": 9
+  }
+}

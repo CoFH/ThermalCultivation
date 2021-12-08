@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/crop",
   "textures": {
-    "crop": "thermal:block/crops/barley_5"
+    "crop": "thermal:block/barley_5"
   }
 }

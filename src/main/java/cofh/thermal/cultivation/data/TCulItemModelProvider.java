@@ -34,63 +34,85 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         DeferredRegisterCoFH<Item> reg = ITEMS;
 
         // CROPS
-        generated(reg.getSup(ID_BARLEY), CROPS);
-        generated(reg.getSup(ID_BELL_PEPPER), CROPS);
-        generated(reg.getSup(ID_COFFEE), CROPS);
-        generated(reg.getSup(ID_CORN), CROPS);
-        generated(reg.getSup(ID_EGGPLANT), CROPS);
-        generated(reg.getSup(ID_FLAX), CROPS);
-        generated(reg.getSup(ID_GREEN_BEAN), CROPS);
-        // generated(reg.getSup(ID_HOPS), CROPS);
-        generated(reg.getSup(ID_ONION), CROPS);
-        generated(reg.getSup(ID_PEANUT), CROPS);
-        generated(reg.getSup(ID_RADISH), CROPS);
-        generated(reg.getSup(ID_RICE), CROPS);
-        generated(reg.getSup(ID_SADIROOT), CROPS);
-        generated(reg.getSup(ID_SPINACH), CROPS);
-        generated(reg.getSup(ID_STRAWBERRY), CROPS);
-        generated(reg.getSup(ID_TEA), CROPS);
-        generated(reg.getSup(ID_TOMATO), CROPS);
+        generated(reg.getSup(ID_AMARANTH));
+        generated(reg.getSup(ID_BARLEY));
+        generated(reg.getSup(ID_BELL_PEPPER));
+        generated(reg.getSup(ID_COFFEE));
+        generated(reg.getSup(ID_CORN));
+        generated(reg.getSup(ID_EGGPLANT));
+        generated(reg.getSup(ID_FLAX));
+        generated(reg.getSup(ID_GREEN_BEAN));
+        generated(reg.getSup(ID_HOPS));
+        generated(reg.getSup(ID_ONION));
+        generated(reg.getSup(ID_PEANUT));
+        generated(reg.getSup(ID_RADISH));
+        generated(reg.getSup(ID_RICE));
+        generated(reg.getSup(ID_SADIROOT));
+        generated(reg.getSup(ID_SPINACH));
+        generated(reg.getSup(ID_STRAWBERRY));
+        generated(reg.getSup(ID_TEA));
+        generated(reg.getSup(ID_TOMATO));
 
         // SEEDS
-        generated(reg.getSup(seeds(ID_BARLEY)), SEEDS);
-        generated(reg.getSup(seeds(ID_BELL_PEPPER)), SEEDS);
-        generated(reg.getSup(seeds(ID_COFFEE)), SEEDS);
-        generated(reg.getSup(seeds(ID_CORN)), SEEDS);
-        generated(reg.getSup(seeds(ID_EGGPLANT)), SEEDS);
-        generated(reg.getSup(seeds(ID_FLAX)), SEEDS);
-        generated(reg.getSup(seeds(ID_FROST_MELON)), SEEDS);
-        generated(reg.getSup(seeds(ID_GREEN_BEAN)), SEEDS);
-        // generated(reg.getSup(seeds(ID_HOPS)), SEEDS);
-        generated(reg.getSup(seeds(ID_ONION)), SEEDS);
-        generated(reg.getSup(seeds(ID_PEANUT)), SEEDS);
-        generated(reg.getSup(seeds(ID_RADISH)), SEEDS);
-        generated(reg.getSup(seeds(ID_RICE)), SEEDS);
-        generated(reg.getSup(seeds(ID_SADIROOT)), SEEDS);
-        generated(reg.getSup(seeds(ID_SPINACH)), SEEDS);
-        generated(reg.getSup(seeds(ID_STRAWBERRY)), SEEDS);
-        generated(reg.getSup(seeds(ID_TEA)), SEEDS);
-        generated(reg.getSup(seeds(ID_TOMATO)), SEEDS);
+        generated(reg.getSup(seeds(ID_AMARANTH)));
+        generated(reg.getSup(seeds(ID_BARLEY)));
+        generated(reg.getSup(seeds(ID_BELL_PEPPER)));
+        generated(reg.getSup(seeds(ID_COFFEE)));
+        generated(reg.getSup(seeds(ID_CORN)));
+        generated(reg.getSup(seeds(ID_EGGPLANT)));
+        generated(reg.getSup(seeds(ID_FLAX)));
+        generated(reg.getSup(seeds(ID_FROST_MELON)));
+        generated(reg.getSup(seeds(ID_GREEN_BEAN)));
+        generated(reg.getSup(seeds(ID_HOPS)));
+        generated(reg.getSup(seeds(ID_ONION)));
+        generated(reg.getSup(seeds(ID_PEANUT)));
+        generated(reg.getSup(seeds(ID_RADISH)));
+        generated(reg.getSup(seeds(ID_RICE)));
+        generated(reg.getSup(seeds(ID_SADIROOT)));
+        generated(reg.getSup(seeds(ID_SPINACH)));
+        generated(reg.getSup(seeds(ID_STRAWBERRY)));
+        generated(reg.getSup(seeds(ID_TEA)));
+        generated(reg.getSup(seeds(ID_TOMATO)));
 
         // MUSHROOMS
-        generated(reg.getSup(spores(ID_GLOWSTONE_MUSHROOM)), MUSHROOMS);
-        generated(reg.getSup(spores(ID_GUNPOWDER_MUSHROOM)), MUSHROOMS);
-        generated(reg.getSup(spores(ID_REDSTONE_MUSHROOM)), MUSHROOMS);
-        generated(reg.getSup(spores(ID_SLIME_MUSHROOM)), MUSHROOMS);
+        generated(reg.getSup(spores(ID_GLOWSTONE_MUSHROOM)));
+        generated(reg.getSup(spores(ID_GUNPOWDER_MUSHROOM)));
+        generated(reg.getSup(spores(ID_REDSTONE_MUSHROOM)));
+        generated(reg.getSup(spores(ID_SLIME_MUSHROOM)));
+
+        // generated(reg.getSup("dough"));
+        // generated(reg.getSup("flour"));
+
+        generated(reg.getSup(ID_JAR));
+        generated(reg.getSup(ID_PEANUT_BUTTER));
+        generated(reg.getSup(ID_JELLY));
+        generated(reg.getSup(ID_TOMATO_SAUCE));
 
         // FOODS
-        //        generated(reg.getSup("dough"), FOODS);
-        //        generated(reg.getSup("flour"), FOODS);
-        generated(reg.getSup(ID_FROST_MELON_SLICE), FOODS);
-        generated(reg.getSup(ID_CHOCOLATE_CAKE), FOODS);
-        generated(reg.getSup(ID_SPICE_CAKE), FOODS);
-        generated(reg.getSup(ID_XP_STEW), FOODS);
+        generated(reg.getSup(ID_CHEESE_WEDGE));
+        generated(reg.getSup(ID_FROST_MELON_SLICE));
+        generated(reg.getSup(ID_GREEN_BEAN_PIE));
+        generated(reg.getSup(ID_PBJ_SANDWICH));
+        generated(reg.getSup(ID_STUFFED_PEPPER));
+        generated(reg.getSup(ID_SUSHI_MAKI));
+
+        generated(reg.getSup(ID_SPRING_SALAD));
+        generated(reg.getSup(ID_HEARTY_STEW));
+        generated(reg.getSup(ID_XP_STEW));
+
+        generated(reg.getSup(ID_CARROT_CAKE));
+        generated(reg.getSup(ID_CHEESE_WHEEL));
+        generated(reg.getSup(ID_CHOCOLATE_CAKE));
+        generated(reg.getSup(ID_POTION_CAKE));
+        generated(reg.getSup(ID_SPICE_CAKE));
+        generated(reg.getSup(ID_STUFFED_PUMPKIN));
     }
 
     private void registerBlockItemModels() {
 
         DeferredRegisterCoFH<Block> reg = BLOCKS;
 
+        blockItem(reg.getSup(block(ID_AMARANTH)));
         blockItem(reg.getSup(block(ID_BARLEY)));
         blockItem(reg.getSup(block(ID_BELL_PEPPER)));
         blockItem(reg.getSup(block(ID_COFFEE)));

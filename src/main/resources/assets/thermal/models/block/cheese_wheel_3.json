@@ -1,0 +1,23 @@
+{
+  "textures": {
+    "particle": "thermal:block/cheese_wheel_side",
+    "bottom": "thermal:block/cheese_wheel_bottom",
+    "top": "thermal:block/cheese_wheel_top",
+    "side": "thermal:block/cheese_wheel_side",
+    "inner": "thermal:block/cheese_wheel_inner"
+  },
+  "elements": [
+    {
+      "from": [8, 0, 8],
+      "to": [15, 8, 15],
+      "faces": {
+        "down": {"texture": "#bottom", "cullface": "down"},
+        "up": {"texture": "#top"},
+        "north": {"texture": "#inner"},
+        "south": {"texture": "#side"},
+        "west": {"texture": "#inner"},
+        "east": {"texture": "#side"}
+      }
+    }
+  ]
+}

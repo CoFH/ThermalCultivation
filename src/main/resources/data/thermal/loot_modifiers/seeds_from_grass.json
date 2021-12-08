@@ -24,6 +24,7 @@
     }
   ],
   "seeds": [
+    "thermal:amaranth_seeds",
     "thermal:barley_seeds",
     "thermal:bell_pepper_seeds",
     "thermal:corn_seeds",

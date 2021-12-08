@@ -33,7 +33,7 @@ public class FlaxCrop extends CropsBlockTall {
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 
-        int age = state.get(getAgeProperty()) - (isTop(state) ? 2 : 0);
+        int age = state.getValue(getAgeProperty()) - (isTop(state) ? 2 : 0);
         return TALL_CROPS_BY_AGE_ALT[MathHelper.clamp(age, 0, TALL_CROPS_BY_AGE_ALT.length - 1)];
     }
 

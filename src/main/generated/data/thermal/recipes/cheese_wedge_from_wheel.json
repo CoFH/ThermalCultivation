@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "thermal:cheese_wheel"
+    }
+  ],
+  "result": {
+    "item": "thermal:cheese_wedge",
+    "count": 4
+  }
+}

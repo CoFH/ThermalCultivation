@@ -40,9 +40,10 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         DeferredRegisterCoFH<Block> regBlocks = BLOCKS;
         DeferredRegisterCoFH<Item> regItems = ITEMS;
 
+        createTallCropAltTable(ID_AMARANTH);
         createCropTable(ID_BARLEY);
         createTallCropTable(ID_CORN);
-        createFlaxCropTable(ID_FLAX);
+        createTallCropAltTable(ID_FLAX);
         createCropTable(ID_ONION);
         createCropTable(ID_RADISH);
         createCropTable(ID_RICE);
@@ -66,24 +67,25 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         createMushroomTable(ID_SLIME_MUSHROOM, Items.SLIME_BALL);
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON),
-                BlockLootTables.droppingWithSilkTouch(regBlocks.get(ID_FROST_MELON),
-                        BlockLootTables.withExplosionDecay(regBlocks.get(ID_FROST_MELON),
-                                ItemLootEntry.builder(regItems.get(ID_FROST_MELON_SLICE))
-                                        .acceptFunction(SetCount.builder(RandomValueRange.of(3.0F, 7.0F)))
-                                        .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                                        .acceptFunction(LimitCount.func_215911_a(IntClamper.func_215851_b(9))))));
+                BlockLootTables.createSilkTouchDispatchTable(regBlocks.get(ID_FROST_MELON),
+                        BlockLootTables.applyExplosionDecay(regBlocks.get(ID_FROST_MELON),
+                                ItemLootEntry.lootTableItem(regItems.get(ID_FROST_MELON_SLICE))
+                                        .apply(SetCount.setCount(RandomValueRange.between(3.0F, 7.0F)))
+                                        .apply(ApplyBonus.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
+                                        .apply(LimitCount.limitCount(IntClamper.upperBound(9))))));
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON_STEM),
-                BlockLootTables.droppingByAge(regBlocks.get(ID_FROST_MELON_STEM),
+                BlockLootTables.createStemDrops(regBlocks.get(ID_FROST_MELON_STEM),
                         regItems.get(seeds(ID_FROST_MELON))));
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON_STEM_ATTACHED),
-                BlockLootTables.dropSeedsForStem(regBlocks.get(ID_FROST_MELON_STEM),
+                BlockLootTables.createAttachedStemDrops(regBlocks.get(ID_FROST_MELON_STEM),
                         regItems.get(seeds(ID_FROST_MELON))));
 
         blockLootTables.put(regBlocks.get(ID_PHYTOSOIL), getSimpleDropTable(regBlocks.get(ID_PHYTOSOIL)));
         blockLootTables.put(regBlocks.get(ID_PHYTOSOIL_TILLED), getSimpleDropTable(regBlocks.get(ID_PHYTOSOIL)));
 
+        createSimpleDropTable(regBlocks.get(block(ID_AMARANTH)));
         createSimpleDropTable(regBlocks.get(block(ID_BARLEY)));
         createSimpleDropTable(regBlocks.get(block(ID_BELL_PEPPER)));
         createSimpleDropTable(regBlocks.get(block(ID_COFFEE)));
@@ -102,8 +104,12 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         createSimpleDropTable(regBlocks.get(block(ID_TEA)));
         createSimpleDropTable(regBlocks.get(block(ID_TOMATO)));
 
+        blockLootTables.put(regBlocks.get(ID_CARROT_CAKE), getEmptyTable());
+        blockLootTables.put(regBlocks.get(ID_CHEESE_WHEEL), getEmptyTable());
         blockLootTables.put(regBlocks.get(ID_CHOCOLATE_CAKE), getEmptyTable());
+        blockLootTables.put(regBlocks.get(ID_POTION_CAKE), getEmptyTable());
         blockLootTables.put(regBlocks.get(ID_SPICE_CAKE), getEmptyTable());
+        blockLootTables.put(regBlocks.get(ID_STUFFED_PUMPKIN), getEmptyTable());
     }
 
     protected void createCropTable(String id) {
@@ -111,7 +117,7 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_7, 7));
     }
 
-    protected void createFlaxCropTable(String id) {
+    protected void createTallCropAltTable(String id) {
 
         blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_6, 6));
     }

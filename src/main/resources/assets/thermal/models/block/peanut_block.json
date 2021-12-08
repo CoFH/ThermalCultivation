@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "particle": "thermal:block/storage/peanut_block_top",
-    "down": "thermal:block/storage/peanut_block_bottom",
-    "up": "thermal:block/storage/peanut_block_top",
-    "north": "thermal:block/storage/peanut_block_side_1",
-    "east": "thermal:block/storage/peanut_block_side_2",
-    "south": "thermal:block/storage/peanut_block_side_2",
-    "west": "thermal:block/storage/peanut_block_side_2"
+    "particle": "thermal:block/peanut_block_top",
+    "down": "thermal:block/peanut_block_bottom",
+    "up": "thermal:block/peanut_block_top",
+    "north": "thermal:block/peanut_block_side_1",
+    "east": "thermal:block/peanut_block_side_2",
+    "south": "thermal:block/peanut_block_side_2",
+    "west": "thermal:block/peanut_block_side_2"
   }
 }

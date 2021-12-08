@@ -1,0 +1,7 @@
+{
+  "type": "thermal:gourmand_fuel",
+  "ingredient": {
+    "item": "thermal:green_bean_block"
+  },
+  "energy": 16000
+}

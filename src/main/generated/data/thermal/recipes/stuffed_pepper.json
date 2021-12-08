@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "OMR",
+    " P "
+  ],
+  "key": {
+    "C": {
+      "item": "thermal:cheese_wedge"
+    },
+    "M": {
+      "tag": "forge:foods/meat/cooked"
+    },
+    "O": {
+      "tag": "forge:crops/onion"
+    },
+    "P": {
+      "tag": "forge:crops/bell_pepper"
+    },
+    "R": {
+      "tag": "forge:crops/rice"
+    }
+  },
+  "result": {
+    "item": "thermal:stuffed_pepper"
+  }
+}

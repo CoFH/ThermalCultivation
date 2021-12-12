@@ -8,7 +8,7 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = ID_THERMAL_CULTIVATION)
+@Mod.EventBusSubscriber (bus = Mod.EventBusSubscriber.Bus.MOD, modid = ID_THERMAL_CULTIVATION)
 public class TCulDataGen {
 
     @SubscribeEvent

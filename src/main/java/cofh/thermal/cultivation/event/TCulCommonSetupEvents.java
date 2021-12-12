@@ -18,7 +18,7 @@ import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.seeds;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 
-@Mod.EventBusSubscriber(modid = ID_THERMAL_CULTIVATION)
+@Mod.EventBusSubscriber (modid = ID_THERMAL_CULTIVATION)
 public class TCulCommonSetupEvents {
 
     private TCulCommonSetupEvents() {

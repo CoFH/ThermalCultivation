@@ -14,7 +14,7 @@ import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 
-@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = ID_THERMAL_CULTIVATION, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber (value = Dist.CLIENT, modid = ID_THERMAL_CULTIVATION, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TCulClientSetupEvents {
 
     private TCulClientSetupEvents() {

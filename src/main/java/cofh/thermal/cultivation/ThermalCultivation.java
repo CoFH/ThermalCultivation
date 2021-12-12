@@ -18,7 +18,7 @@ import static cofh.thermal.cultivation.init.TCulIDs.*;
 import static cofh.thermal.lib.common.ThermalFlags.*;
 import static cofh.thermal.lib.common.ThermalIDs.*;
 
-@Mod(ID_THERMAL_CULTIVATION)
+@Mod (ID_THERMAL_CULTIVATION)
 public class ThermalCultivation {
 
     public ThermalCultivation() {

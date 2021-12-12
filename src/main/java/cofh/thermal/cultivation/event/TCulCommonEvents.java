@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
 
-@Mod.EventBusSubscriber(modid = ID_THERMAL_CULTIVATION)
+@Mod.EventBusSubscriber (modid = ID_THERMAL_CULTIVATION)
 public class TCulCommonEvents {
 
     @SubscribeEvent

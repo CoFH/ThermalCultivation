@@ -4,14 +4,14 @@ import cofh.lib.data.RecipeProviderCoFH;
 import cofh.lib.util.DeferredRegisterCoFH;
 import cofh.lib.util.references.ItemTagsCoFH;
 import cofh.thermal.lib.common.ThermalFlags;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.ShapedRecipeBuilder;
-import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
@@ -36,7 +36,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
     }
 
     @Override
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
         generateFoodRecipes(consumer);
 
@@ -142,7 +142,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
     }
 
     // region HELPERS
-    private void generateFoodRecipes(Consumer<IFinishedRecipe> consumer) {
+    private void generateFoodRecipes(Consumer<FinishedRecipe> consumer) {
 
         DeferredRegisterCoFH<Item> reg = ITEMS;
 

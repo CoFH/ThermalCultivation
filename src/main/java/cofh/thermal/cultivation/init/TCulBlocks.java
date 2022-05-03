@@ -8,23 +8,23 @@ import cofh.lib.block.impl.crops.StemBlockCoFH;
 import cofh.thermal.cultivation.block.*;
 import cofh.thermal.cultivation.item.PotionCakeBlockItem;
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.Rarity;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.phys.Vec3;
 
 import static cofh.lib.util.constants.Constants.*;
 import static cofh.thermal.core.ThermalCore.*;
@@ -33,7 +33,7 @@ import static cofh.thermal.cultivation.init.TCulFoods.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 import static cofh.thermal.cultivation.init.TCulReferences.POTION_CAKE_BLOCK;
 import static cofh.thermal.lib.common.ThermalItemGroups.THERMAL_FOODS;
-import static net.minecraft.block.AbstractBlock.Properties.of;
+import static net.minecraft.world.level.block.state.BlockBehaviour.Properties.of;
 
 public class TCulBlocks {
 
@@ -115,7 +115,7 @@ public class TCulBlocks {
 
             ComposterBlock.add(chance, ITEMS.get(seeds(ID_FROST_MELON)));
         }
-        HoeItem.TILLABLES.put(BLOCKS.get(ID_PHYTOSOIL), BLOCKS.get(ID_PHYTOSOIL_TILLED).defaultBlockState());
+        // HoeItem.TILLABLES.put(BLOCKS.get(ID_PHYTOSOIL), BLOCKS.get(ID_PHYTOSOIL_TILLED).defaultBlockState());
     }
 
     public static DamageSource SADIROOT_DAMAGE = new DamageSource("sadiroot");
@@ -136,10 +136,10 @@ public class TCulBlocks {
         BLOCKS.register(ID_SADIROOT, () -> new CropsBlockCoFH(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)) {
 
             @Override
-            public void entityInside(BlockState state, World world, BlockPos pos, Entity entity) {
+            public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
 
                 if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
-                    entity.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
+                    entity.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
                     if (!world.isClientSide && state.getValue(getAgeProperty()) > 4 && (entity.xOld != entity.getX() || entity.zOld != entity.getZ())) {
                         double d0 = Math.abs(entity.getX() - entity.xOld);
                         double d1 = Math.abs(entity.getZ() - entity.zOld);
@@ -177,7 +177,7 @@ public class TCulBlocks {
             }
 
             @Override
-            public int getSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+            public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
 
                 return blockState.getValue(AGE_0_4) == 4 ? 7 : 0;
             }
@@ -185,9 +185,9 @@ public class TCulBlocks {
         registerMushroom(ID_SLIME_MUSHROOM);
 
         // STEM
-        registerBlock(ID_FROST_MELON, () -> new FrostMelonBlock(of(Material.VEGETABLE, MaterialColor.COLOR_CYAN).randomTicks().strength(1.0F).harvestTool(ToolType.AXE).sound(SoundType.SNOW)), THERMAL_FOODS, Rarity.UNCOMMON, ID_THERMAL_CULTIVATION);
-        registerBlockOnly(ID_FROST_MELON_STEM, () -> new StemBlockCoFH(of(Material.PLANT).randomTicks().noCollission().strength(0.0F).sound(SoundType.WOOD)).crop(BLOCKS.getSup(ID_FROST_MELON)).seed(ITEMS.getSup(seeds(ID_FROST_MELON))));
-        registerBlockOnly(ID_FROST_MELON_STEM_ATTACHED, () -> new AttachedStemBlockCoFH(of(Material.PLANT).noCollission().strength(0.0F).sound(SoundType.HARD_CROP)).crop(BLOCKS.getSup(ID_FROST_MELON)).seed(ITEMS.getSup(seeds(ID_FROST_MELON))));
+        registerBlock(ID_FROST_MELON, () -> new FrostMelonBlock(of(Material.VEGETABLE, MaterialColor.COLOR_CYAN).randomTicks().strength(1.0F).sound(SoundType.SNOW)), THERMAL_FOODS, Rarity.UNCOMMON, ID_THERMAL_CULTIVATION);
+        registerBlockOnly(ID_FROST_MELON_STEM, () -> new StemBlockCoFH(of(Material.PLANT).randomTicks().noCollission().strength(0.0F).sound(SoundType.WOOD), ITEMS.getSup(seeds(ID_FROST_MELON))).crop(BLOCKS.getSup(ID_FROST_MELON)));
+        registerBlockOnly(ID_FROST_MELON_STEM_ATTACHED, () -> new AttachedStemBlockCoFH(of(Material.PLANT).noCollission().strength(0.0F).sound(SoundType.HARD_CROP), ITEMS.getSup(seeds(ID_FROST_MELON))).crop(BLOCKS.getSup(ID_FROST_MELON)));
     }
 
     private static void registerFoods() {
@@ -207,21 +207,21 @@ public class TCulBlocks {
 
     private static void registerStorage() {
 
-        registerBlock(block(ID_AMARANTH), () -> new HayBlock(of(Material.GRASS, MaterialColor.COLOR_RED).strength(0.5F).sound(SoundType.GRASS).harvestTool(ToolType.HOE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_BARLEY), () -> new HayBlock(of(Material.GRASS, MaterialColor.GOLD).strength(0.5F).sound(SoundType.GRASS).harvestTool(ToolType.HOE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_CORN), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_YELLOW).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_FLAX), () -> new HayBlock(of(Material.GRASS, MaterialColor.COLOR_PURPLE).strength(0.5F).sound(SoundType.GRASS).harvestTool(ToolType.HOE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_ONION), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_RADISH), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_SADIROOT), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_SPINACH), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_AMARANTH), () -> new HayBlock(of(Material.GRASS, MaterialColor.COLOR_RED).strength(0.5F).sound(SoundType.GRASS)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_BARLEY), () -> new HayBlock(of(Material.GRASS, MaterialColor.GOLD).strength(0.5F).sound(SoundType.GRASS)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_CORN), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_YELLOW).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_FLAX), () -> new HayBlock(of(Material.GRASS, MaterialColor.COLOR_PURPLE).strength(0.5F).sound(SoundType.GRASS)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_ONION), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_WHITE).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_RADISH), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_SADIROOT), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_SPINACH), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
 
-        registerBlock(block(ID_BELL_PEPPER), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_EGGPLANT), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_PURPLE).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_GREEN_BEAN), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_HOPS), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_STRAWBERRY), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
-        registerBlock(block(ID_TOMATO), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_RED).strength(1.5F).sound(SoundType.SCAFFOLDING).harvestTool(ToolType.AXE)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_BELL_PEPPER), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_EGGPLANT), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_PURPLE).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_GREEN_BEAN), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_HOPS), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_STRAWBERRY), () -> new Block(of(Material.WOOD, MaterialColor.TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
+        registerBlock(block(ID_TOMATO), () -> new Block(of(Material.WOOD, MaterialColor.COLOR_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
 
         registerBlock(block(ID_RICE), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WART_BLOCK)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
         registerBlock(block(ID_PEANUT), () -> new DirectionalBlock4Way(of(Material.WOOL, MaterialColor.TERRACOTTA_BROWN).strength(0.5F).sound(SoundType.WART_BLOCK)), THERMAL_FOODS, ID_THERMAL_CULTIVATION);
@@ -232,8 +232,8 @@ public class TCulBlocks {
 
     private static void registerMisc() {
 
-        registerBlock(ID_PHYTOSOIL, () -> new SoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)), ID_THERMAL_CULTIVATION);
-        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).harvestTool(ToolType.SHOVEL).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).dirt(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_PHYTOSOIL, () -> new SoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).dirt(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
     }
 
     private static void registerAmaranth(String id) {
@@ -253,7 +253,7 @@ public class TCulBlocks {
 
     private static void registerTileEntities() {
 
-        TILE_ENTITIES.register(ID_POTION_CAKE, () -> TileEntityType.Builder.of(PotionCakeTile::new, POTION_CAKE_BLOCK).build(null));
+        TILE_ENTITIES.register(ID_POTION_CAKE, () -> BlockEntityType.Builder.of(PotionCakeTile::new, POTION_CAKE_BLOCK).build(null));
     }
     // endregion
 }

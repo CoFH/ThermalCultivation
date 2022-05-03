@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "thermal:phytosoil",
+    "thermal:phytosoil_tilled"
+  ]
+}

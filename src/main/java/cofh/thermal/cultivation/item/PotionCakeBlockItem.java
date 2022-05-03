@@ -3,13 +3,13 @@ package cofh.thermal.cultivation.item;
 import cofh.core.item.BlockItemCoFH;
 import cofh.core.util.ProxyUtils;
 import cofh.lib.item.IColorableItem;
-import net.minecraft.block.Block;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.PotionUtils;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -29,7 +29,7 @@ public class PotionCakeBlockItem extends BlockItemCoFH implements IColorableItem
 
     @Override
     @OnlyIn (Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
 
         addPotionTooltip(PotionUtils.getMobEffects(stack), tooltip, 0.25F);
     }
@@ -46,7 +46,7 @@ public class PotionCakeBlockItem extends BlockItemCoFH implements IColorableItem
     public int getColor(ItemStack item, int colorIndex) {
 
         if (colorIndex == 1) {
-            List<EffectInstance> effects = PotionUtils.getMobEffects(item);
+            List<MobEffectInstance> effects = PotionUtils.getMobEffects(item);
             if (!effects.isEmpty()) {
                 return PotionUtils.getColor(effects);
             }

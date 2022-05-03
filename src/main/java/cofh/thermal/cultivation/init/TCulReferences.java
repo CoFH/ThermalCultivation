@@ -1,9 +1,9 @@
 package cofh.thermal.cultivation.init;
 
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.ObjectHolder;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL;
@@ -32,6 +32,6 @@ public class TCulReferences {
     @ObjectHolder (ID_POTION_CAKE)
     public static final Block POTION_CAKE_BLOCK = null;
     @ObjectHolder (ID_POTION_CAKE)
-    public static final TileEntityType<PotionCakeTile> POTION_CAKE_TILE = null;
+    public static final BlockEntityType<PotionCakeTile> POTION_CAKE_TILE = null;
     // endregion
 }

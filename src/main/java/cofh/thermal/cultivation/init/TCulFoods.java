@@ -1,11 +1,11 @@
 package cofh.thermal.cultivation.init;
 
-import net.minecraft.item.Food;
-import net.minecraft.potion.EffectInstance;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.food.FoodProperties;
 
 import static cofh.lib.util.references.CoreReferences.CLARITY;
 import static cofh.lib.util.references.CoreReferences.PANACEA;
-import static net.minecraft.potion.Effects.*;
+import static net.minecraft.world.effect.MobEffects.*;
 
 public class TCulFoods {
 
@@ -14,69 +14,69 @@ public class TCulFoods {
     }
 
     // CROPS
-    public static final Food BELL_PEPPER = new Food.Builder().nutrition(1).saturationMod(0.3F).fast().build();
-    public static final Food COFFEE_CHERRY = new Food.Builder().nutrition(1).saturationMod(0.1F).fast().build();
-    public static final Food CORN = new Food.Builder().nutrition(3).saturationMod(0.6F).build();
-    public static final Food EGGPLANT = new Food.Builder().nutrition(2).saturationMod(0.3F).build();
-    public static final Food FROST_MELON_SLICE = new Food.Builder().nutrition(2).saturationMod(0.3F)
-            .effect(() -> new EffectInstance(FIRE_RESISTANCE, 200, 0), 1.0F)
+    public static final FoodProperties BELL_PEPPER = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build();
+    public static final FoodProperties COFFEE_CHERRY = new FoodProperties.Builder().nutrition(1).saturationMod(0.1F).fast().build();
+    public static final FoodProperties CORN = new FoodProperties.Builder().nutrition(3).saturationMod(0.6F).build();
+    public static final FoodProperties EGGPLANT = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
+    public static final FoodProperties FROST_MELON_SLICE = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F)
+            .effect(() -> new MobEffectInstance(FIRE_RESISTANCE, 200, 0), 1.0F)
             .alwaysEat()
             .build();
-    public static final Food GREEN_BEAN = new Food.Builder().nutrition(1).saturationMod(0.3F).fast().build();
-    public static final Food ONION = new Food.Builder().nutrition(1).saturationMod(0.3F).build();
-    public static final Food PEANUT = new Food.Builder().nutrition(2).saturationMod(0.3F).fast().build();
-    public static final Food RADISH = new Food.Builder().nutrition(1).saturationMod(0.3F).build();
-    public static final Food SPINACH = new Food.Builder().nutrition(1).saturationMod(0.3F).build();
-    public static final Food STRAWBERRY = new Food.Builder().nutrition(2).saturationMod(0.1F).build();
-    public static final Food TOMATO = new Food.Builder().nutrition(2).saturationMod(0.3F).build();
+    public static final FoodProperties GREEN_BEAN = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).fast().build();
+    public static final FoodProperties ONION = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).build();
+    public static final FoodProperties PEANUT = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).fast().build();
+    public static final FoodProperties RADISH = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).build();
+    public static final FoodProperties SPINACH = new FoodProperties.Builder().nutrition(1).saturationMod(0.3F).build();
+    public static final FoodProperties STRAWBERRY = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).build();
+    public static final FoodProperties TOMATO = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
 
     // INGREDIENTS
-    public static final Food CHEESE = new Food.Builder().nutrition(4).saturationMod(0.4F).build();
-    //    public static final Food JELLY = new Food.Builder().nutrition(2).saturationMod(0.3F).build();
-    //    public static final Food PEANUT_BUTTER = new Food.Builder().nutrition(4).saturationMod(0.4F).build();
-    //    public static final Food TOMATO_SAUCE = new Food.Builder().nutrition(3).saturationMod(0.3F).build();
+    public static final FoodProperties CHEESE = new FoodProperties.Builder().nutrition(4).saturationMod(0.4F).build();
+    //    public static final FoodProperties JELLY = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
+    //    public static final FoodProperties PEANUT_BUTTER = new FoodProperties.Builder().nutrition(4).saturationMod(0.4F).build();
+    //    public static final FoodProperties TOMATO_SAUCE = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
 
     // DRINKS
-    public static final Food COFFEE = new Food.Builder().nutrition(0).saturationMod(0.2F)
-            .effect(() -> new EffectInstance(MOVEMENT_SPEED, 200, 0), 1.0F)
+    public static final FoodProperties COFFEE = new FoodProperties.Builder().nutrition(0).saturationMod(0.2F)
+            .effect(() -> new MobEffectInstance(MOVEMENT_SPEED, 200, 0), 1.0F)
             .alwaysEat()
             .build();
-    //    public static final Food TEA = new Food.Builder().nutrition(0).saturationMod(0.2F)
+    //    public static final FoodProperties TEA = new FoodProperties.Builder().nutrition(0).saturationMod(0.2F)
     //            .effect(() -> new EffectInstance(MOVEMENT_SPEED, 200, 0), 1.0F)
     //            .alwaysEat()
     //            .build();
 
     // MEALS
-    public static final Food GREEN_BEAN_PIE = new Food.Builder().nutrition(8).saturationMod(0.8F).build();
-    public static final Food PBJ_SANDWICH = new Food.Builder().nutrition(6).saturationMod(0.6F).build();
-    public static final Food STUFFED_PEPPER = new Food.Builder().nutrition(9).saturationMod(0.8F).build();
-    public static final Food SUSHI = new Food.Builder().nutrition(6).saturationMod(0.6F).fast().build();
+    public static final FoodProperties GREEN_BEAN_PIE = new FoodProperties.Builder().nutrition(8).saturationMod(0.8F).build();
+    public static final FoodProperties PBJ_SANDWICH = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F).build();
+    public static final FoodProperties STUFFED_PEPPER = new FoodProperties.Builder().nutrition(9).saturationMod(0.8F).build();
+    public static final FoodProperties SUSHI = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F).fast().build();
 
-    public static final Food SPRING_SALAD = new Food.Builder().nutrition(6).saturationMod(0.6F)
-            .effect(() -> new EffectInstance(JUMP, 3600, 0), 1.0F)
+    public static final FoodProperties SPRING_SALAD = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(JUMP, 3600, 0), 1.0F)
             .alwaysEat()
             .build();
 
-    public static final Food HEARTY_STEW = new Food.Builder().nutrition(8).saturationMod(0.6F)
-            .effect(() -> new EffectInstance(HEALTH_BOOST, 3600, 0), 1.0F)
+    public static final FoodProperties HEARTY_STEW = new FoodProperties.Builder().nutrition(8).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(HEALTH_BOOST, 3600, 0), 1.0F)
             .alwaysEat()
             .build();
-    public static final Food XP_STEW = new Food.Builder().nutrition(6).saturationMod(0.6F)
-            .effect(() -> new EffectInstance(CLARITY, 3600, 0), 1.0F)
+    public static final FoodProperties XP_STEW = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F)
+            .effect(() -> new MobEffectInstance(CLARITY, 3600, 0), 1.0F)
             .alwaysEat()
             .build();
 
     // PLACEABLE
-    public static final Food CARROT_CAKE = new Food.Builder().nutrition(2).saturationMod(0.2F)
-            .effect(() -> new EffectInstance(NIGHT_VISION, 1800, 0), 1.0F)
+    public static final FoodProperties CARROT_CAKE = new FoodProperties.Builder().nutrition(2).saturationMod(0.2F)
+            .effect(() -> new MobEffectInstance(NIGHT_VISION, 1800, 0), 1.0F)
             .alwaysEat()
             .build();
-    public static final Food CHOCOLATE_CAKE = new Food.Builder().nutrition(2).saturationMod(0.2F).build();
-    public static final Food POTION_CAKE = new Food.Builder().nutrition(2).saturationMod(0.1F).alwaysEat().build();
-    public static final Food SPICE_CAKE = new Food.Builder().nutrition(2).saturationMod(0.2F)
-            .effect(() -> new EffectInstance(PANACEA, 100, 0), 1.0F)
+    public static final FoodProperties CHOCOLATE_CAKE = new FoodProperties.Builder().nutrition(2).saturationMod(0.2F).build();
+    public static final FoodProperties POTION_CAKE = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).alwaysEat().build();
+    public static final FoodProperties SPICE_CAKE = new FoodProperties.Builder().nutrition(2).saturationMod(0.2F)
+            .effect(() -> new MobEffectInstance(PANACEA, 100, 0), 1.0F)
             .alwaysEat()
             .build();
-    public static final Food STUFFED_PUMPKIN = new Food.Builder().nutrition(9).saturationMod(0.8F).build();
+    public static final FoodProperties STUFFED_PUMPKIN = new FoodProperties.Builder().nutrition(9).saturationMod(0.8F).build();
 
 }

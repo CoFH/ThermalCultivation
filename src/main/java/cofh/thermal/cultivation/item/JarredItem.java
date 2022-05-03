@@ -2,12 +2,12 @@ package cofh.thermal.cultivation.item;
 
 import cofh.core.item.ItemCoFH;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import static cofh.thermal.cultivation.init.TCulReferences.JAR_ITEM;
 
@@ -19,21 +19,21 @@ public class JarredItem extends ItemCoFH {
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entity) {
+    public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entity) {
 
         super.finishUsingItem(stack, worldIn, entity);
 
-        if (entity instanceof ServerPlayerEntity) {
-            ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entity;
+        if (entity instanceof ServerPlayer) {
+            ServerPlayer serverplayerentity = (ServerPlayer) entity;
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
             serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
         }
         if (stack.isEmpty()) {
             return new ItemStack(JAR_ITEM);
         } else {
-            if (entity instanceof PlayerEntity && !((PlayerEntity) entity).abilities.instabuild) {
+            if (entity instanceof Player && !((Player) entity).abilities.instabuild) {
                 ItemStack itemstack = new ItemStack(JAR_ITEM);
-                PlayerEntity playerentity = (PlayerEntity) entity;
+                Player playerentity = (Player) entity;
                 if (!playerentity.inventory.add(itemstack)) {
                     playerentity.drop(itemstack, false);
                 }

@@ -1,15 +1,18 @@
 package cofh.thermal.cultivation.data;
 
 import cofh.lib.util.references.ItemTagsCoFH;
-import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.FluidTagsProvider;
-import net.minecraft.data.ItemTagsProvider;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.tags.FluidTagsProvider;
+import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL;
+import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
+import static cofh.thermal.core.util.RegistrationHelper.block;
 import static cofh.thermal.core.util.RegistrationHelper.seeds;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 
@@ -31,6 +34,25 @@ public class TCulTagsProvider {
         @Override
         protected void addTags() {
 
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_AMARANTH)));
+            tag(BlockTags.MINEABLE_WITH_HOE).add(BLOCKS.get(block(ID_BARLEY)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_BELL_PEPPER)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_CORN)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_EGGPLANT)));
+            tag(BlockTags.MINEABLE_WITH_HOE).add(BLOCKS.get(block(ID_FLAX)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_GREEN_BEAN)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_HOPS)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_ONION)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_RADISH)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_SADIROOT)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_SPINACH)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_STRAWBERRY)));
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(block(ID_TOMATO)));
+
+            tag(BlockTags.MINEABLE_WITH_AXE).add(BLOCKS.get(ID_FROST_MELON));
+
+            tag(BlockTags.MINEABLE_WITH_SHOVEL).add(BLOCKS.get(ID_PHYTOSOIL));
+            tag(BlockTags.MINEABLE_WITH_SHOVEL).add(BLOCKS.get(ID_PHYTOSOIL_TILLED));
         }
 
     }

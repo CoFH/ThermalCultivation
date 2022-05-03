@@ -1,15 +1,15 @@
 package cofh.thermal.cultivation.block;
 
 import cofh.lib.block.impl.FeastBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.Food;
-import net.minecraft.state.IntegerProperty;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nonnull;
 
@@ -27,32 +27,32 @@ public class CheeseWheelBlock extends FeastBlock {
 
     static {
         SHAPE_BY_BITE_AND_ROTATION[0] = new VoxelShape[]{
-                VoxelShapes.or(PIECE_1, PIECE_2, PIECE_3, PIECE_4),
-                VoxelShapes.or(PIECE_2, PIECE_3, PIECE_4),
-                VoxelShapes.or(PIECE_3, PIECE_4),
-                VoxelShapes.or(PIECE_4)
+                Shapes.or(PIECE_1, PIECE_2, PIECE_3, PIECE_4),
+                Shapes.or(PIECE_2, PIECE_3, PIECE_4),
+                Shapes.or(PIECE_3, PIECE_4),
+                Shapes.or(PIECE_4)
         };
         SHAPE_BY_BITE_AND_ROTATION[1] = new VoxelShape[]{
-                VoxelShapes.or(PIECE_1, PIECE_2, PIECE_3, PIECE_4),
-                VoxelShapes.or(PIECE_1, PIECE_2, PIECE_4),
-                VoxelShapes.or(PIECE_1, PIECE_2),
-                VoxelShapes.or(PIECE_2)
+                Shapes.or(PIECE_1, PIECE_2, PIECE_3, PIECE_4),
+                Shapes.or(PIECE_1, PIECE_2, PIECE_4),
+                Shapes.or(PIECE_1, PIECE_2),
+                Shapes.or(PIECE_2)
         };
         SHAPE_BY_BITE_AND_ROTATION[2] = new VoxelShape[]{
-                VoxelShapes.or(PIECE_1, PIECE_2, PIECE_3, PIECE_4),
-                VoxelShapes.or(PIECE_1, PIECE_3, PIECE_4),
-                VoxelShapes.or(PIECE_1, PIECE_4),
-                VoxelShapes.or(PIECE_1)
+                Shapes.or(PIECE_1, PIECE_2, PIECE_3, PIECE_4),
+                Shapes.or(PIECE_1, PIECE_3, PIECE_4),
+                Shapes.or(PIECE_1, PIECE_4),
+                Shapes.or(PIECE_1)
         };
         SHAPE_BY_BITE_AND_ROTATION[3] = new VoxelShape[]{
-                VoxelShapes.or(PIECE_1, PIECE_2, PIECE_3, PIECE_4),
-                VoxelShapes.or(PIECE_1, PIECE_2, PIECE_3),
-                VoxelShapes.or(PIECE_2, PIECE_3),
-                VoxelShapes.or(PIECE_3),
+                Shapes.or(PIECE_1, PIECE_2, PIECE_3, PIECE_4),
+                Shapes.or(PIECE_1, PIECE_2, PIECE_3),
+                Shapes.or(PIECE_2, PIECE_3),
+                Shapes.or(PIECE_3),
         };
     }
 
-    public CheeseWheelBlock(Properties properties, @Nonnull Food food) {
+    public CheeseWheelBlock(Properties properties, @Nonnull FoodProperties food) {
 
         super(properties, food);
     }
@@ -64,7 +64,7 @@ public class CheeseWheelBlock extends FeastBlock {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 
         return SHAPE_BY_BITE_AND_ROTATION[state.getValue(FACING_HORIZONTAL).ordinal() - 2][state.getValue(getBitesProperty())];
     }

@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "thermal:amaranth_block",
+    "thermal:bell_pepper_block",
+    "thermal:corn_block",
+    "thermal:eggplant_block",
+    "thermal:green_bean_block",
+    "thermal:hops_block",
+    "thermal:onion_block",
+    "thermal:radish_block",
+    "thermal:sadiroot_block",
+    "thermal:spinach_block",
+    "thermal:strawberry_block",
+    "thermal:tomato_block",
+    "thermal:frost_melon"
+  ]
+}

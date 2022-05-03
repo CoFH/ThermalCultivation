@@ -2,9 +2,9 @@ package cofh.thermal.cultivation.event;
 
 import cofh.core.util.ProxyUtils;
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
-import net.minecraft.block.StemBlock;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.world.level.block.StemBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -37,7 +37,7 @@ public class TCulClientSetupEvents {
 
         colors.register((state, reader, pos, tintIndex) -> {
             if (pos != null) {
-                TileEntity tile = ProxyUtils.getClientWorld().getBlockEntity(pos);
+                BlockEntity tile = ProxyUtils.getClientWorld().getBlockEntity(pos);
                 if (tile instanceof PotionCakeTile) {
                     return ((PotionCakeTile) tile).getColor();
                 }

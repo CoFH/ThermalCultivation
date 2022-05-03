@@ -2,18 +2,18 @@ package cofh.thermal.cultivation.data;
 
 import cofh.lib.data.LootTableProviderCoFH;
 import cofh.lib.util.DeferredRegisterCoFH;
-import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.loot.BlockLootTables;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.loot.IntClamper;
-import net.minecraft.loot.ItemLootEntry;
-import net.minecraft.loot.RandomValueRange;
-import net.minecraft.loot.functions.ApplyBonus;
-import net.minecraft.loot.functions.LimitCount;
-import net.minecraft.loot.functions.SetCount;
+import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.IntRange;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.LimitCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import static cofh.lib.util.constants.Constants.*;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
@@ -67,19 +67,19 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         createMushroomTable(ID_SLIME_MUSHROOM, Items.SLIME_BALL);
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON),
-                BlockLootTables.createSilkTouchDispatchTable(regBlocks.get(ID_FROST_MELON),
-                        BlockLootTables.applyExplosionDecay(regBlocks.get(ID_FROST_MELON),
-                                ItemLootEntry.lootTableItem(regItems.get(ID_FROST_MELON_SLICE))
-                                        .apply(SetCount.setCount(RandomValueRange.between(3.0F, 7.0F)))
-                                        .apply(ApplyBonus.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
-                                        .apply(LimitCount.limitCount(IntClamper.upperBound(9))))));
+                BlockLoot.createSilkTouchDispatchTable(regBlocks.get(ID_FROST_MELON),
+                        BlockLoot.applyExplosionDecay(regBlocks.get(ID_FROST_MELON),
+                                LootItem.lootTableItem(regItems.get(ID_FROST_MELON_SLICE))
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 7.0F)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
+                                        .apply(LimitCount.limitCount(IntRange.upperBound(9))))));
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON_STEM),
-                BlockLootTables.createStemDrops(regBlocks.get(ID_FROST_MELON_STEM),
+                BlockLoot.createStemDrops(regBlocks.get(ID_FROST_MELON_STEM),
                         regItems.get(seeds(ID_FROST_MELON))));
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON_STEM_ATTACHED),
-                BlockLootTables.createAttachedStemDrops(regBlocks.get(ID_FROST_MELON_STEM),
+                BlockLoot.createAttachedStemDrops(regBlocks.get(ID_FROST_MELON_STEM),
                         regItems.get(seeds(ID_FROST_MELON))));
 
         blockLootTables.put(regBlocks.get(ID_PHYTOSOIL), getSimpleDropTable(regBlocks.get(ID_PHYTOSOIL)));

@@ -3,8 +3,8 @@ package cofh.thermal.cultivation;
 import cofh.thermal.cultivation.init.TCulBlocks;
 import cofh.thermal.cultivation.init.TCulItems;
 import cofh.thermal.cultivation.loot.GrassLootModifier;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -67,35 +67,35 @@ public class ThermalCultivation {
 
         RenderType cutout = RenderType.cutout();
 
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_AMARANTH), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_BARLEY), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_CORN), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_FLAX), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_ONION), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_RADISH), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_RICE), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_SADIROOT), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_SPINACH), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_AMARANTH), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_BARLEY), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_CORN), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_FLAX), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_ONION), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_RADISH), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_RICE), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_SADIROOT), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_SPINACH), cutout);
 
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_BELL_PEPPER), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_EGGPLANT), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_GREEN_BEAN), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_PEANUT), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_STRAWBERRY), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_TOMATO), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_BELL_PEPPER), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_EGGPLANT), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_GREEN_BEAN), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_PEANUT), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_STRAWBERRY), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_TOMATO), cutout);
 
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_COFFEE), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_TEA), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_COFFEE), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_TEA), cutout);
 
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_GLOWSTONE_MUSHROOM), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_GUNPOWDER_MUSHROOM), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_REDSTONE_MUSHROOM), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_SLIME_MUSHROOM), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_GLOWSTONE_MUSHROOM), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_GUNPOWDER_MUSHROOM), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_REDSTONE_MUSHROOM), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_SLIME_MUSHROOM), cutout);
 
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_FROST_MELON_STEM), cutout);
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_FROST_MELON_STEM_ATTACHED), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_FROST_MELON_STEM), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_FROST_MELON_STEM_ATTACHED), cutout);
 
-        RenderTypeLookup.setRenderLayer(BLOCKS.get(ID_POTION_CAKE), cutout);
+        ItemBlockRenderTypes.setRenderLayer(BLOCKS.get(ID_POTION_CAKE), cutout);
     }
     // endregion
 }

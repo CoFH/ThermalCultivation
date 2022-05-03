@@ -4,14 +4,13 @@ import cofh.lib.util.WeightedRandomDrop;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.conditions.ILootCondition;
-import net.minecraft.util.JSONUtils;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedRandom;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.WeightedRandom;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 
@@ -19,12 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static cofh.thermal.core.ThermalCore.ITEMS;
+import static net.minecraft.util.GsonHelper.getAsJsonArray;
 
 public class GrassLootModifier extends LootModifier {
 
     private List<WeightedRandomDrop> seedDrops = new ArrayList<>();
 
-    public GrassLootModifier(ILootCondition[] conditionsIn, List<String> seeds) {
+    public GrassLootModifier(LootItemCondition[] conditionsIn, List<String> seeds) {
 
         super(conditionsIn);
 
@@ -55,8 +55,7 @@ public class GrassLootModifier extends LootModifier {
         List<ItemStack> newLoot = new ArrayList<>();
         for (ItemStack stack : generatedLoot) {
             if (stack.getItem() == Items.WHEAT_SEEDS) {
-                WeightedRandomDrop se = WeightedRandom.getRandomItem(context.getRandom(), seedDrops);
-                newLoot.add(se.toItemStack(stack.getCount()));
+                WeightedRandom.getRandomItem(context.getRandom(), seedDrops).ifPresent((e) -> newLoot.add(e.toItemStack(stack.getCount())));
             } else {
                 newLoot.add(stack);
             }
@@ -67,11 +66,11 @@ public class GrassLootModifier extends LootModifier {
     public static class Serializer extends GlobalLootModifierSerializer<GrassLootModifier> {
 
         @Override
-        public GrassLootModifier read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition) {
+        public GrassLootModifier read(ResourceLocation location, JsonObject object, LootItemCondition[] ailootcondition) {
 
             List<String> seeds = new ArrayList<>();
 
-            JsonArray seedlist = JSONUtils.getAsJsonArray(object, "seeds");
+            JsonArray seedlist = getAsJsonArray(object, "seeds");
             for (JsonElement je : seedlist) {
                 seeds.add(je.getAsString());
             }

@@ -1,14 +1,15 @@
 package cofh.thermal.cultivation.tileentity;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SUpdateTileEntityPacket;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.PotionUtils;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 import java.util.Collections;
@@ -17,17 +18,17 @@ import java.util.List;
 import static cofh.lib.util.constants.NBTTags.TAG_POTION;
 import static cofh.thermal.cultivation.init.TCulReferences.POTION_CAKE_TILE;
 
-public class PotionCakeTile extends TileEntity {
+public class PotionCakeTile extends BlockEntity {
 
-    protected CompoundNBT potionTag = new CompoundNBT();
-    protected List<EffectInstance> effects = Collections.emptyList();
+    protected CompoundTag potionTag = new CompoundTag();
+    protected List<MobEffectInstance> effects = Collections.emptyList();
 
-    public PotionCakeTile() {
+    public PotionCakeTile(BlockPos pos, BlockState state) {
 
-        super(POTION_CAKE_TILE);
+        super(POTION_CAKE_TILE, pos, state);
     }
 
-    public void cacheEffects(CompoundNBT nbt) {
+    public void cacheEffects(CompoundTag nbt) {
 
         if (nbt != null) {
             potionTag = nbt.copy();
@@ -35,13 +36,13 @@ public class PotionCakeTile extends TileEntity {
         }
     }
 
-    public void applyEffects(PlayerEntity player) {
+    public void applyEffects(Player player) {
 
-        for (EffectInstance effect : effects) {
+        for (MobEffectInstance effect : effects) {
             if (effect.getEffect().isInstantenous()) {
                 effect.getEffect().applyInstantenousEffect(null, null, player, effect.getAmplifier(), 0.5D);
             } else {
-                EffectInstance potion = new EffectInstance(effect.getEffect(), effect.getDuration() / 4, effect.getAmplifier(), effect.isAmbient(), effect.isVisible());
+                MobEffectInstance potion = new MobEffectInstance(effect.getEffect(), effect.getDuration() / 4, effect.getAmplifier(), effect.isAmbient(), effect.isVisible());
                 player.addEffect(potion);
             }
         }
@@ -62,42 +63,41 @@ public class PotionCakeTile extends TileEntity {
     // region NETWORK
     @Nullable
     @Override
-    public SUpdateTileEntityPacket getUpdatePacket() {
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
 
-        return new SUpdateTileEntityPacket(worldPosition, 0, getUpdateTag());
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
-    public CompoundNBT getUpdateTag() {
+    public CompoundTag getUpdateTag() {
 
-        return this.save(new CompoundNBT());
+        return saveWithoutMetadata();
     }
 
     @Override
-    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
 
-        load(this.blockState, pkt.getTag());
+        load(pkt.getTag());
     }
     // endregion
 
     // region NBT
     @Override
-    public void load(BlockState state, CompoundNBT nbt) {
+    public void load(CompoundTag nbt) {
 
-        super.load(state, nbt);
+        super.load(nbt);
 
         cacheEffects(nbt.getCompound(TAG_POTION));
     }
 
     @Override
-    public CompoundNBT save(CompoundNBT nbt) {
+    public void saveAdditional(CompoundTag nbt) {
 
-        super.save(nbt);
+        super.saveAdditional(nbt);
 
         if (potionTag != null && !potionTag.isEmpty()) {
             nbt.put(TAG_POTION, potionTag);
         }
-        return nbt;
     }
     // endregion
 }

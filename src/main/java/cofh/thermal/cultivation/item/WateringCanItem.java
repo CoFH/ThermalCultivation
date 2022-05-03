@@ -9,26 +9,35 @@ import cofh.lib.util.Utils;
 import cofh.thermal.lib.common.ThermalConfig;
 import cofh.thermal.lib.item.FluidContainerItemAugmentable;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.minecraft.block.*;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.IDyeableArmorItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeableLeatherItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Triple;
@@ -47,7 +56,7 @@ import static cofh.lib.util.helpers.AugmentableHelper.setAttributeFromAugmentAdd
 import static cofh.thermal.lib.common.ThermalAugmentRules.createAllowValidator;
 import static net.minecraftforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE;
 
-public class WateringCanItem extends FluidContainerItemAugmentable implements IColorableItem, IDyeableArmorItem, IMultiModeItem {
+public class WateringCanItem extends FluidContainerItemAugmentable implements IColorableItem, DyeableLeatherItem, IMultiModeItem {
 
     private static final Set<Triple<BlockPos, BlockState, Block>> WATERED_BLOCKS = new ObjectOpenHashSet<>();
 
@@ -67,8 +76,8 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
 
         super(builder, fluidCapacity, IS_WATER);
 
-        ProxyUtils.registerItemModelProperty(this, new ResourceLocation("color"), (stack, world, entity) -> (hasCustomColor(stack) ? 1.0F : 0));
-        ProxyUtils.registerItemModelProperty(this, new ResourceLocation("state"), (stack, world, entity) -> (getFluidAmount(stack) > 0 ? 0.5F : 0) + (hasActiveTag(stack) ? 0.25F : 0));
+        ProxyUtils.registerItemModelProperty(this, new ResourceLocation("color"), (stack, world, entity, seed) -> (hasCustomColor(stack) ? 1.0F : 0));
+        ProxyUtils.registerItemModelProperty(this, new ResourceLocation("state"), (stack, world, entity, seed) -> (getFluidAmount(stack) > 0 ? 0.5F : 0) + (hasActiveTag(stack) ? 0.25F : 0));
         ProxyUtils.registerColorable(this);
 
         numSlots = () -> ThermalConfig.toolAugments;
@@ -76,13 +85,13 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
     }
 
     @Override
-    protected void tooltipDelegate(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    protected void tooltipDelegate(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
 
         int radius = getMode(stack) * 2 + 1;
         if (radius <= 1) {
-            tooltip.add(new TranslationTextComponent("info.cofh.single_block").withStyle(TextFormatting.ITALIC));
+            tooltip.add(new TranslatableComponent("info.cofh.single_block").withStyle(ChatFormatting.ITALIC));
         } else {
-            tooltip.add(new TranslationTextComponent("info.cofh.area").append(": " + radius + "x" + radius).withStyle(TextFormatting.ITALIC));
+            tooltip.add(new TranslatableComponent("info.cofh.area").append(": " + radius + "x" + radius).withStyle(ChatFormatting.ITALIC));
         }
         if (getNumModes(stack) > 1) {
             addIncrementModeChangeTooltip(stack, worldIn, tooltip, flagIn);
@@ -97,26 +106,26 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
     }
 
     @Override
-    public int getRGBDurabilityForDisplay(ItemStack stack) {
+    public int getBarColor(ItemStack stack) {
 
         return RGB_DURABILITY_WATER;
     }
 
     @Override
-    public ActionResultType useOn(ItemUseContext context) {
+    public InteractionResult useOn(UseOnContext context) {
 
-        World world = context.getLevel();
+        Level world = context.getLevel();
         BlockPos pos = context.getClickedPos();
-        PlayerEntity player = context.getPlayer();
+        Player player = context.getPlayer();
 
         if (player == null || Utils.isFakePlayer(player) && !allowFakePlayers) {
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
         }
         if (player.isSecondaryUseActive()) {
-            BlockRayTraceResult traceResult = RayTracer.retrace(player, RayTraceContext.FluidMode.SOURCE_ONLY);
-            if (traceResult.getType() != RayTraceResult.Type.MISS) {
+            BlockHitResult traceResult = RayTracer.retrace(player, ClipContext.Fluid.SOURCE_ONLY);
+            if (traceResult.getType() != HitResult.Type.MISS) {
                 if (isWater(world.getBlockState(traceResult.getBlockPos()))) {
-                    return ActionResultType.PASS;
+                    return InteractionResult.PASS;
                 }
             }
         }
@@ -124,7 +133,7 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
         BlockPos offsetPos = world.getBlockState(pos).canOcclude() ? pos.relative(context.getClickedFace()) : pos;
 
         if (getFluidAmount(stack) < getWaterPerUse(stack)) {
-            return ActionResultType.FAIL;
+            return InteractionResult.FAIL;
         }
         setActive(stack, player);
 
@@ -141,9 +150,9 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
         Iterable<BlockPos> area = BlockPos.betweenClosed(offsetPos.offset(-radius, -2, -radius), offsetPos.offset(radius, 1, radius));
         for (BlockPos scan : area) {
             BlockState state = world.getBlockState(scan);
-            if (state.getBlock() instanceof FarmlandBlock) {
-                if (state.getValue(FarmlandBlock.MOISTURE) < 7) {
-                    world.setBlockAndUpdate(scan, state.setValue(FarmlandBlock.MOISTURE, 7));
+            if (state.getBlock() instanceof FarmBlock) {
+                if (state.getValue(FarmBlock.MOISTURE) < 7) {
+                    world.setBlockAndUpdate(scan, state.setValue(FarmBlock.MOISTURE, 7));
                 }
             }
         }
@@ -152,7 +161,7 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
                 for (BlockPos scan : area) {
                     BlockState plantState = world.getBlockState(scan);
                     Block plant = plantState.getBlock();
-                    if (plant instanceof IGrowable || plant instanceof IPlantable || EFFECTIVE_BLOCKS.contains(plant)) {
+                    if (plant instanceof BonemealableBlock || plant instanceof IPlantable || EFFECTIVE_BLOCKS.contains(plant)) {
                         WATERED_BLOCKS.add(Triple.of(new BlockPos(scan), plantState, plant));
                     }
                 }
@@ -161,22 +170,22 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
                 drain(stack, getWaterPerUse(stack) * (getMode(stack) + 1) * 2, EXECUTE);
             }
         }
-        return ActionResultType.FAIL;
+        return InteractionResult.FAIL;
     }
 
     @Override
-    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
 
-        BlockRayTraceResult traceResult = RayTracer.retrace(player, RayTraceContext.FluidMode.SOURCE_ONLY);
+        BlockHitResult traceResult = RayTracer.retrace(player, ClipContext.Fluid.SOURCE_ONLY);
         ItemStack stack = player.getItemInHand(hand);
 
-        if (traceResult.getType() == RayTraceResult.Type.MISS) {
-            return ActionResult.pass(stack);
+        if (traceResult.getType() == HitResult.Type.MISS) {
+            return InteractionResultHolder.pass(stack);
         }
         BlockPos tracePos = traceResult.getBlockPos();
 
         if (!player.isSecondaryUseActive() || !world.mayInteract(player, tracePos) || Utils.isFakePlayer(player) && !allowFakePlayers) {
-            return ActionResult.fail(stack);
+            return InteractionResultHolder.fail(stack);
         }
         if (isWater(world.getBlockState(tracePos)) && getSpace(stack) > 0) {
             if (removeSourceBlocks) {
@@ -184,13 +193,13 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
             }
             fill(stack, new FluidStack(Fluids.WATER, BUCKET_VOLUME), EXECUTE);
             player.playSound(SoundEvents.BUCKET_FILL, 1.0F, 1.0F);
-            return ActionResult.success(stack);
+            return InteractionResultHolder.success(stack);
         }
-        return ActionResult.pass(stack);
+        return InteractionResultHolder.pass(stack);
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+    public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 
         if (!hasActiveTag(stack)) {
             return;
@@ -204,9 +213,9 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
 
     // region HELPERS
     @Override
-    protected void setAttributesFromAugment(ItemStack container, CompoundNBT augmentData) {
+    protected void setAttributesFromAugment(ItemStack container, CompoundTag augmentData) {
 
-        CompoundNBT subTag = container.getTagElement(TAG_PROPERTIES);
+        CompoundTag subTag = container.getTagElement(TAG_PROPERTIES);
         if (subTag == null) {
             return;
         }
@@ -248,7 +257,7 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
     public int getColor(ItemStack item, int colorIndex) {
 
         if (colorIndex == 0) {
-            CompoundNBT nbt = item.getTagElement("display");
+            CompoundTag nbt = item.getTagElement("display");
             return nbt != null && nbt.contains("color", 99) ? nbt.getInt("color") : 0xFFFFFF;
         }
         return 0xFFFFFF;
@@ -263,19 +272,19 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
     }
 
     @Override
-    public void onModeChange(PlayerEntity player, ItemStack stack) {
+    public void onModeChange(Player player, ItemStack stack) {
 
-        player.level.playSound(null, player.blockPosition(), SoundEvents.BUCKET_EMPTY, SoundCategory.PLAYERS, 0.6F, 1.0F - 0.1F * getMode(stack));
+        player.level.playSound(null, player.blockPosition(), SoundEvents.BUCKET_EMPTY, SoundSource.PLAYERS, 0.6F, 1.0F - 0.1F * getMode(stack));
         int radius = getMode(stack) * 2 + 1;
         if (radius <= 1) {
-            ChatHelper.sendIndexedChatMessageToPlayer(player, new TranslationTextComponent("info.cofh.single_block"));
+            ChatHelper.sendIndexedChatMessageToPlayer(player, new TranslatableComponent("info.cofh.single_block"));
         } else {
-            ChatHelper.sendIndexedChatMessageToPlayer(player, new TranslationTextComponent("info.cofh.area").append(": " + radius + "x" + radius));
+            ChatHelper.sendIndexedChatMessageToPlayer(player, new TranslatableComponent("info.cofh.area").append(": " + radius + "x" + radius));
         }
     }
     // endregion
 
-    public static void growPlants(World world) {
+    public static void growPlants(Level world) {
 
         if (WATERED_BLOCKS.isEmpty()) {
             return;
@@ -286,10 +295,10 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
             Block block = entry.getRight();
 
             if (block.isRandomlyTicking(state)) {
-                block.randomTick(state, (ServerWorld) world, pos, world.random);
+                block.randomTick(state, (ServerLevel) world, pos, world.random);
                 world.sendBlockUpdated(pos, state, state, 3);
             } else {
-                world.getBlockTicks().scheduleTick(pos, block, 0);
+                world.scheduleTick(pos, block, 0);
             }
         }
         WATERED_BLOCKS.clear();

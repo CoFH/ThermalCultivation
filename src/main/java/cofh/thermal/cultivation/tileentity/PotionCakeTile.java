@@ -73,12 +73,6 @@ public class PotionCakeTile extends BlockEntity {
 
         return saveWithoutMetadata();
     }
-
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
-
-        load(pkt.getTag());
-    }
     // endregion
 
     // region NBT

@@ -103,7 +103,6 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         generated(reg.getSup(ID_CARROT_CAKE));
         generated(reg.getSup(ID_CHEESE_WHEEL));
         generated(reg.getSup(ID_CHOCOLATE_CAKE));
-        generated(reg.getSup(ID_POTION_CAKE));
         generated(reg.getSup(ID_SPICE_CAKE));
         generated(reg.getSup(ID_STUFFED_PUMPKIN));
     }

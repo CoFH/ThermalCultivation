@@ -1,6 +1,6 @@
 package cofh.thermal.cultivation.event;
 
-import cofh.thermal.lib.common.ThermalConfig;
+import cofh.thermal.core.config.ThermalCoreConfig;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -28,7 +28,7 @@ public class TCulCommonSetupEvents {
     @SubscribeEvent
     public static void setupVillagerTrades(final VillagerTradesEvent event) {
 
-        if (!ThermalConfig.enableVillagerTrades.get()) {
+        if (!ThermalCoreConfig.enableVillagerTrades) {
             return;
         }
         if (event.getType() == VillagerProfession.FARMER) {

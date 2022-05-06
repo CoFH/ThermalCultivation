@@ -22,7 +22,7 @@ import static net.minecraft.util.GsonHelper.getAsJsonArray;
 
 public class GrassLootModifier extends LootModifier {
 
-    private List<WeightedRandomDrop> seedDrops = new ArrayList<>();
+    private final List<WeightedRandomDrop> seedDrops = new ArrayList<>();
 
     public GrassLootModifier(LootItemCondition[] conditionsIn, List<String> seeds) {
 

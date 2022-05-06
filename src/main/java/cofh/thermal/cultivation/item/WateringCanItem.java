@@ -6,7 +6,7 @@ import cofh.lib.item.IColorableItem;
 import cofh.lib.item.IMultiModeItem;
 import cofh.lib.util.RayTracer;
 import cofh.lib.util.Utils;
-import cofh.thermal.lib.common.ThermalConfig;
+import cofh.thermal.core.config.ThermalCoreConfig;
 import cofh.thermal.lib.item.FluidContainerItemAugmentable;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.ChatFormatting;
@@ -80,7 +80,7 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
         ProxyUtils.registerItemModelProperty(this, new ResourceLocation("state"), (stack, world, entity, seed) -> (getFluidAmount(stack) > 0 ? 0.5F : 0) + (hasActiveTag(stack) ? 0.25F : 0));
         ProxyUtils.registerColorable(this);
 
-        numSlots = () -> ThermalConfig.toolAugments;
+        numSlots = () -> ThermalCoreConfig.toolAugments;
         augValidator = createAllowValidator(TAG_AUGMENT_TYPE_UPGRADE, TAG_AUGMENT_TYPE_FLUID, TAG_AUGMENT_TYPE_AREA_EFFECT);
     }
 

@@ -94,7 +94,7 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
             tooltip.add(new TranslatableComponent("info.cofh.area").append(": " + radius + "x" + radius).withStyle(ChatFormatting.ITALIC));
         }
         if (getNumModes(stack) > 1) {
-            addIncrementModeChangeTooltip(stack, worldIn, tooltip, flagIn);
+            addModeChangeTooltip(this, stack, worldIn, tooltip, flagIn);
         }
         super.tooltipDelegate(stack, worldIn, tooltip, flagIn);
     }

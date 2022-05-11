@@ -1,15 +1,23 @@
 package cofh.thermal.cultivation;
 
+import cofh.lib.config.world.OreConfig;
+import cofh.thermal.core.config.ThermalWorldConfig;
 import cofh.thermal.cultivation.init.TCulBlocks;
+import cofh.thermal.cultivation.init.TCulFeatures;
 import cofh.thermal.cultivation.init.TCulItems;
 import cofh.thermal.cultivation.loot.GrassLootModifier;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import java.util.Collections;
+import java.util.List;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
@@ -24,6 +32,7 @@ public class ThermalCultivation {
     public ThermalCultivation() {
 
         setFeatureFlags();
+        addWorldConfigs();
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -32,6 +41,7 @@ public class ThermalCultivation {
 
         TCulBlocks.register();
         TCulItems.register();
+        TCulFeatures.register();
 
         LOOT_SERIALIZERS.register("seeds_from_grass", GrassLootModifier.Serializer::new);
     }
@@ -48,6 +58,13 @@ public class ThermalCultivation {
         setFlag(ID_DEVICE_TREE_EXTRACTOR, true);
         setFlag(ID_DEVICE_FISHER, true);
         setFlag(ID_DEVICE_SOIL_INFUSER, true);
+    }
+
+    private void addWorldConfigs() {
+
+        List<ResourceKey<Level>> defaultDimensions = Collections.singletonList(Level.OVERWORLD);
+
+        ThermalWorldConfig.addOreConfig("apatite_ore", new OreConfig("Apatite", 4, -16, 96, 9, defaultDimensions));
     }
 
     // region INITIALIZATION

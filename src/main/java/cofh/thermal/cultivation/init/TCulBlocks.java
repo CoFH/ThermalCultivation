@@ -231,8 +231,8 @@ public class TCulBlocks {
 
     private static void registerMisc() {
 
-        registerBlock(ID_PHYTOSOIL, () -> new SoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)), ID_THERMAL_CULTIVATION);
-        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).dirt(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_PHYTOSOIL, () -> new SoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL_TILLED)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
     }
 
     private static void registerAmaranth(String id) {

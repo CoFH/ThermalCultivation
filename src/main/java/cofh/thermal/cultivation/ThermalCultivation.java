@@ -44,7 +44,6 @@ public class ThermalCultivation {
 
         TCulBlocks.register();
         TCulItems.register();
-        TCulFeatures.register();
 
         LOOT_SERIALIZERS.register("seeds_from_grass", GrassLootModifier.Serializer::new);
     }

@@ -1,10 +1,7 @@
 package cofh.thermal.cultivation.data;
 
 import cofh.lib.data.ItemModelProviderCoFH;
-import cofh.lib.util.DeferredRegisterCoFH;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL;
@@ -31,7 +28,7 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
 
         registerBlockItemModels();
 
-        DeferredRegisterCoFH<Item> reg = ITEMS;
+        var reg = ITEMS;
 
         // CROPS
         generated(reg.getSup(ID_AMARANTH));
@@ -109,7 +106,7 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
 
     private void registerBlockItemModels() {
 
-        DeferredRegisterCoFH<Block> reg = BLOCKS;
+        var reg = BLOCKS;
 
         blockItem(reg.getSup(block(ID_AMARANTH)));
         blockItem(reg.getSup(block(ID_BARLEY)));

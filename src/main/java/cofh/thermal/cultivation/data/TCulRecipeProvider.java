@@ -1,7 +1,6 @@
 package cofh.thermal.cultivation.data;
 
 import cofh.lib.data.RecipeProviderCoFH;
-import cofh.lib.util.DeferredRegisterCoFH;
 import cofh.lib.util.references.CoFHTags;
 import cofh.thermal.lib.common.ThermalFlags;
 import net.minecraft.data.DataGenerator;
@@ -9,7 +8,6 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
@@ -39,7 +37,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
 
         generateFoodRecipes(consumer);
 
-        DeferredRegisterCoFH<Item> reg = ITEMS;
+        var reg = ITEMS;
 
         ShapedRecipeBuilder.shaped(reg.get(ID_WATERING_CAN))
                 .define('B', net.minecraft.world.item.Items.BUCKET)
@@ -143,7 +141,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
     // region HELPERS
     private void generateFoodRecipes(Consumer<FinishedRecipe> consumer) {
 
-        DeferredRegisterCoFH<Item> reg = ITEMS;
+        var reg = ITEMS;
 
         ShapelessRecipeBuilder.shapeless(ITEMS.get(ID_JELLY))
                 .requires(CoFHTags.Items.CROPS_STRAWBERRY)

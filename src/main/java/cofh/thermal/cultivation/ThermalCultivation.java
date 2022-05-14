@@ -1,25 +1,15 @@
 package cofh.thermal.cultivation;
 
-import cofh.lib.config.world.OreConfig;
-import cofh.thermal.core.ThermalCore;
-import cofh.thermal.core.config.ThermalWorldConfig;
 import cofh.thermal.cultivation.init.TCulBlocks;
-import cofh.thermal.cultivation.init.TCulFeatures;
 import cofh.thermal.cultivation.init.TCulItems;
 import cofh.thermal.cultivation.loot.GrassLootModifier;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.NewRegistryEvent;
-
-import java.util.Collections;
-import java.util.List;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
@@ -34,13 +24,11 @@ public class ThermalCultivation {
     public ThermalCultivation() {
 
         setFeatureFlags();
-        addWorldConfigs();
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
-        modEventBus.addListener(this::registrySetup);
 
         TCulBlocks.register();
         TCulItems.register();
@@ -62,13 +50,6 @@ public class ThermalCultivation {
         setFlag(ID_DEVICE_SOIL_INFUSER, true);
     }
 
-    private void addWorldConfigs() {
-
-        List<ResourceKey<Level>> defaultDimensions = Collections.singletonList(Level.OVERWORLD);
-
-        ThermalWorldConfig.addOreConfig("apatite_ore", new OreConfig("Apatite", 4, -16, 96, 9, defaultDimensions));
-    }
-
     // region INITIALIZATION
     private void commonSetup(final FMLCommonSetupEvent event) {
 
@@ -78,14 +59,6 @@ public class ThermalCultivation {
     private void clientSetup(final FMLClientSetupEvent event) {
 
         event.enqueueWork(this::registerRenderLayers);
-    }
-
-    private void registrySetup(final NewRegistryEvent event) {
-
-        while (!ThermalCore.CONFIG_MANAGER.isServerInit()) {
-
-        }
-        TCulFeatures.register();
     }
     // endregion
 

@@ -5,13 +5,9 @@
   },
   "result": [
     {
-      "item": "minecraft:slime_ball",
-      "chance": 1.0
-    },
-    {
       "item": "thermal:slime_mushroom_spores",
-      "chance": 1.0
+      "chance": 2.0
     }
   ],
-  "energy_mod": 4.0
+  "energy_mod": 3.0
 }

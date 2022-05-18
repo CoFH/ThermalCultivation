@@ -1,16 +1,23 @@
 package cofh.thermal.cultivation.data;
 
 import cofh.lib.data.LootTableProviderCoFH;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.IntRange;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import static cofh.lib.util.constants.Constants.*;
@@ -18,6 +25,7 @@ import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
+import static net.minecraft.data.loot.BlockLoot.applyExplosionDecay;
 
 public class TCulLootTableProvider extends LootTableProviderCoFH {
 
@@ -59,14 +67,14 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         // createTallCropTable(ID_HOPS);
         createPerennialCropTable(ID_TEA);
 
-        createMushroomTable(ID_GLOWSTONE_MUSHROOM, Items.GLOWSTONE_DUST);
-        createMushroomTable(ID_GUNPOWDER_MUSHROOM, Items.GUNPOWDER);
-        createMushroomTable(ID_REDSTONE_MUSHROOM, Items.REDSTONE);
-        createMushroomTable(ID_SLIME_MUSHROOM, Items.SLIME_BALL);
+        createMushroomTable(ID_GLOWSTONE_MUSHROOM);
+        createMushroomTable(ID_GUNPOWDER_MUSHROOM);
+        createMushroomTable(ID_REDSTONE_MUSHROOM);
+        createMushroomTable(ID_SLIME_MUSHROOM);
 
         blockLootTables.put(regBlocks.get(ID_FROST_MELON),
                 BlockLoot.createSilkTouchDispatchTable(regBlocks.get(ID_FROST_MELON),
-                        BlockLoot.applyExplosionDecay(regBlocks.get(ID_FROST_MELON),
+                        applyExplosionDecay(regBlocks.get(ID_FROST_MELON),
                                 LootItem.lootTableItem(regItems.get(ID_FROST_MELON_SLICE))
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 7.0F)))
                                         .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))
@@ -120,9 +128,9 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
         blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_6, 6));
     }
 
-    protected void createMushroomTable(String id, Item drop) {
+    protected void createMushroomTable(String id) {
 
-        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), drop, ITEMS.get(spores(id)), AGE_0_4, 4));
+        blockLootTables.put(BLOCKS.get(id), getMushroomTable(BLOCKS.get(id), ITEMS.get(spores(id)), AGE_0_4, 4));
     }
 
     protected void createTallCropTable(String id) {
@@ -133,6 +141,21 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
     protected void createPerennialCropTable(String id) {
 
         blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_10, 10));
+    }
+
+    protected LootTable.Builder getMushroomTable(Block block, Item crop, IntegerProperty ageProp, int age) {
+
+        LootItemCondition.Builder harvestAge = LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ageProp, age));
+
+        return LootTable.lootTable()
+                .withPool(applyExplosionDecay(block, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(crop)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F))
+                                        .when(harvestAge))
+                                .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)
+                                        .when(harvestAge))
+                        )
+                ));
     }
 
 }

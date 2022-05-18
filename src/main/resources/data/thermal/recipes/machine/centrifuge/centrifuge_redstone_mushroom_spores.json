@@ -1,0 +1,14 @@
+{
+  "type": "thermal:centrifuge",
+  "ingredient": {
+    "item": "thermal:redstone_mushroom_spores"
+  },
+  "result": [
+    {
+      "item": "minecraft:redstone",
+      "chance": 1.5
+    }
+  ],
+  "experience": 0.2,
+  "energy": 4000
+}

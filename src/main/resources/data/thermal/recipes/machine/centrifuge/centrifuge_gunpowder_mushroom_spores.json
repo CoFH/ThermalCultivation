@@ -1,0 +1,14 @@
+{
+  "type": "thermal:centrifuge",
+  "ingredient": {
+    "item": "thermal:gunpowder_mushroom_spores"
+  },
+  "result": [
+    {
+      "item": "minecraft:gunpowder",
+      "chance": 1.5
+    }
+  ],
+  "experience": 0.2,
+  "energy": 4000
+}

@@ -1,0 +1,14 @@
+{
+  "type": "thermal:centrifuge",
+  "ingredient": {
+    "item": "thermal:slime_mushroom_spores"
+  },
+  "result": [
+    {
+      "item": "minecraft:slime_ball",
+      "chance": 1.5
+    }
+  ],
+  "experience": 0.2,
+  "energy": 4000
+}

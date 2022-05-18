@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
@@ -40,12 +41,12 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
         var reg = ITEMS;
 
         ShapedRecipeBuilder.shaped(reg.get(ID_WATERING_CAN))
-                .define('B', net.minecraft.world.item.Items.BUCKET)
+                .define('B', Items.BUCKET)
                 .define('C', Tags.Items.INGOTS_COPPER)
                 .pattern("C  ")
                 .pattern("CBC")
                 .pattern(" C ")
-                .unlockedBy("has_bucket", has(net.minecraft.world.item.Items.BUCKET))
+                .unlockedBy("has_bucket", has(Items.BUCKET))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(reg.get(ID_JAR), 8)
@@ -59,7 +60,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
 
 
         ShapedRecipeBuilder.shaped(reg.get(ID_PHYTOSOIL))
-                .define('C', net.minecraft.world.item.Items.CHARCOAL)
+                .define('C', Items.CHARCOAL)
                 .define('P', reg.get("phytogro"))
                 .define('X', Blocks.DIRT)
                 .pattern("CPC")
@@ -68,7 +69,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .unlockedBy("has_phytogro", has(reg.get("phytogro")))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(net.minecraft.world.item.Items.STRING)
+        ShapelessRecipeBuilder.shapeless(Items.STRING)
                 .requires(reg.get(ID_FLAX))
                 .unlockedBy("has_flax", has(reg.get(ID_FLAX)))
                 .save(consumer);
@@ -87,36 +88,41 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(reg.get(spores(ID_GLOWSTONE_MUSHROOM)))
-                .requires(net.minecraft.world.item.Items.RED_MUSHROOM)
+                .requires(Items.RED_MUSHROOM)
                 .requires(Tags.Items.DUSTS_GLOWSTONE)
                 .requires(reg.get("phytogro"))
-                .requires(net.minecraft.world.item.Items.EXPERIENCE_BOTTLE)
+                .requires(Items.EXPERIENCE_BOTTLE)
                 .unlockedBy("has_glowstone_dust", has(Tags.Items.DUSTS_GLOWSTONE))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(reg.get(spores(ID_GUNPOWDER_MUSHROOM)))
-                .requires(net.minecraft.world.item.Items.BROWN_MUSHROOM)
-                .requires(net.minecraft.world.item.Items.GUNPOWDER)
+                .requires(Items.BROWN_MUSHROOM)
+                .requires(Items.GUNPOWDER)
                 .requires(reg.get("phytogro"))
-                .requires(net.minecraft.world.item.Items.EXPERIENCE_BOTTLE)
-                .unlockedBy("has_gunpowder", has(net.minecraft.world.item.Items.GUNPOWDER))
+                .requires(Items.EXPERIENCE_BOTTLE)
+                .unlockedBy("has_gunpowder", has(Items.GUNPOWDER))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(reg.get(spores(ID_REDSTONE_MUSHROOM)))
-                .requires(net.minecraft.world.item.Items.RED_MUSHROOM)
+                .requires(Items.RED_MUSHROOM)
                 .requires(Tags.Items.DUSTS_REDSTONE)
                 .requires(reg.get("phytogro"))
-                .requires(net.minecraft.world.item.Items.EXPERIENCE_BOTTLE)
+                .requires(Items.EXPERIENCE_BOTTLE)
                 .unlockedBy("has_redstone_dust", has(Tags.Items.DUSTS_REDSTONE))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(reg.get(spores(ID_SLIME_MUSHROOM)))
-                .requires(net.minecraft.world.item.Items.BROWN_MUSHROOM)
+                .requires(Items.BROWN_MUSHROOM)
                 .requires(Tags.Items.SLIMEBALLS)
                 .requires(reg.get("phytogro"))
-                .requires(net.minecraft.world.item.Items.EXPERIENCE_BOTTLE)
+                .requires(Items.EXPERIENCE_BOTTLE)
                 .unlockedBy("has_slime_ball", has(Tags.Items.SLIMEBALLS))
                 .save(consumer);
+
+        generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_GLOWSTONE_MUSHROOM)), Items.GLOWSTONE_DUST, 0.1F, "smelting", "_spores");
+        generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_GUNPOWDER_MUSHROOM)), Items.GUNPOWDER, 0.1F, "smelting", "_spores");
+        generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_REDSTONE_MUSHROOM)), Items.REDSTONE, 0.1F, "smelting", "_spores");
+        generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_SLIME_MUSHROOM)), Items.SLIME_BALL, 0.1F, "smelting", "_spores");
 
         generateStorageRecipes(consumer, reg.get(block(ID_AMARANTH)), reg.get(ID_AMARANTH), CoFHTags.Items.CROPS_AMARANTH);
         generateStorageRecipes(consumer, reg.get(block(ID_BARLEY)), reg.get(ID_BARLEY), CoFHTags.Items.CROPS_BARLEY);
@@ -177,9 +183,9 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(reg.get(ID_CHEESE_WHEEL))
-                .requires(net.minecraft.world.item.Items.MILK_BUCKET)
+                .requires(Items.MILK_BUCKET)
                 .requires(CoFHTags.Items.CROPS_SADIROOT)
-                .unlockedBy("has_milk", has(net.minecraft.world.item.Items.MILK_BUCKET))
+                .unlockedBy("has_milk", has(Items.MILK_BUCKET))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(reg.get(ID_CHEESE_WEDGE), 4)
@@ -188,10 +194,10 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .save(consumer, ID_THERMAL + ":cheese_wedge_from_wheel");
 
         ShapedRecipeBuilder.shaped(reg.get(ID_GREEN_BEAN_PIE))
-                .define('E', net.minecraft.world.item.Items.EGG)
+                .define('E', Items.EGG)
                 .define('G', CoFHTags.Items.CROPS_GREEN_BEAN)
                 .define('O', CoFHTags.Items.CROPS_ONION)
-                .define('M', net.minecraft.world.item.Items.BROWN_MUSHROOM)
+                .define('M', Items.BROWN_MUSHROOM)
                 .define('W', Tags.Items.CROPS_WHEAT)
                 .pattern("GMG")
                 .pattern("OEO")
@@ -200,10 +206,10 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(reg.get(ID_PBJ_SANDWICH), 2)
-                .requires(net.minecraft.world.item.Items.BREAD)
+                .requires(Items.BREAD)
                 .requires(ITEMS.get(ID_PEANUT_BUTTER))
                 .requires(ITEMS.get(ID_JELLY))
-                .unlockedBy("has_bread", has(net.minecraft.world.item.Items.BREAD))
+                .unlockedBy("has_bread", has(Items.BREAD))
                 .save(consumer, ID_THERMAL + ":pbj_sandwich_2");
 
         ShapedRecipeBuilder.shaped(reg.get(ID_STUFFED_PEPPER))
@@ -221,7 +227,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
         ShapedRecipeBuilder.shaped(reg.get(ID_SUSHI_MAKI), 8)
                 .define('F', CoFHTags.Items.RAW_FISH)
                 .define('R', CoFHTags.Items.CROPS_RICE)
-                .define('K', net.minecraft.world.item.Items.DRIED_KELP)
+                .define('K', Items.DRIED_KELP)
                 .pattern("FFF")
                 .pattern("RRR")
                 .pattern("KKK")
@@ -234,8 +240,8 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .requires(CoFHTags.Items.CROPS_RADISH)
                 .requires(CoFHTags.Items.CROPS_STRAWBERRY)
                 .requires(CoFHTags.Items.CROPS_SPINACH)
-                .requires(net.minecraft.world.item.Items.HONEY_BOTTLE)
-                .requires(net.minecraft.world.item.Items.BOWL)
+                .requires(Items.HONEY_BOTTLE)
+                .requires(Items.BOWL)
                 .unlockedBy("has_spinach", has(CoFHTags.Items.CROPS_SPINACH))
                 .save(consumer);
 
@@ -246,7 +252,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .requires(CoFHTags.Items.CROPS_ONION)
                 .requires(CoFHTags.Items.CROPS_RADISH)
                 .requires(ITEMS.get(ID_TOMATO_SAUCE))
-                .requires(net.minecraft.world.item.Items.BOWL)
+                .requires(Items.BOWL)
                 .unlockedBy("has_radish", has(CoFHTags.Items.CROPS_RADISH))
                 .save(consumer);
 
@@ -256,8 +262,8 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .requires(CoFHTags.Items.CROPS_EGGPLANT)
                 .requires(CoFHTags.Items.CROPS_SPINACH)
                 .requires(CoFHTags.Items.CROPS_SPINACH)
-                .requires(net.minecraft.world.item.Items.EXPERIENCE_BOTTLE)
-                .requires(net.minecraft.world.item.Items.BOWL)
+                .requires(Items.EXPERIENCE_BOTTLE)
+                .requires(Items.BOWL)
                 .unlockedBy("has_eggplant", has(CoFHTags.Items.CROPS_EGGPLANT))
                 .save(consumer);
 
@@ -275,11 +281,11 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(reg.get(ID_CARROT_CAKE))
-                .define('A', net.minecraft.world.item.Items.MILK_BUCKET)
-                .define('B', net.minecraft.world.item.Items.SUGAR)
-                .define('C', net.minecraft.world.item.Items.WHEAT)
+                .define('A', Items.MILK_BUCKET)
+                .define('B', Items.SUGAR)
+                .define('C', Items.WHEAT)
                 .define('D', Tags.Items.CROPS_CARROT)
-                .define('E', net.minecraft.world.item.Items.EGG)
+                .define('E', Items.EGG)
                 .pattern("ADA")
                 .pattern("BEB")
                 .pattern("CDC")
@@ -287,15 +293,15 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(reg.get(ID_CHOCOLATE_CAKE))
-                .define('A', net.minecraft.world.item.Items.MILK_BUCKET)
-                .define('B', net.minecraft.world.item.Items.COCOA_BEANS)
-                .define('C', net.minecraft.world.item.Items.WHEAT)
+                .define('A', Items.MILK_BUCKET)
+                .define('B', Items.COCOA_BEANS)
+                .define('C', Items.WHEAT)
                 .define('D', CoFHTags.Items.CROPS_STRAWBERRY)
-                .define('E', net.minecraft.world.item.Items.EGG)
+                .define('E', Items.EGG)
                 .pattern("ADA")
                 .pattern("BEB")
                 .pattern("CDC")
-                .unlockedBy("has_cocoa_beans", has(net.minecraft.world.item.Items.COCOA_BEANS))
+                .unlockedBy("has_cocoa_beans", has(Items.COCOA_BEANS))
                 .save(consumer);
 
         // Handled via special recipe; this is used to create that recipe initially.
@@ -312,11 +318,11 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
         //                .save(consumer);
 
         ShapedRecipeBuilder.shaped(reg.get(ID_SPICE_CAKE))
-                .define('A', net.minecraft.world.item.Items.MILK_BUCKET)
-                .define('B', net.minecraft.world.item.Items.HONEY_BOTTLE)
+                .define('A', Items.MILK_BUCKET)
+                .define('B', Items.HONEY_BOTTLE)
                 .define('C', Tags.Items.CROPS_WHEAT)
                 .define('D', CoFHTags.Items.CROPS_SADIROOT)
-                .define('E', net.minecraft.world.item.Items.EGG)
+                .define('E', Items.EGG)
                 .pattern("ADA")
                 .pattern("BEB")
                 .pattern("CDC")

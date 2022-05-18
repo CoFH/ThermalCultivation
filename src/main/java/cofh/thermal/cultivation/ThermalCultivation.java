@@ -1,5 +1,6 @@
 package cofh.thermal.cultivation;
 
+import cofh.thermal.cultivation.config.ThermalCropConfig;
 import cofh.thermal.cultivation.init.TCulBlocks;
 import cofh.thermal.cultivation.init.TCulItems;
 import cofh.thermal.cultivation.loot.GrassLootModifier;
@@ -12,8 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
-import static cofh.thermal.core.ThermalCore.BLOCKS;
-import static cofh.thermal.core.ThermalCore.LOOT_SERIALIZERS;
+import static cofh.thermal.core.ThermalCore.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 import static cofh.thermal.lib.common.ThermalFlags.*;
 import static cofh.thermal.lib.common.ThermalIDs.*;
@@ -26,6 +26,9 @@ public class ThermalCultivation {
         setFeatureFlags();
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        CONFIG_MANAGER.register(modEventBus)
+                .addServerConfig(new ThermalCropConfig());
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);

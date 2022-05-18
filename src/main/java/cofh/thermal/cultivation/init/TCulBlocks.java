@@ -28,6 +28,7 @@ import net.minecraft.world.phys.Vec3;
 import static cofh.lib.util.constants.Constants.*;
 import static cofh.thermal.core.ThermalCore.*;
 import static cofh.thermal.core.util.RegistrationHelper.*;
+import static cofh.thermal.cultivation.config.ThermalCropConfig.*;
 import static cofh.thermal.cultivation.init.TCulFoods.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 import static cofh.thermal.cultivation.init.TCulReferences.POTION_CAKE_BLOCK;
@@ -114,7 +115,6 @@ public class TCulBlocks {
 
             ComposterBlock.add(chance, ITEMS.get(seeds(ID_FROST_MELON)));
         }
-        // HoeItem.TILLABLES.put(BLOCKS.get(ID_PHYTOSOIL), BLOCKS.get(ID_PHYTOSOIL_TILLED).defaultBlockState());
     }
 
     public static DamageSource SADIROOT_DAMAGE = new DamageSource("sadiroot");
@@ -165,20 +165,33 @@ public class TCulBlocks {
         // registerTallPerennial(ID_HOPS);
         registerPerennial(ID_TEA);
 
-        BLOCKS.register(ID_GLOWSTONE_MUSHROOM, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 12 : 0)).seed(ITEMS.getSup(spores(ID_GLOWSTONE_MUSHROOM))));
+        BLOCKS.register(ID_GLOWSTONE_MUSHROOM, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 12 : 0)) {
+
+            @Override
+            public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+
+                return glowstoneMushroomLight() ? state.getLightEmission() : 0;
+            }
+        }.seed(ITEMS.getSup(spores(ID_GLOWSTONE_MUSHROOM))));
         registerMushroom(ID_GUNPOWDER_MUSHROOM);
         BLOCKS.register(ID_REDSTONE_MUSHROOM, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 7 : 0)) {
 
             @Override
+            public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+
+                return redstoneMushroomLight() ? state.getLightEmission() : 0;
+            }
+
+            @Override
             public boolean isSignalSource(BlockState state) {
 
-                return true;
+                return redstoneMushroomSignal();
             }
 
             @Override
             public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
 
-                return blockState.getValue(AGE_0_4) == 4 ? 7 : 0;
+                return redstoneMushroomSignal() && blockState.getValue(AGE_0_4) == 4 ? 7 : 0;
             }
         }.seed(ITEMS.getSup(spores(ID_REDSTONE_MUSHROOM))));
         registerMushroom(ID_SLIME_MUSHROOM);

@@ -6,10 +6,10 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
+          "type": "minecraft:item",
+          "functions": [
             {
-              "type": "minecraft:item",
+              "function": "minecraft:set_count",
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
@@ -19,50 +19,39 @@
                   }
                 }
               ],
-              "name": "minecraft:slime_ball"
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2.0,
+                "max": 3.0
+              },
+              "add": false
             },
             {
-              "type": "minecraft:item",
-              "name": "thermal:slime_mushroom_spores"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
               "function": "minecraft:apply_bonus",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "thermal:slime_mushroom",
+                  "properties": {
+                    "age": "4"
+                  }
+                }
+              ],
               "enchantment": "minecraft:fortune",
-              "formula": "minecraft:binomial_with_bonus_count",
+              "formula": "minecraft:uniform_bonus_count",
               "parameters": {
-                "extra": 3,
-                "probability": 0.5714286
+                "bonusMultiplier": 1
               }
             }
           ],
           "name": "thermal:slime_mushroom_spores"
         }
       ],
-      "conditions": [
+      "functions": [
         {
-          "condition": "minecraft:block_state_property",
-          "block": "thermal:slime_mushroom",
-          "properties": {
-            "age": "4"
-          }
+          "function": "minecraft:explosion_decay"
         }
       ]
-    }
-  ],
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
     }
   ]
 }

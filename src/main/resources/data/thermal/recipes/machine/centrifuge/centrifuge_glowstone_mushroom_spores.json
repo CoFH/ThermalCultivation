@@ -1,0 +1,14 @@
+{
+  "type": "thermal:centrifuge",
+  "ingredient": {
+    "item": "thermal:glowstone_mushroom_spores"
+  },
+  "result": [
+    {
+      "item": "minecraft:glowstone_dust",
+      "chance": 1.5
+    }
+  ],
+  "experience": 0.2,
+  "energy": 4000
+}

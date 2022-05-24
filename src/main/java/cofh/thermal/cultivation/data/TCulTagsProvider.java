@@ -53,6 +53,8 @@ public class TCulTagsProvider {
 
             tag(BlockTags.MINEABLE_WITH_SHOVEL).add(BLOCKS.get(ID_PHYTOSOIL));
             tag(BlockTags.MINEABLE_WITH_SHOVEL).add(BLOCKS.get(ID_PHYTOSOIL_TILLED));
+
+            tag(BlockTags.DIRT).add(BLOCKS.get(ID_PHYTOSOIL));
         }
 
     }

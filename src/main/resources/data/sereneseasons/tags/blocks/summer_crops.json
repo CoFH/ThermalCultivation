@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "thermal:amaranth",
+    "thermal:bell_pepper",
+    "thermal:coffee",
+    "thermal:corn",
+    "thermal:eggplant",
+    "thermal:flax",
+    "thermal:hops",
+    "thermal:peanut",
+    "thermal:tea",
+    "thermal:tomato"
+  ]
+}

@@ -50,6 +50,7 @@ public class ThermalCultivation {
         setFlag(ID_DEVICE_HIVE_EXTRACTOR, true);
         setFlag(ID_DEVICE_TREE_EXTRACTOR, true);
         setFlag(ID_DEVICE_FISHER, true);
+        setFlag(ID_DEVICE_COMPOSTER, true);
         setFlag(ID_DEVICE_SOIL_INFUSER, true);
     }
 

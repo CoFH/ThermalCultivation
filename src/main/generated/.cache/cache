@@ -124,6 +124,7 @@ b32fcb7499b3228dc5da16256c8bea7efe144e19 data/forge/tags/items/seeds/strawberry.
 7db43274e152637d667b5eecb6cfb86d8ecf1914 data/forge/tags/items/seeds/tea.json
 825f888f1e7b16f2ec4012810eee39b895b4089f data/forge/tags/items/seeds/tomato.json
 fb22893fd21de11a8dad1ccfe9163d81131f8235 data/minecraft/recipes/string.json
+20cb82aa9646f6d9f2adb3db3ac110ea0e152007 data/minecraft/tags/blocks/crops.json
 7d97f6d8481ad8c3c1eacf9def73f787ba57a432 data/minecraft/tags/blocks/dirt.json
 5ca0aaaae6dfb7ceaa43978ea092cf1bc2ae5fa6 data/minecraft/tags/blocks/mineable/axe.json
 066e473226ccd81aab75ec90040e424ce7f2ebbe data/minecraft/tags/blocks/mineable/hoe.json

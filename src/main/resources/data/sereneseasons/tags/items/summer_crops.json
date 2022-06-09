@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "thermal:amaranth_seeds",
+    "thermal:bell_pepper_seeds",
+    "thermal:coffee_seeds",
+    "thermal:corn_seeds",
+    "thermal:eggplant_seeds",
+    "thermal:flax_seeds",
+    "thermal:hops_seeds",
+    "thermal:peanut_seeds",
+    "thermal:tea_seeds",
+    "thermal:tomato_seeds"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "thermal:barley",
+    "thermal:coffee",
+    "thermal:flax",
+    "thermal:green_bean",
+    "thermal:peanut",
+    "thermal:radish",
+    "thermal:rice",
+    "thermal:strawberry",
+    "thermal:spinach"
+  ]
+}

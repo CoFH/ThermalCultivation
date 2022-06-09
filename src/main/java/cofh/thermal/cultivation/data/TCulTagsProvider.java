@@ -54,6 +54,28 @@ public class TCulTagsProvider {
             tag(BlockTags.MINEABLE_WITH_SHOVEL).add(BLOCKS.get(ID_PHYTOSOIL));
             tag(BlockTags.MINEABLE_WITH_SHOVEL).add(BLOCKS.get(ID_PHYTOSOIL_TILLED));
 
+            tag(BlockTags.CROPS).add(
+                    BLOCKS.get(ID_AMARANTH),
+                    BLOCKS.get(ID_BARLEY),
+                    BLOCKS.get(ID_BELL_PEPPER),
+                    BLOCKS.get(ID_COFFEE),
+                    BLOCKS.get(ID_CORN),
+                    BLOCKS.get(ID_EGGPLANT),
+                    BLOCKS.get(ID_FLAX),
+                    BLOCKS.get(ID_GREEN_BEAN),
+                    BLOCKS.get(ID_HOPS),
+                    BLOCKS.get(ID_ONION),
+                    BLOCKS.get(ID_PEANUT),
+                    BLOCKS.get(ID_RADISH),
+                    BLOCKS.get(ID_RICE),
+                    BLOCKS.get(ID_SADIROOT),
+                    BLOCKS.get(ID_SPINACH),
+                    BLOCKS.get(ID_STRAWBERRY),
+                    BLOCKS.get(ID_TEA),
+                    BLOCKS.get(ID_TOMATO),
+                    BLOCKS.get(ID_FROST_MELON_STEM)
+            );
+
             tag(BlockTags.DIRT).add(BLOCKS.get(ID_PHYTOSOIL));
         }
 

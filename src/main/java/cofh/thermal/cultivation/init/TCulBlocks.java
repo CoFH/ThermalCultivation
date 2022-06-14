@@ -7,7 +7,6 @@ import cofh.lib.block.impl.crops.CropsBlockMushroom;
 import cofh.lib.block.impl.crops.StemBlockCoFH;
 import cofh.thermal.cultivation.block.*;
 import cofh.thermal.cultivation.item.PotionCakeBlockItem;
-import cofh.thermal.cultivation.tileentity.PotionCakeTile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.damagesource.DamageSource;
@@ -19,19 +18,18 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec3;
 
 import static cofh.lib.util.constants.Constants.*;
-import static cofh.thermal.core.ThermalCore.*;
+import static cofh.thermal.core.ThermalCore.BLOCKS;
+import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.config.ThermalCropConfig.*;
 import static cofh.thermal.cultivation.init.TCulFoods.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
-import static cofh.thermal.cultivation.init.TCulReferences.POTION_CAKE_BLOCK;
 import static cofh.thermal.lib.common.ThermalItemGroups.THERMAL_FOODS;
 import static net.minecraft.world.level.block.state.BlockBehaviour.Properties.of;
 
@@ -47,7 +45,6 @@ public class TCulBlocks {
         registerFoods();
         registerStorage();
         registerMisc();
-        registerTileEntities();
     }
 
     public static void setup() {
@@ -261,11 +258,6 @@ public class TCulBlocks {
     private static void registerMushroom(String id) {
 
         BLOCKS.register(id, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART)).seed(ITEMS.getSup(spores(id))));
-    }
-
-    private static void registerTileEntities() {
-
-        TILE_ENTITIES.register(ID_POTION_CAKE, () -> BlockEntityType.Builder.of(PotionCakeTile::new, POTION_CAKE_BLOCK).build(null));
     }
     // endregion
 }

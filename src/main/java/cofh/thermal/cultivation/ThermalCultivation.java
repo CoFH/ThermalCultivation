@@ -3,6 +3,7 @@ package cofh.thermal.cultivation;
 import cofh.thermal.cultivation.config.ThermalCropConfig;
 import cofh.thermal.cultivation.init.TCulBlocks;
 import cofh.thermal.cultivation.init.TCulItems;
+import cofh.thermal.cultivation.init.TCulTileEntities;
 import cofh.thermal.cultivation.loot.GrassLootModifier;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -35,6 +36,8 @@ public class ThermalCultivation {
 
         TCulBlocks.register();
         TCulItems.register();
+
+        TCulTileEntities.register();
 
         LOOT_SERIALIZERS.register("seeds_from_grass", GrassLootModifier.Serializer::new);
     }

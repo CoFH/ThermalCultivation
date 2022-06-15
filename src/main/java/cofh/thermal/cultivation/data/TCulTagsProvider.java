@@ -94,6 +94,7 @@ public class TCulTagsProvider {
             return "Thermal Cultivation: Item Tags";
         }
 
+        @SuppressWarnings ("unchecked")
         @Override
         protected void addTags() {
 

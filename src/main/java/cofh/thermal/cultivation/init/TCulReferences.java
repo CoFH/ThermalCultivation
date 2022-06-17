@@ -1,5 +1,6 @@
 package cofh.thermal.cultivation.init;
 
+import cofh.thermal.cultivation.item.WateringCanItem;
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -26,6 +27,9 @@ public class TCulReferences {
     // region ITEMS
     @ObjectHolder (ID_JAR)
     public static final Item JAR_ITEM = null;
+
+    @ObjectHolder (ID_WATERING_CAN)
+    public static final WateringCanItem WATERING_CAN_ITEM = null;
     // endregion
 
     // region FOODS

@@ -1,5 +1,6 @@
 package cofh.thermal.cultivation;
 
+import cofh.thermal.cultivation.config.TCulToolConfig;
 import cofh.thermal.cultivation.config.ThermalCropConfig;
 import cofh.thermal.cultivation.init.TCulBlocks;
 import cofh.thermal.cultivation.init.TCulItems;
@@ -29,7 +30,8 @@ public class ThermalCultivation {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         CONFIG_MANAGER.register(modEventBus)
-                .addServerConfig(new ThermalCropConfig());
+                .addServerConfig(new ThermalCropConfig())
+                .addServerConfig(new TCulToolConfig());
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);

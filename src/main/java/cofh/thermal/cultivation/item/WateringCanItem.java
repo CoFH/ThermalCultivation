@@ -62,8 +62,8 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
 
     protected static final int MB_PER_USE = 50;
 
-    protected static boolean allowFakePlayers = false;
-    protected static boolean removeSourceBlocks = true;
+    public static boolean allowFakePlayers = false;
+    public static boolean removeSourceBlocks = true;
 
     protected static final Set<Block> EFFECTIVE_BLOCKS = new ObjectOpenHashSet<>();
 

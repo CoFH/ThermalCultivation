@@ -1,10 +1,8 @@
 package cofh.thermal.cultivation.init;
 
-import cofh.lib.block.impl.*;
-import cofh.lib.block.impl.crops.AttachedStemBlockCoFH;
-import cofh.lib.block.impl.crops.CropsBlockCoFH;
-import cofh.lib.block.impl.crops.CropsBlockMushroom;
-import cofh.lib.block.impl.crops.StemBlockCoFH;
+import cofh.lib.block.*;
+import cofh.thermal.core.block.ChargedSoilBlock;
+import cofh.thermal.core.block.TilledChargedSoilBlock;
 import cofh.thermal.cultivation.block.*;
 import cofh.thermal.cultivation.item.PotionCakeBlockItem;
 import net.minecraft.core.BlockPos;
@@ -23,9 +21,11 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec3;
 
-import static cofh.lib.util.constants.Constants.*;
+import static cofh.lib.util.constants.BlockStatePropertiesCoFH.AGE_0_4;
+import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
+import static cofh.thermal.core.block.ChargedSoilBlock.CHARGED;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.config.ThermalCropConfig.*;
 import static cofh.thermal.cultivation.init.TCulFoods.*;
@@ -129,7 +129,7 @@ public class TCulBlocks {
         registerAnnual(ID_RICE);
         // registerAnnual(ID_SADIROOT);
         // Sadiroot is a thistle!
-        BLOCKS.register(ID_SADIROOT, () -> new CropsBlockCoFH(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)) {
+        BLOCKS.register(ID_SADIROOT, () -> new CropBlockCoFH(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)) {
 
             @Override
             public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
@@ -162,33 +162,33 @@ public class TCulBlocks {
         // registerTallPerennial(ID_HOPS);
         registerPerennial(ID_TEA);
 
-        BLOCKS.register(ID_GLOWSTONE_MUSHROOM, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 12 : 0)) {
+        BLOCKS.register(ID_GLOWSTONE_MUSHROOM, () -> new CropBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 12 : 0)) {
 
             @Override
             public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
 
-                return glowstoneMushroomLight() ? state.getLightEmission() : 0;
+                return glowstoneMushroomLight.get() ? state.getLightEmission() : 0;
             }
         }.seed(ITEMS.getSup(spores(ID_GLOWSTONE_MUSHROOM))));
         registerMushroom(ID_GUNPOWDER_MUSHROOM);
-        BLOCKS.register(ID_REDSTONE_MUSHROOM, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 7 : 0)) {
+        BLOCKS.register(ID_REDSTONE_MUSHROOM, () -> new CropBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART).lightLevel((state) -> state.getValue(AGE_0_4) == 4 ? 7 : 0)) {
 
             @Override
             public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
 
-                return redstoneMushroomLight() ? state.getLightEmission() : 0;
+                return redstoneMushroomLight.get() ? state.getLightEmission() : 0;
             }
 
             @Override
             public boolean isSignalSource(BlockState state) {
 
-                return redstoneMushroomSignal();
+                return redstoneMushroomSignal.get();
             }
 
             @Override
             public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
 
-                return redstoneMushroomSignal() && blockState.getValue(AGE_0_4) == 4 ? 7 : 0;
+                return redstoneMushroomSignal.get() && blockState.getValue(AGE_0_4) == 4 ? 7 : 0;
             }
         }.seed(ITEMS.getSup(spores(ID_REDSTONE_MUSHROOM))));
         registerMushroom(ID_SLIME_MUSHROOM);
@@ -241,8 +241,8 @@ public class TCulBlocks {
 
     private static void registerMisc() {
 
-        registerBlock(ID_PHYTOSOIL, () -> new SoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL_TILLED)), ID_THERMAL_CULTIVATION);
-        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_PHYTOSOIL, () -> new ChargedSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL_TILLED)), ID_THERMAL_CULTIVATION);
+        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledChargedSoilBlock(of(Material.DIRT).randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
     }
 
     private static void registerAmaranth(String id) {
@@ -257,7 +257,7 @@ public class TCulBlocks {
 
     private static void registerMushroom(String id) {
 
-        BLOCKS.register(id, () -> new CropsBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART)).seed(ITEMS.getSup(spores(id))));
+        BLOCKS.register(id, () -> new CropBlockMushroom(of(Material.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART)).seed(ITEMS.getSup(spores(id))));
     }
     // endregion
 }

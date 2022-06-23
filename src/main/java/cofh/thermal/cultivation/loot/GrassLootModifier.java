@@ -1,9 +1,10 @@
 package cofh.thermal.cultivation.loot;
 
-import cofh.lib.util.WeightedRandomDrop;
+import cofh.lib.util.random.WeightedRandomDrop;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.WeightedRandom;
 import net.minecraft.world.item.Item;
@@ -50,9 +51,9 @@ public class GrassLootModifier extends LootModifier {
      * based on the weighted chances from the loot_modifier json.
      */
     @Override
-    protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+    protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
 
-        List<ItemStack> newLoot = new ArrayList<>();
+        ObjectArrayList<ItemStack> newLoot = new ObjectArrayList<>();
         for (ItemStack stack : generatedLoot) {
             if (stack.getItem() == Items.WHEAT_SEEDS) {
                 WeightedRandom.getRandomItem(context.getRandom(), seedDrops).ifPresent((e) -> newLoot.add(e.toItemStack(stack.getCount())));

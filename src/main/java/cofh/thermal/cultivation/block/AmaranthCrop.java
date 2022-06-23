@@ -1,6 +1,6 @@
 package cofh.thermal.cultivation.block;
 
-import cofh.lib.block.impl.crops.CropsBlockTall;
+import cofh.lib.block.CropBlockTall;
 import cofh.lib.util.helpers.MathHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
@@ -10,10 +10,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.PlantType;
 
-import static cofh.lib.util.constants.Constants.AGE_0_6;
-import static cofh.lib.util.constants.Constants.TALL_CROPS_BY_AGE;
+import static cofh.lib.util.constants.BlockStatePropertiesCoFH.AGE_0_6;
 
-public class AmaranthCrop extends CropsBlockTall {
+public class AmaranthCrop extends CropBlockTall {
 
     public AmaranthCrop(Properties builder, PlantType type, int growLight, float growMod) {
 

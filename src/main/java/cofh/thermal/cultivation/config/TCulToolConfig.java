@@ -1,10 +1,13 @@
 package cofh.thermal.cultivation.config;
 
-import cofh.lib.config.IBaseConfig;
+import cofh.core.config.IBaseConfig;
 import cofh.thermal.cultivation.item.WateringCanItem;
 import net.minecraftforge.common.ForgeConfigSpec;
 
-import static cofh.thermal.cultivation.init.TCulReferences.WATERING_CAN_ITEM;
+import java.util.function.Supplier;
+
+import static cofh.thermal.core.ThermalCore.ITEMS;
+import static cofh.thermal.cultivation.init.TCulIDs.ID_WATERING_CAN;
 
 public class TCulToolConfig implements IBaseConfig {
 
@@ -35,18 +38,14 @@ public class TCulToolConfig implements IBaseConfig {
     @Override
     public void refresh() {
 
-        if (WATERING_CAN_ITEM == null) {
-            return;
-        }
-        WATERING_CAN_ITEM.setFluidCapacity(wateringCanCapacity.get());
-
+        ((WateringCanItem) ITEMS.get(ID_WATERING_CAN)).setFluidCapacity(wateringCanCapacity.get());
         WateringCanItem.allowFakePlayers = wateringCanFakePlayers.get();
         WateringCanItem.removeSourceBlocks = wateringCanSourceBlocks.get();
     }
 
     // region CONFIG VARIABLES
-    private ForgeConfigSpec.IntValue wateringCanCapacity;
-    private ForgeConfigSpec.BooleanValue wateringCanFakePlayers;
-    private ForgeConfigSpec.BooleanValue wateringCanSourceBlocks;
+    private Supplier<Integer> wateringCanCapacity;
+    private Supplier<Boolean> wateringCanFakePlayers;
+    private Supplier<Boolean> wateringCanSourceBlocks;
     // endregion
 }

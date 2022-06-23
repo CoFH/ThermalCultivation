@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static cofh.lib.util.constants.NBTTags.TAG_POTION;
-import static cofh.thermal.cultivation.init.TCulReferences.POTION_CAKE_TILE;
+import static cofh.thermal.cultivation.init.TCulTileEntities.POTION_CAKE_TILE;
 
 public class PotionCakeTile extends BlockEntity {
 
@@ -24,7 +24,7 @@ public class PotionCakeTile extends BlockEntity {
 
     public PotionCakeTile(BlockPos pos, BlockState state) {
 
-        super(POTION_CAKE_TILE, pos, state);
+        super(POTION_CAKE_TILE.get(), pos, state);
     }
 
     public void cacheEffects(CompoundTag nbt) {

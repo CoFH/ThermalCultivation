@@ -3,8 +3,8 @@ package cofh.thermal.cultivation.init;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
 
-import static cofh.lib.util.references.CoreReferences.CLARITY;
-import static cofh.lib.util.references.CoreReferences.PANACEA;
+import static cofh.core.init.CoreMobEffects.CLARITY;
+import static cofh.core.init.CoreMobEffects.PANACEA;
 import static net.minecraft.world.effect.MobEffects.*;
 
 public class TCulFoods {
@@ -62,7 +62,7 @@ public class TCulFoods {
             .alwaysEat()
             .build();
     public static final FoodProperties XP_STEW = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F)
-            .effect(() -> new MobEffectInstance(CLARITY, 3600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(CLARITY.get(), 3600, 0), 1.0F)
             .alwaysEat()
             .build();
 
@@ -74,7 +74,7 @@ public class TCulFoods {
     public static final FoodProperties CHOCOLATE_CAKE = new FoodProperties.Builder().nutrition(2).saturationMod(0.2F).build();
     public static final FoodProperties POTION_CAKE = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).alwaysEat().build();
     public static final FoodProperties SPICE_CAKE = new FoodProperties.Builder().nutrition(2).saturationMod(0.2F)
-            .effect(() -> new MobEffectInstance(PANACEA, 100, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(PANACEA.get(), 100, 0), 1.0F)
             .alwaysEat()
             .build();
     public static final FoodProperties STUFFED_PUMPKIN = new FoodProperties.Builder().nutrition(9).saturationMod(0.8F).build();

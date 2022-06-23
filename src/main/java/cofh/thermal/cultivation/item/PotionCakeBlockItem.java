@@ -2,7 +2,7 @@ package cofh.thermal.cultivation.item;
 
 import cofh.core.item.BlockItemCoFH;
 import cofh.core.util.ProxyUtils;
-import cofh.lib.item.IColorableItem;
+import cofh.lib.api.item.IColorableItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;

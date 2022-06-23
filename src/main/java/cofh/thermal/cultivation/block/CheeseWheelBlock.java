@@ -1,6 +1,6 @@
 package cofh.thermal.cultivation.block;
 
-import cofh.lib.block.impl.FeastBlock;
+import cofh.lib.block.FeastBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.BlockGetter;
@@ -13,8 +13,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nonnull;
 
-import static cofh.lib.util.constants.Constants.BITES_0_3;
-import static cofh.lib.util.constants.Constants.FACING_HORIZONTAL;
+import static cofh.lib.util.constants.BlockStatePropertiesCoFH.BITES_0_3;
+import static cofh.lib.util.constants.BlockStatePropertiesCoFH.FACING_HORIZONTAL;
 
 public class CheeseWheelBlock extends FeastBlock {
 

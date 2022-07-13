@@ -42,13 +42,13 @@ public class JarredItem extends ItemCoFH {
     }
 
     @Override
-    public ItemStack getContainerItem(ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(ItemStack stack) {
 
         return new ItemStack(ITEMS.get(ID_JAR));
     }
 
     @Override
-    public boolean hasContainerItem(ItemStack stack) {
+    public boolean hasCraftingRemainingItem(ItemStack stack) {
 
         return true;
     }

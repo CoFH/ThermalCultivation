@@ -6,7 +6,7 @@ import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.world.level.block.StemBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -22,7 +22,7 @@ public class TCulClientSetupEvents {
     }
 
     @SubscribeEvent
-    public static void colorSetupBlock(final ColorHandlerEvent.Block event) {
+    public static void colorSetupBlock(final RegisterColorHandlersEvent.Block event) {
 
         BlockColors colors = event.getBlockColors();
 

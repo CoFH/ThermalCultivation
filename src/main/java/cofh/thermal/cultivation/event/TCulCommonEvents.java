@@ -11,10 +11,10 @@ import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 public class TCulCommonEvents {
 
     @SubscribeEvent
-    public static void handleTickEndEvent(TickEvent.WorldTickEvent event) {
+    public static void handleTickEndEvent(TickEvent.LevelTickEvent event) {
 
         if (event.phase == TickEvent.Phase.END) {
-            WateringCanItem.growPlants(event.world);
+            WateringCanItem.growPlants(event.level);
         }
     }
 

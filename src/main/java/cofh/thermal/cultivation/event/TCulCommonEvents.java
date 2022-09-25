@@ -5,7 +5,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import static cofh.lib.util.constants.Constants.ID_THERMAL_CULTIVATION;
+import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 
 @Mod.EventBusSubscriber (modid = ID_THERMAL_CULTIVATION)
 public class TCulCommonEvents {

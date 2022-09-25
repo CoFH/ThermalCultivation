@@ -1,6 +1,7 @@
 package cofh.thermal.cultivation.data;
 
 import cofh.lib.data.LootTableProviderCoFH;
+import cofh.lib.util.constants.BlockStatePropertiesCoFH;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.BlockLoot;
@@ -20,7 +21,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
-import static cofh.lib.util.constants.Constants.*;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.*;
@@ -120,27 +120,27 @@ public class TCulLootTableProvider extends LootTableProviderCoFH {
 
     protected void createCropTable(String id) {
 
-        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_7, 7));
+        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), BlockStatePropertiesCoFH.AGE_0_7, 7));
     }
 
     protected void createTallCropAltTable(String id) {
 
-        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_6, 6));
+        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), BlockStatePropertiesCoFH.AGE_0_6, 6));
     }
 
     protected void createMushroomTable(String id) {
 
-        blockLootTables.put(BLOCKS.get(id), getMushroomTable(BLOCKS.get(id), ITEMS.get(spores(id)), AGE_0_4, 4));
+        blockLootTables.put(BLOCKS.get(id), getMushroomTable(BLOCKS.get(id), ITEMS.get(spores(id)), BlockStatePropertiesCoFH.AGE_0_4, 4));
     }
 
     protected void createTallCropTable(String id) {
 
-        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_9, 9));
+        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), BlockStatePropertiesCoFH.AGE_0_9, 9));
     }
 
     protected void createPerennialCropTable(String id) {
 
-        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), AGE_0_10, 10));
+        blockLootTables.put(BLOCKS.get(id), getCropTable(BLOCKS.get(id), ITEMS.get(id), ITEMS.get(seeds(id)), BlockStatePropertiesCoFH.AGE_0_10, 10));
     }
 
     protected LootTable.Builder getMushroomTable(Block block, Item crop, IntegerProperty ageProp, int age) {

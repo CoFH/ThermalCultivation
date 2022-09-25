@@ -1,6 +1,6 @@
 package cofh.thermal.cultivation.block;
 
-import cofh.lib.block.impl.CakeBlockCoFH;
+import cofh.lib.block.CakeBlockCoFH;
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;

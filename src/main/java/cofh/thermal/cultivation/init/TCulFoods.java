@@ -3,8 +3,8 @@ package cofh.thermal.cultivation.init;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
 
-import static cofh.lib.util.references.CoreReferences.CLARITY;
-import static cofh.lib.util.references.CoreReferences.PANACEA;
+import static cofh.core.util.references.CoreReferences.CLARITY;
+import static cofh.core.util.references.CoreReferences.PANACEA;
 import static net.minecraft.world.effect.MobEffects.*;
 
 public class TCulFoods {

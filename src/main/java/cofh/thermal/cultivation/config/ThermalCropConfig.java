@@ -1,7 +1,9 @@
 package cofh.thermal.cultivation.config;
 
-import cofh.lib.config.IBaseConfig;
+import cofh.core.config.IBaseConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
+
+import java.util.function.Supplier;
 
 public class ThermalCropConfig implements IBaseConfig {
 
@@ -30,25 +32,9 @@ public class ThermalCropConfig implements IBaseConfig {
 
     }
 
-    public static boolean glowstoneMushroomLight() {
-
-        return glowstoneMushroomLight == null || glowstoneMushroomLight.get();
-    }
-
-    public static boolean redstoneMushroomLight() {
-
-        return redstoneMushroomLight == null || redstoneMushroomLight.get();
-    }
-
-    public static boolean redstoneMushroomSignal() {
-
-        return redstoneMushroomSignal == null || redstoneMushroomSignal.get();
-    }
-
     // region CONFIG VARIABLES
-    private static ForgeConfigSpec.BooleanValue glowstoneMushroomLight;
-
-    private static ForgeConfigSpec.BooleanValue redstoneMushroomLight;
-    private static ForgeConfigSpec.BooleanValue redstoneMushroomSignal;
+    public static Supplier<Boolean> glowstoneMushroomLight = () -> true;
+    public static Supplier<Boolean> redstoneMushroomLight = () -> true;
+    public static Supplier<Boolean> redstoneMushroomSignal = () -> true;
     // endregion
 }

@@ -9,7 +9,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import static cofh.thermal.cultivation.init.TCulReferences.JAR_ITEM;
+import static cofh.thermal.core.ThermalCore.ITEMS;
+import static cofh.thermal.cultivation.init.TCulIDs.ID_JAR;
 
 public class JarredItem extends ItemCoFH {
 
@@ -23,19 +24,17 @@ public class JarredItem extends ItemCoFH {
 
         super.finishUsingItem(stack, worldIn, entity);
 
-        if (entity instanceof ServerPlayer) {
-            ServerPlayer serverplayerentity = (ServerPlayer) entity;
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
-            serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
+        if (entity instanceof ServerPlayer player) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(player, stack);
+            player.awardStat(Stats.ITEM_USED.get(this));
         }
         if (stack.isEmpty()) {
-            return new ItemStack(JAR_ITEM);
+            return new ItemStack(ITEMS.get(ID_JAR));
         } else {
-            if (entity instanceof Player && !((Player) entity).abilities.instabuild) {
-                ItemStack itemstack = new ItemStack(JAR_ITEM);
-                Player playerentity = (Player) entity;
-                if (!playerentity.inventory.add(itemstack)) {
-                    playerentity.drop(itemstack, false);
+            if (entity instanceof Player player && !((Player) entity).abilities.instabuild) {
+                ItemStack itemstack = new ItemStack(ITEMS.get(ID_JAR));
+                if (!player.inventory.add(itemstack)) {
+                    player.drop(itemstack, false);
                 }
             }
             return stack;
@@ -45,7 +44,7 @@ public class JarredItem extends ItemCoFH {
     @Override
     public ItemStack getContainerItem(ItemStack stack) {
 
-        return new ItemStack(JAR_ITEM);
+        return new ItemStack(ITEMS.get(ID_JAR));
     }
 
     @Override

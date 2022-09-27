@@ -2,10 +2,11 @@ package cofh.thermal.cultivation.init;
 
 import cofh.thermal.cultivation.tileentity.PotionCakeTile;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.registries.RegistryObject;
 
+import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.TILE_ENTITIES;
 import static cofh.thermal.cultivation.init.TCulIDs.ID_POTION_CAKE;
-import static cofh.thermal.cultivation.init.TCulReferences.POTION_CAKE_BLOCK;
 
 public class TCulTileEntities {
 
@@ -15,7 +16,8 @@ public class TCulTileEntities {
 
     public static void register() {
 
-        TILE_ENTITIES.register(ID_POTION_CAKE, () -> BlockEntityType.Builder.of(PotionCakeTile::new, POTION_CAKE_BLOCK).build(null));
     }
+
+    public static final RegistryObject<BlockEntityType<?>> POTION_CAKE_TILE = TILE_ENTITIES.register(ID_POTION_CAKE, () -> BlockEntityType.Builder.of(PotionCakeTile::new, BLOCKS.get(ID_POTION_CAKE)).build(null));
 
 }

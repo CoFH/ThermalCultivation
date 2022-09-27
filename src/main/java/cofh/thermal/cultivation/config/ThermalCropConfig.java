@@ -5,8 +5,6 @@ import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.util.function.Supplier;
 
-import static cofh.lib.util.Constants.TRUE_SUP;
-
 public class ThermalCropConfig implements IBaseConfig {
 
     @Override
@@ -35,8 +33,8 @@ public class ThermalCropConfig implements IBaseConfig {
     }
 
     // region CONFIG VARIABLES
-    public static Supplier<Boolean> glowstoneMushroomLight = TRUE_SUP;
-    public static Supplier<Boolean> redstoneMushroomLight = TRUE_SUP;
-    public static Supplier<Boolean> redstoneMushroomSignal = TRUE_SUP;
+    public static Supplier<Boolean> glowstoneMushroomLight = () -> true;
+    public static Supplier<Boolean> redstoneMushroomLight = () -> true;
+    public static Supplier<Boolean> redstoneMushroomSignal = () -> true;
     // endregion
 }

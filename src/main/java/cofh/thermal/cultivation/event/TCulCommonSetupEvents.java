@@ -28,7 +28,7 @@ public class TCulCommonSetupEvents {
     @SubscribeEvent
     public static void setupVillagerTrades(final VillagerTradesEvent event) {
 
-        if (!ThermalCoreConfig.enableVillagerTrades) {
+        if (!ThermalCoreConfig.enableVillagerTrades.get()) {
             return;
         }
         if (event.getType() == VillagerProfession.FARMER) {

@@ -57,8 +57,8 @@ public class TCulItems {
 
         // TODO: Implement Hops
         // registerCropAndSeed(ID_HOPS);
-        ITEMS.register(ID_HOPS, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_FOODS)));
-        ITEMS.register(seeds(ID_HOPS), () -> new ItemCoFH(new Item.Properties().tab(THERMAL_FOODS)));
+        ITEMS.register(ID_HOPS, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_FOODS)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(seeds(ID_HOPS), () -> new ItemCoFH(new Item.Properties().tab(THERMAL_FOODS)).setModId(ID_THERMAL_CULTIVATION));
 
         registerCropAndSeed(ID_TEA);
 
@@ -83,16 +83,16 @@ public class TCulItems {
         //        ITEMS.register("coffee", () -> new ItemCoFH(new Item.Properties().group(group).food(COFFEE)));
         //        ITEMS.register("tea", () -> new ItemCoFH(new Item.Properties().group(group).food(TEA)));
 
-        ITEMS.register(ID_JAR, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_TOOLS)));
-        ITEMS.register(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties().tab(group)));
-        ITEMS.register(ID_JELLY, () -> new JarredItem(new Item.Properties().tab(group)));
-        ITEMS.register(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties().tab(group)));
+        ITEMS.register(ID_JAR, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_TOOLS)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_JELLY, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
 
-        ITEMS.register(ID_CHEESE_WEDGE, () -> new ItemCoFH(new Item.Properties().tab(group).food(CHEESE)));
-        ITEMS.register(ID_GREEN_BEAN_PIE, () -> new ItemCoFH(new Item.Properties().tab(group).food(GREEN_BEAN_PIE)));
-        ITEMS.register(ID_PBJ_SANDWICH, () -> new ItemCoFH(new Item.Properties().tab(group).food(PBJ_SANDWICH)));
-        ITEMS.register(ID_STUFFED_PEPPER, () -> new ItemCoFH(new Item.Properties().tab(group).food(STUFFED_PEPPER)));
-        ITEMS.register(ID_SUSHI_MAKI, () -> new ItemCoFH(new Item.Properties().tab(group).food(SUSHI)));
+        ITEMS.register(ID_CHEESE_WEDGE, () -> new ItemCoFH(new Item.Properties().tab(group).food(CHEESE)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_GREEN_BEAN_PIE, () -> new ItemCoFH(new Item.Properties().tab(group).food(GREEN_BEAN_PIE)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_PBJ_SANDWICH, () -> new ItemCoFH(new Item.Properties().tab(group).food(PBJ_SANDWICH)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_STUFFED_PEPPER, () -> new ItemCoFH(new Item.Properties().tab(group).food(STUFFED_PEPPER)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_SUSHI_MAKI, () -> new ItemCoFH(new Item.Properties().tab(group).food(SUSHI)).setModId(ID_THERMAL_CULTIVATION));
 
         ITEMS.register(ID_SPRING_SALAD, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(SPRING_SALAD).rarity(Rarity.UNCOMMON)) {
 

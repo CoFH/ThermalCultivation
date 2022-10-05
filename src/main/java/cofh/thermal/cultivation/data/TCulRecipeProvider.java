@@ -42,7 +42,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
 
         ShapedRecipeBuilder.shaped(reg.get(ID_WATERING_CAN))
                 .define('B', Items.BUCKET)
-                .define('C', Tags.Items.INGOTS_COPPER)
+                .define('C', ItemTagsCoFH.INGOTS_BRONZE)
                 .pattern("C  ")
                 .pattern("CBC")
                 .pattern(" C ")

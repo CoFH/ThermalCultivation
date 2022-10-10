@@ -1,6 +1,7 @@
 package cofh.thermal.cultivation.loot;
 
 import cofh.lib.util.WeightedRandomDrop;
+import cofh.thermal.cultivation.config.ThermalCropConfig;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -52,6 +53,9 @@ public class GrassLootModifier extends LootModifier {
     @Override
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
 
+        if (!ThermalCropConfig.dropSeedsFromGrass.get()) {
+            return generatedLoot;
+        }
         List<ItemStack> newLoot = new ArrayList<>();
         for (ItemStack stack : generatedLoot) {
             if (stack.getItem() == Items.WHEAT_SEEDS) {

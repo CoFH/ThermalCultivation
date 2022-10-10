@@ -14,6 +14,10 @@ public class ThermalCropConfig implements IBaseConfig {
 
         builder.push("Crops");
 
+        dropSeedsFromGrass = builder
+                .comment("If TRUE, some Thermal Cultivation seeds will be able to drop from grass. Disabling this will ignore any datapack setting using Thermal's 'seeds_from_grass' Global Loot Modifier.")
+                .define("Drop Seeds From Grass", dropSeedsFromGrass);
+
         glowstoneMushroomLight = builder
                 .comment("If TRUE, Glimmercap Mushrooms produce light when fully grown. Disabling this may improve performance.")
                 .define("Glowstone Mushroom Light", glowstoneMushroomLight);
@@ -29,12 +33,9 @@ public class ThermalCropConfig implements IBaseConfig {
         builder.pop();
     }
 
-    @Override
-    public void refresh() {
-
-    }
-
     // region CONFIG VARIABLES
+    public static Supplier<Boolean> dropSeedsFromGrass = TRUE;
+
     public static Supplier<Boolean> glowstoneMushroomLight = TRUE;
     public static Supplier<Boolean> redstoneMushroomLight = TRUE;
     public static Supplier<Boolean> redstoneMushroomSignal = TRUE;

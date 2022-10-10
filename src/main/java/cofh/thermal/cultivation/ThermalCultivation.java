@@ -5,6 +5,7 @@ import cofh.thermal.cultivation.config.ThermalCropConfig;
 import cofh.thermal.cultivation.init.TCulBlocks;
 import cofh.thermal.cultivation.init.TCulItems;
 import cofh.thermal.cultivation.init.TCulTileEntities;
+import cofh.thermal.cultivation.loot.GrassLootModifier;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,8 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
-import static cofh.thermal.core.ThermalCore.BLOCKS;
-import static cofh.thermal.core.ThermalCore.CONFIG_MANAGER;
+import static cofh.thermal.core.ThermalCore.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
 import static cofh.thermal.lib.common.ThermalFlags.*;
 import static cofh.thermal.lib.common.ThermalIDs.*;
@@ -41,7 +41,7 @@ public class ThermalCultivation {
 
         TCulTileEntities.register();
 
-        // LOOT_SERIALIZERS.register("seeds_from_grass", GrassLootModifier.Serializer::new);
+        LOOT_SERIALIZERS.register("seeds_from_grass", () -> GrassLootModifier.CODEC);
     }
 
     private void setFeatureFlags() {

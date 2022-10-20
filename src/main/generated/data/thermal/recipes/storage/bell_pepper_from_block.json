@@ -6,7 +6,7 @@
     }
   ],
   "result": {
-    "item": "thermal:bell_pepper",
-    "count": 9
+    "count": 9,
+    "item": "thermal:bell_pepper"
   }
 }

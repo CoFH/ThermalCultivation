@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ADA",
-    "BEB",
-    "CDC"
-  ],
   "key": {
     "A": {
       "item": "minecraft:milk_bucket"
@@ -22,6 +17,11 @@
       "item": "minecraft:egg"
     }
   },
+  "pattern": [
+    "ADA",
+    "BEB",
+    "CDC"
+  ],
   "result": {
     "item": "thermal:spice_cake"
   }

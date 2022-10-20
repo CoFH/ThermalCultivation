@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " C ",
-    "OMR",
-    " P "
-  ],
   "key": {
     "C": {
       "item": "thermal:cheese_wedge"
@@ -22,6 +17,11 @@
       "tag": "forge:crops/rice"
     }
   },
+  "pattern": [
+    " C ",
+    "OMR",
+    " P "
+  ],
   "result": {
     "item": "thermal:stuffed_pepper"
   }

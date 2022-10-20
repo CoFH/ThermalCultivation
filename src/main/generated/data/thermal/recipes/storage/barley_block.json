@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/barley"
+    },
+    "I": {
+      "item": "thermal:barley"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:barley"
-    },
-    "#": {
-      "tag": "forge:crops/barley"
-    }
-  },
   "result": {
     "item": "thermal:barley_block"
   }

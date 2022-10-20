@@ -6,7 +6,7 @@
     }
   ],
   "result": {
-    "item": "thermal:cheese_wedge",
-    "count": 4
+    "count": 4,
+    "item": "thermal:cheese_wedge"
   }
 }

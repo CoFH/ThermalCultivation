@@ -6,7 +6,7 @@
     }
   ],
   "result": {
-    "item": "thermal:green_bean",
-    "count": 9
+    "count": 9,
+    "item": "thermal:green_bean"
   }
 }

@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/green_bean"
+    },
+    "I": {
+      "item": "thermal:green_bean"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:green_bean"
-    },
-    "#": {
-      "tag": "forge:crops/green_bean"
-    }
-  },
   "result": {
     "item": "thermal:green_bean_block"
   }

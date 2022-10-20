@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/spinach"
+    },
+    "I": {
+      "item": "thermal:spinach"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:spinach"
-    },
-    "#": {
-      "tag": "forge:crops/spinach"
-    }
-  },
   "result": {
     "item": "thermal:spinach_block"
   }

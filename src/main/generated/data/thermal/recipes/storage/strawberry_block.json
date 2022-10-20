@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/strawberry"
+    },
+    "I": {
+      "item": "thermal:strawberry"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:strawberry"
-    },
-    "#": {
-      "tag": "forge:crops/strawberry"
-    }
-  },
   "result": {
     "item": "thermal:strawberry_block"
   }

@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/radish"
+    },
+    "I": {
+      "item": "thermal:radish"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:radish"
-    },
-    "#": {
-      "tag": "forge:crops/radish"
-    }
-  },
   "result": {
     "item": "thermal:radish_block"
   }

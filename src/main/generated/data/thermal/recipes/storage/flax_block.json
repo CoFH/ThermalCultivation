@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/flax"
+    },
+    "I": {
+      "item": "thermal:flax"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:flax"
-    },
-    "#": {
-      "tag": "forge:crops/flax"
-    }
-  },
   "result": {
     "item": "thermal:flax_block"
   }

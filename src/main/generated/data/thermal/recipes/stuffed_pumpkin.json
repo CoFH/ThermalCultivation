@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "OTO",
-    "RCR",
-    "PMP"
-  ],
   "key": {
     "C": {
       "tag": "forge:pumpkins/carved"
@@ -25,6 +20,11 @@
       "item": "thermal:tomato_sauce"
     }
   },
+  "pattern": [
+    "OTO",
+    "RCR",
+    "PMP"
+  ],
   "result": {
     "item": "thermal:stuffed_pumpkin"
   }

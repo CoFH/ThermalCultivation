@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "CPC",
-    "PXP",
-    "CPC"
-  ],
   "key": {
     "C": {
       "item": "minecraft:charcoal"
@@ -16,6 +11,11 @@
       "item": "minecraft:dirt"
     }
   },
+  "pattern": [
+    "CPC",
+    "PXP",
+    "CPC"
+  ],
   "result": {
     "item": "thermal:phytosoil"
   }

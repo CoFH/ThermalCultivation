@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/eggplant"
+    },
+    "I": {
+      "item": "thermal:eggplant"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:eggplant"
-    },
-    "#": {
-      "tag": "forge:crops/eggplant"
-    }
-  },
   "result": {
     "item": "thermal:eggplant_block"
   }

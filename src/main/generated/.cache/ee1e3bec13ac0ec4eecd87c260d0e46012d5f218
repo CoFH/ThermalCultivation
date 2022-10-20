@@ -1,0 +1,10 @@
+// 1.19.2	2022-10-19T20:47:46.071144	Thermal Cultivation: BlockStates
+35ef5e97af4dc83a8503b29ca00374180c5cd225 assets/thermal/blockstates/amaranth_block.json
+caccf61ee1a2b38fab1de39f5bcee698cbbcedec assets/thermal/blockstates/barley_block.json
+20b6455a544ed77b081825a97bf0276083fdaa53 assets/thermal/blockstates/flax_block.json
+ef4a8f80a48a58277186a56ad8fa5c643b606161 assets/thermal/models/block/amaranth_block.json
+c13ecb8aa891b61e0fb152e41dd44bffaee17e5c assets/thermal/models/block/amaranth_block_horizontal.json
+1df63bb12f34bc3db3ee10e442b4525c211d1c02 assets/thermal/models/block/barley_block.json
+93f9bd85bc45029402522d9634cc745c99ca92f2 assets/thermal/models/block/barley_block_horizontal.json
+1057cf07dae9f877a3d0dbeeeecdb8177ef9097b assets/thermal/models/block/flax_block.json
+9a9eaf488f1640eecb0c8599b1bfeaba5a4b653a assets/thermal/models/block/flax_block_horizontal.json

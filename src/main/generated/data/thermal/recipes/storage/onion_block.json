@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/onion"
+    },
+    "I": {
+      "item": "thermal:onion"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:onion"
-    },
-    "#": {
-      "tag": "forge:crops/onion"
-    }
-  },
   "result": {
     "item": "thermal:onion_block"
   }

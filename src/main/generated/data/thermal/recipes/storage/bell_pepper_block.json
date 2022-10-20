@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/bell_pepper"
+    },
+    "I": {
+      "item": "thermal:bell_pepper"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:bell_pepper"
-    },
-    "#": {
-      "tag": "forge:crops/bell_pepper"
-    }
-  },
   "result": {
     "item": "thermal:bell_pepper_block"
   }

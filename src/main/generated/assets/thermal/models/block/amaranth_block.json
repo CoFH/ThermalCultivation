@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "thermal:block/amaranth_block_side",
-    "end": "thermal:block/amaranth_block_end"
+    "end": "thermal:block/amaranth_block_end",
+    "side": "thermal:block/amaranth_block_side"
   }
 }

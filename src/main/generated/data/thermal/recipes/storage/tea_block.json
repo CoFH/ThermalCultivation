@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/tea"
+    },
+    "I": {
+      "item": "thermal:tea"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:tea"
-    },
-    "#": {
-      "tag": "forge:crops/tea"
-    }
-  },
   "result": {
     "item": "thermal:tea_block"
   }

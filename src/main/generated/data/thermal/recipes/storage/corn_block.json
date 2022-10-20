@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/corn"
+    },
+    "I": {
+      "item": "thermal:corn"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:corn"
-    },
-    "#": {
-      "tag": "forge:crops/corn"
-    }
-  },
   "result": {
     "item": "thermal:corn_block"
   }

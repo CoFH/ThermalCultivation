@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/hops"
+    },
+    "I": {
+      "item": "thermal:hops"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:hops"
-    },
-    "#": {
-      "tag": "forge:crops/hops"
-    }
-  },
   "result": {
     "item": "thermal:hops_block"
   }

@@ -6,7 +6,7 @@
     }
   ],
   "result": {
-    "item": "thermal:tea",
-    "count": 9
+    "count": 9,
+    "item": "thermal:tea"
   }
 }

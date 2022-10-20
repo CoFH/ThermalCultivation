@@ -6,7 +6,7 @@
     }
   ],
   "result": {
-    "item": "thermal:strawberry",
-    "count": 9
+    "count": 9,
+    "item": "thermal:strawberry"
   }
 }

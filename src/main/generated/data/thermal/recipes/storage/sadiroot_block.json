@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:crops/sadiroot"
+    },
+    "I": {
+      "item": "thermal:sadiroot"
+    }
+  },
   "pattern": [
     "###",
     "#I#",
     "###"
   ],
-  "key": {
-    "I": {
-      "item": "thermal:sadiroot"
-    },
-    "#": {
-      "tag": "forge:crops/sadiroot"
-    }
-  },
   "result": {
     "item": "thermal:sadiroot_block"
   }

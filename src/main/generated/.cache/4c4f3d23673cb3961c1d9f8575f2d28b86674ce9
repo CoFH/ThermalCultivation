@@ -1,0 +1,6 @@
+// 1.19.2	2022-10-19T20:47:46.071144	Thermal Cultivation: Block Tags
+f06e9762f65263822fa99bbfa8b94f86d132bc12 data/minecraft/tags/blocks/crops.json
+dab9ebe4ca252fc8f239f461fd579496a210fe7d data/minecraft/tags/blocks/dirt.json
+9ed7e59435aefa5d2904d6c4bb4ad377b72ef0e6 data/minecraft/tags/blocks/mineable/axe.json
+0639c7ad2ae4462ebb1a4ea47cce8afe2761dbd4 data/minecraft/tags/blocks/mineable/hoe.json
+75cb794fd081494f936c8fd449e80c33d27674c5 data/minecraft/tags/blocks/mineable/shovel.json

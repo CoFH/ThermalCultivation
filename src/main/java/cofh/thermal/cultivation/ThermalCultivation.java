@@ -48,6 +48,8 @@ public class ThermalCultivation {
 
         setFlag(FLAG_RESOURCE_APATITE, true);
 
+        setFlag(FLAG_AREA_AUGMENTS, true);
+
         setFlag(FLAG_BEEKEEPER_ARMOR, true);
 
         setFlag(FLAG_PHYTOGRO_EXPLOSIVES, true);

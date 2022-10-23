@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/crop",
+  "parent": "cofh_core:block/crop",
   "textures": {
     "crop": "thermal:block/onion_3"
   }

@@ -35,6 +35,8 @@ import static net.minecraft.world.level.block.state.BlockBehaviour.Properties.of
 
 public class TCulBlocks {
 
+    public static DamageSource SADIROOT_DAMAGE = new DamageSource("sadiroot");
+
     private TCulBlocks() {
 
     }
@@ -113,8 +115,6 @@ public class TCulBlocks {
             ComposterBlock.add(chance, ITEMS.get(seeds(ID_FROST_MELON)));
         }
     }
-
-    public static DamageSource SADIROOT_DAMAGE = new DamageSource("sadiroot");
 
     // region HELPERS
     private static void registerPlants() {

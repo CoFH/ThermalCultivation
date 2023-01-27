@@ -124,6 +124,9 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
         generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_REDSTONE_MUSHROOM)), Items.REDSTONE, 0.1F, "smelting", "_spores");
         generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_SLIME_MUSHROOM)), Items.SLIME_BALL, 0.1F, "smelting", "_spores");
 
+        generateSmeltingAndCookingRecipes(reg, consumer, Tags.Items.MUSHROOMS, "has_mushroom", reg.get(ID_COOKED_MUSHROOM), 0.35F, "smelting");
+        generateSmeltingAndCookingRecipes(reg, consumer, ItemTagsCoFH.CROPS_EGGPLANT, "has_eggplant", reg.get(ID_COOKED_EGGPLANT), 0.35F, "smelting");
+
         generateStorageRecipes(consumer, reg.get(block(ID_AMARANTH)), reg.get(ID_AMARANTH), ItemTagsCoFH.CROPS_AMARANTH);
         generateStorageRecipes(consumer, reg.get(block(ID_BARLEY)), reg.get(ID_BARLEY), ItemTagsCoFH.CROPS_BARLEY);
         generateStorageRecipes(consumer, reg.get(block(ID_BELL_PEPPER)), reg.get(ID_BELL_PEPPER), ItemTagsCoFH.CROPS_BELL_PEPPER);

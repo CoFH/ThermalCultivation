@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "tag": "forge:mushrooms"
+  },
+  "result": "thermal:cooked_mushroom",
+  "experience": 0.35,
+  "cookingtime": 100
+}

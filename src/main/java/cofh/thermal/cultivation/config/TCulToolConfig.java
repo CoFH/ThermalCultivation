@@ -11,6 +11,11 @@ import static cofh.thermal.cultivation.init.TCulIDs.ID_WATERING_CAN;
 
 public class TCulToolConfig implements IBaseConfig {
 
+    // region CONFIG VARIABLES
+    private Supplier<Integer> wateringCanCapacity;
+    private Supplier<Boolean> wateringCanFakePlayers;
+    private Supplier<Boolean> wateringCanSourceBlocks;
+
     @Override
     public void apply(ForgeConfigSpec.Builder builder) {
 
@@ -42,10 +47,5 @@ public class TCulToolConfig implements IBaseConfig {
         WateringCanItem.allowFakePlayers = wateringCanFakePlayers.get();
         WateringCanItem.removeSourceBlocks = wateringCanSourceBlocks.get();
     }
-
-    // region CONFIG VARIABLES
-    private Supplier<Integer> wateringCanCapacity;
-    private Supplier<Boolean> wateringCanFakePlayers;
-    private Supplier<Boolean> wateringCanSourceBlocks;
     // endregion
 }

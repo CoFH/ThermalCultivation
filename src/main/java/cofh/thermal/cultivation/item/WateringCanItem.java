@@ -58,14 +58,11 @@ import static net.minecraftforge.fluids.capability.IFluidHandler.FluidAction.EXE
 
 public class WateringCanItem extends FluidContainerItemAugmentable implements IColorableItem, DyeableLeatherItem, IMultiModeItem {
 
-    private static final Set<Triple<BlockPos, BlockState, Block>> WATERED_BLOCKS = new ObjectOpenHashSet<>();
-
     protected static final int MB_PER_USE = 50;
-
+    protected static final Set<Block> EFFECTIVE_BLOCKS = new ObjectOpenHashSet<>();
+    private static final Set<Triple<BlockPos, BlockState, Block>> WATERED_BLOCKS = new ObjectOpenHashSet<>();
     public static boolean allowFakePlayers = false;
     public static boolean removeSourceBlocks = true;
-
-    protected static final Set<Block> EFFECTIVE_BLOCKS = new ObjectOpenHashSet<>();
 
     static {
         EFFECTIVE_BLOCKS.add(Blocks.MYCELIUM);
@@ -82,6 +79,26 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
 
         numSlots = () -> ThermalCoreConfig.toolAugments;
         augValidator = createAllowValidator(TAG_AUGMENT_TYPE_UPGRADE, TAG_AUGMENT_TYPE_FLUID, TAG_AUGMENT_TYPE_AREA_EFFECT);
+    }
+
+    public static void growPlants(Level world) {
+
+        if (WATERED_BLOCKS.isEmpty()) {
+            return;
+        }
+        for (Triple<BlockPos, BlockState, Block> entry : WATERED_BLOCKS) {
+            BlockPos pos = entry.getLeft();
+            BlockState state = entry.getMiddle();
+            Block block = entry.getRight();
+
+            if (block.isRandomlyTicking(state)) {
+                block.randomTick(state, (ServerLevel) world, pos, world.random);
+                world.sendBlockUpdated(pos, state, state, 3);
+            } else {
+                world.scheduleTick(pos, block, 0);
+            }
+        }
+        WATERED_BLOCKS.clear();
     }
 
     @Override
@@ -233,6 +250,7 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
 
         return (int) getPropertyWithDefault(stack, TAG_AUGMENT_RADIUS, 0.0F) + 1;
     }
+    // endregion
 
     protected int getWaterPerUse(ItemStack stack) {
 
@@ -262,7 +280,6 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
         }
         return 0xFFFFFF;
     }
-    // endregion
 
     // region IMultiModeItem
     @Override
@@ -270,6 +287,7 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
 
         return 1 + getRadius(stack);
     }
+    // endregion
 
     @Override
     public void onModeChange(Player player, ItemStack stack) {
@@ -281,27 +299,6 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
         } else {
             ChatHelper.sendIndexedChatMessageToPlayer(player, new TranslatableComponent("info.cofh.area").append(": " + radius + "x" + radius));
         }
-    }
-    // endregion
-
-    public static void growPlants(Level world) {
-
-        if (WATERED_BLOCKS.isEmpty()) {
-            return;
-        }
-        for (Triple<BlockPos, BlockState, Block> entry : WATERED_BLOCKS) {
-            BlockPos pos = entry.getLeft();
-            BlockState state = entry.getMiddle();
-            Block block = entry.getRight();
-
-            if (block.isRandomlyTicking(state)) {
-                block.randomTick(state, (ServerLevel) world, pos, world.random);
-                world.sendBlockUpdated(pos, state, state, 3);
-            } else {
-                world.scheduleTick(pos, block, 0);
-            }
-        }
-        WATERED_BLOCKS.clear();
     }
 
 }

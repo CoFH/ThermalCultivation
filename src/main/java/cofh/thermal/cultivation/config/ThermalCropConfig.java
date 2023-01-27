@@ -9,6 +9,12 @@ import static cofh.lib.util.Constants.TRUE;
 
 public class ThermalCropConfig implements IBaseConfig {
 
+    // region CONFIG VARIABLES
+    public static Supplier<Boolean> dropSeedsFromGrass = TRUE;
+    public static Supplier<Boolean> glowstoneMushroomLight = TRUE;
+    public static Supplier<Boolean> redstoneMushroomLight = TRUE;
+    public static Supplier<Boolean> redstoneMushroomSignal = TRUE;
+
     @Override
     public void apply(ForgeConfigSpec.Builder builder) {
 
@@ -32,12 +38,5 @@ public class ThermalCropConfig implements IBaseConfig {
 
         builder.pop();
     }
-
-    // region CONFIG VARIABLES
-    public static Supplier<Boolean> dropSeedsFromGrass = TRUE;
-
-    public static Supplier<Boolean> glowstoneMushroomLight = TRUE;
-    public static Supplier<Boolean> redstoneMushroomLight = TRUE;
-    public static Supplier<Boolean> redstoneMushroomSignal = TRUE;
     // endregion
 }

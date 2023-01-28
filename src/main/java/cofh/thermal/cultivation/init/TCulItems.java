@@ -88,6 +88,9 @@ public class TCulItems {
         ITEMS.register(ID_JELLY, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
         ITEMS.register(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
 
+        ITEMS.register(ID_COOKED_MUSHROOM, () -> new ItemCoFH(new Item.Properties().tab(group).food(COOKED_MUSHROOM)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_COOKED_EGGPLANT, () -> new ItemCoFH(new Item.Properties().tab(group).food(COOKED_EGGPLANT)).setModId(ID_THERMAL_CULTIVATION));
+
         ITEMS.register(ID_CHEESE_WEDGE, () -> new ItemCoFH(new Item.Properties().tab(group).food(CHEESE)).setModId(ID_THERMAL_CULTIVATION));
         ITEMS.register(ID_GREEN_BEAN_PIE, () -> new ItemCoFH(new Item.Properties().tab(group).food(GREEN_BEAN_PIE)).setModId(ID_THERMAL_CULTIVATION));
         ITEMS.register(ID_PBJ_SANDWICH, () -> new ItemCoFH(new Item.Properties().tab(group).food(PBJ_SANDWICH)).setModId(ID_THERMAL_CULTIVATION));

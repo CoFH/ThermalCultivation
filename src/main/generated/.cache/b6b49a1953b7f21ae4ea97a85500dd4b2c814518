@@ -1,4 +1,4 @@
-// 1.19.2	2022-10-19T20:47:46.0701379	Thermal Cultivation: Item Models
+// 1.19.2	2023-01-27T22:11:42.0369136	Thermal Cultivation: Item Models
 045a4b4fb85707365a5ace35428593223253dc1a assets/thermal/models/item/amaranth.json
 61487d8955ef259cea1a49065ed61ec86aea6816 assets/thermal/models/item/amaranth_block.json
 e418b97b5012849ed399ed4b23de9c015dea58bf assets/thermal/models/item/amaranth_seeds.json
@@ -15,6 +15,8 @@ d4ff60a561170bf232c75b201c28c8c47d6b4510 assets/thermal/models/item/cheese_wedge
 460ad4e19beb1b6aa9e1a0a581451b17b1bfbaa7 assets/thermal/models/item/coffee.json
 1fb88d8a278cfb4a1d0bcdb0d00c012cfe6c98f9 assets/thermal/models/item/coffee_block.json
 06acb50f7693e9d6c541c6b0c5a8792a730ca415 assets/thermal/models/item/coffee_seeds.json
+ff6c4f2fac62c76b78b072ea461edc5eaff4d1d2 assets/thermal/models/item/cooked_eggplant.json
+7d6617f686dcc81e285ebfab994262e64e2afa81 assets/thermal/models/item/cooked_mushroom.json
 0864b790efc8db4856353a07cf15f9d8bc673892 assets/thermal/models/item/corn.json
 032e15ac5dfea039f8e1b10f970d4a71def8cdb5 assets/thermal/models/item/corn_block.json
 1f68c8b52e78be7cd8638a2c0c38eaddfe199c31 assets/thermal/models/item/corn_seeds.json

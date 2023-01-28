@@ -47,6 +47,9 @@ public class TCulFoods {
     //            .build();
 
     // MEALS
+    public static final FoodProperties COOKED_EGGPLANT = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).build();
+    public static final FoodProperties COOKED_MUSHROOM = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
+
     public static final FoodProperties GREEN_BEAN_PIE = new FoodProperties.Builder().nutrition(8).saturationMod(0.8F).build();
     public static final FoodProperties PBJ_SANDWICH = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F).build();
     public static final FoodProperties STUFFED_PEPPER = new FoodProperties.Builder().nutrition(9).saturationMod(0.8F).build();

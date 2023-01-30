@@ -13,7 +13,7 @@ public class TCulCommonEvents {
     @SubscribeEvent
     public static void handleTickEndEvent(TickEvent.WorldTickEvent event) {
 
-        if (event.phase == TickEvent.Phase.END) {
+        if (event.side.isServer() && event.phase == TickEvent.Phase.END) {
             WateringCanItem.growPlants(event.world);
         }
     }

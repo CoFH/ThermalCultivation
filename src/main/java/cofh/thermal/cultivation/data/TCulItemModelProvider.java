@@ -86,6 +86,7 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         generated(reg.getSup(ID_TOMATO_SAUCE));
 
         // FOODS
+        generated(reg.getSup(ID_COOKED_CORN));
         generated(reg.getSup(ID_COOKED_EGGPLANT));
         generated(reg.getSup(ID_COOKED_MUSHROOM));
 

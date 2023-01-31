@@ -1,4 +1,4 @@
-// 1.19.2	2023-01-27T22:03:07.5799713	Thermal Cultivation: Recipes
+// 1.19.2	2023-01-30T12:53:30.4673137	Thermal Cultivation: Recipes
 96e88a987ffde32ab7fe49efd2089604c7ff7164 data/minecraft/recipes/string.json
 794add97fe9aa343974e47cb1d660faba8dd5714 data/thermal/recipes/carrot_cake.json
 a932b1f10c430699682341631ff5153f800556aa data/thermal/recipes/cheese_wedge_from_wheel.json
@@ -17,6 +17,9 @@ d35471ce2ca992540df994954d63a3b058d7d7b6 data/thermal/recipes/peanut_butter.json
 9c9c6c8954dc9dba960092dc8ed9f9dcee37cbe3 data/thermal/recipes/phytosoil.json
 5f50b3c29acdcb5bc4411ecf8746aa3b3ec92594 data/thermal/recipes/redstone_mushroom_spores.json
 1d43c29a84182a256adc061e6b72b06900e178d3 data/thermal/recipes/slime_mushroom_spores.json
+ee7851143bd6ea57a2d4a38c01553a6f3083da33 data/thermal/recipes/smelting/cooked_corn_from_campfire_cooking.json
+ffaf4e781b0e3a7fe27c1e1c947a00ea27e5f920 data/thermal/recipes/smelting/cooked_corn_from_smelting.json
+c23ee8864ec96c2efcb616297963222398e3f555 data/thermal/recipes/smelting/cooked_corn_from_smoking.json
 a61832bc21fab952218e318a6b4164cf3912f38d data/thermal/recipes/smelting/cooked_eggplant_from_campfire_cooking.json
 ccc3eb12c88d70f9ba8d38033b9f73fded474fef data/thermal/recipes/smelting/cooked_eggplant_from_smelting.json
 ae2e77ca75cea74a238bc15b069e4329dd57e137 data/thermal/recipes/smelting/cooked_eggplant_from_smoking.json

@@ -49,6 +49,7 @@ public class TCulIDs {
     public static final String ID_PEANUT_BUTTER = "peanut_butter";
     public static final String ID_TOMATO_SAUCE = "tomato_sauce";
 
+    public static final String ID_COOKED_CORN = "cooked_corn";
     public static final String ID_COOKED_EGGPLANT = "cooked_eggplant";
     public static final String ID_COOKED_MUSHROOM = "cooked_mushroom";
 

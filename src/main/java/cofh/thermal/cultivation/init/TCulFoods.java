@@ -47,6 +47,7 @@ public class TCulFoods {
     //            .build();
 
     // MEALS
+    public static final FoodProperties COOKED_CORN = new FoodProperties.Builder().nutrition(5).saturationMod(0.6F).build();
     public static final FoodProperties COOKED_EGGPLANT = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).build();
     public static final FoodProperties COOKED_MUSHROOM = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
 

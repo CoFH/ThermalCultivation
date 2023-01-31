@@ -89,6 +89,7 @@ public class TCulItems {
         ITEMS.register(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
 
         ITEMS.register(ID_COOKED_MUSHROOM, () -> new ItemCoFH(new Item.Properties().tab(group).food(COOKED_MUSHROOM)).setModId(ID_THERMAL_CULTIVATION));
+        ITEMS.register(ID_COOKED_CORN, () -> new ItemCoFH(new Item.Properties().tab(group).food(COOKED_CORN)).setModId(ID_THERMAL_CULTIVATION));
         ITEMS.register(ID_COOKED_EGGPLANT, () -> new ItemCoFH(new Item.Properties().tab(group).food(COOKED_EGGPLANT)).setModId(ID_THERMAL_CULTIVATION));
 
         ITEMS.register(ID_CHEESE_WEDGE, () -> new ItemCoFH(new Item.Properties().tab(group).food(CHEESE)).setModId(ID_THERMAL_CULTIVATION));

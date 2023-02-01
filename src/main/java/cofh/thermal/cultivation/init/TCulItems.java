@@ -104,7 +104,7 @@ public class TCulItems {
             public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
 
                 ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
-                return entityLiving instanceof Player && ((Player) entityLiving).abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
+                return entityLiving instanceof Player player && player.abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
             }
         }.setModId(ID_THERMAL_CULTIVATION));
 
@@ -114,7 +114,7 @@ public class TCulItems {
             public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
 
                 ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
-                return entityLiving instanceof Player && ((Player) entityLiving).abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
+                return entityLiving instanceof Player player && player.abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
             }
         }.setModId(ID_THERMAL_CULTIVATION));
 
@@ -124,7 +124,7 @@ public class TCulItems {
             public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
 
                 ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
-                return entityLiving instanceof Player && ((Player) entityLiving).abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
+                return entityLiving instanceof Player player && player.abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
             }
         }.setModId(ID_THERMAL_CULTIVATION));
     }

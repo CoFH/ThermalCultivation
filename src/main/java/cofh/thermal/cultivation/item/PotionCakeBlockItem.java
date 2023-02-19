@@ -28,14 +28,14 @@ public class PotionCakeBlockItem extends BlockItemCoFH implements IColorableItem
     }
 
     @Override
-    @OnlyIn (Dist.CLIENT)
+    
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
 
         addPotionTooltip(PotionUtils.getMobEffects(stack), tooltip, 0.25F);
     }
 
     @Override
-    @OnlyIn (Dist.CLIENT)
+    
     public boolean isFoil(ItemStack stack) {
 
         return super.isFoil(stack) || !PotionUtils.getMobEffects(stack).isEmpty();

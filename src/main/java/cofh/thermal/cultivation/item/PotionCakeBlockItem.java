@@ -10,8 +10,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -28,14 +26,12 @@ public class PotionCakeBlockItem extends BlockItemCoFH implements IColorableItem
     }
 
     @Override
-    @OnlyIn (Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
 
         addPotionTooltip(PotionUtils.getMobEffects(stack), tooltip, 0.25F);
     }
 
     @Override
-    @OnlyIn (Dist.CLIENT)
     public boolean isFoil(ItemStack stack) {
 
         return super.isFoil(stack) || !PotionUtils.getMobEffects(stack).isEmpty();

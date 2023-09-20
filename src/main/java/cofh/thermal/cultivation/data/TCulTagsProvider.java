@@ -63,7 +63,7 @@ public class TCulTagsProvider {
                     BLOCKS.get(ID_EGGPLANT),
                     BLOCKS.get(ID_FLAX),
                     BLOCKS.get(ID_GREEN_BEAN),
-                    BLOCKS.get(ID_HOPS),
+                    // BLOCKS.get(ID_HOPS),
                     BLOCKS.get(ID_ONION),
                     BLOCKS.get(ID_PEANUT),
                     BLOCKS.get(ID_RADISH),

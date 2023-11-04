@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static cofh.lib.util.constants.NBTTags.TAG_POTION;
-import static cofh.thermal.cultivation.init.TCulTileEntities.POTION_CAKE_TILE;
+import static cofh.thermal.cultivation.init.TCulBlockEntities.POTION_CAKE_TILE;
 
 public class PotionCakeTile extends BlockEntity {
 

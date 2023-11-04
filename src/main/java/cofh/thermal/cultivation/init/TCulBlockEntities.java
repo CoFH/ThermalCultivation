@@ -8,9 +8,9 @@ import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.TILE_ENTITIES;
 import static cofh.thermal.cultivation.init.TCulIDs.ID_POTION_CAKE;
 
-public class TCulTileEntities {
+public class TCulBlockEntities {
 
-    private TCulTileEntities() {
+    private TCulBlockEntities() {
 
     }
 

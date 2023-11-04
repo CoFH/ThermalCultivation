@@ -4,19 +4,16 @@ import cofh.core.item.BlockNamedItemCoFH;
 import cofh.core.item.ItemCoFH;
 import cofh.thermal.cultivation.item.JarredItem;
 import cofh.thermal.cultivation.item.WateringCanItem;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 
 import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
-import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.init.TCulFoods.*;
 import static cofh.thermal.cultivation.init.TCulIDs.*;
-import static cofh.thermal.lib.common.ThermalItemGroups.THERMAL_FOODS;
-import static cofh.thermal.lib.common.ThermalItemGroups.THERMAL_TOOLS;
+import static cofh.thermal.lib.common.ThermalCreativeTabs.foodsTab;
+import static cofh.thermal.lib.common.ThermalCreativeTabs.toolsTab;
 
 public class TCulItems {
 
@@ -31,6 +28,7 @@ public class TCulItems {
         registerTools();
     }
 
+    // region HELPERS
     private static void registerCrops() {
 
         // ANNUAL
@@ -57,8 +55,8 @@ public class TCulItems {
 
         // TODO: Implement Hops
         // registerCropAndSeed(ID_HOPS);
-        ITEMS.register(ID_HOPS, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_FOODS)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(seeds(ID_HOPS), () -> new ItemCoFH(new Item.Properties().tab(THERMAL_FOODS)).setModId(ID_THERMAL_CULTIVATION));
+        foodsTab(registerItem(ID_HOPS, () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(seeds(ID_HOPS), () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
 
         registerCropAndSeed(ID_TEA);
 
@@ -68,13 +66,11 @@ public class TCulItems {
         registerSpores(ID_SLIME_MUSHROOM);
 
         // OTHER
-        ITEMS.register(ID_FROST_MELON_SLICE, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_FOODS).food(FROST_MELON_SLICE).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(seeds(ID_FROST_MELON), () -> new BlockNamedItemCoFH(BLOCKS.get(ID_FROST_MELON_STEM), new Item.Properties().tab(THERMAL_FOODS).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION));
+        foodsTab(registerItem(ID_FROST_MELON_SLICE, () -> new ItemCoFH(new Item.Properties().food(FROST_MELON_SLICE).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(seeds(ID_FROST_MELON), () -> new BlockNamedItemCoFH(BLOCKS.get(ID_FROST_MELON_STEM), new Item.Properties().rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION)));
     }
 
     private static void registerFoods() {
-
-        CreativeModeTab group = THERMAL_FOODS;
 
         //        ITEMS.register("butter", () -> new ItemCoFH(new Item.Properties().group(group)));
         //        ITEMS.register("dough", () -> new ItemCoFH(new Item.Properties().group(group).food(DOUGH)));
@@ -83,57 +79,29 @@ public class TCulItems {
         //        ITEMS.register("coffee", () -> new ItemCoFH(new Item.Properties().group(group).food(COFFEE)));
         //        ITEMS.register("tea", () -> new ItemCoFH(new Item.Properties().group(group).food(TEA)));
 
-        ITEMS.register(ID_JAR, () -> new ItemCoFH(new Item.Properties().tab(THERMAL_TOOLS)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_JELLY, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties().tab(group)).setModId(ID_THERMAL_CULTIVATION));
+        foodsTab(registerItem(ID_JAR, () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_JELLY, () -> new JarredItem(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
 
-        ITEMS.register(ID_COOKED_MUSHROOM, () -> new ItemCoFH(new Item.Properties().tab(group).food(COOKED_MUSHROOM)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_COOKED_CORN, () -> new ItemCoFH(new Item.Properties().tab(group).food(COOKED_CORN)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_COOKED_EGGPLANT, () -> new ItemCoFH(new Item.Properties().tab(group).food(COOKED_EGGPLANT)).setModId(ID_THERMAL_CULTIVATION));
+        foodsTab(registerItem(ID_COOKED_MUSHROOM, () -> new ItemCoFH(new Item.Properties().food(COOKED_MUSHROOM)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_COOKED_CORN, () -> new ItemCoFH(new Item.Properties().food(COOKED_CORN)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_COOKED_EGGPLANT, () -> new ItemCoFH(new Item.Properties().food(COOKED_EGGPLANT)).setModId(ID_THERMAL_CULTIVATION)));
 
-        ITEMS.register(ID_CHEESE_WEDGE, () -> new ItemCoFH(new Item.Properties().tab(group).food(CHEESE)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_GREEN_BEAN_PIE, () -> new ItemCoFH(new Item.Properties().tab(group).food(GREEN_BEAN_PIE)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_PBJ_SANDWICH, () -> new ItemCoFH(new Item.Properties().tab(group).food(PBJ_SANDWICH)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_STUFFED_PEPPER, () -> new ItemCoFH(new Item.Properties().tab(group).food(STUFFED_PEPPER)).setModId(ID_THERMAL_CULTIVATION));
-        ITEMS.register(ID_SUSHI_MAKI, () -> new ItemCoFH(new Item.Properties().tab(group).food(SUSHI)).setModId(ID_THERMAL_CULTIVATION));
+        foodsTab(registerItem(ID_CHEESE_WEDGE, () -> new ItemCoFH(new Item.Properties().food(CHEESE)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_GREEN_BEAN_PIE, () -> new ItemCoFH(new Item.Properties().food(GREEN_BEAN_PIE)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_PBJ_SANDWICH, () -> new ItemCoFH(new Item.Properties().food(PBJ_SANDWICH)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_STUFFED_PEPPER, () -> new ItemCoFH(new Item.Properties().food(STUFFED_PEPPER)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_SUSHI_MAKI, () -> new ItemCoFH(new Item.Properties().food(SUSHI)).setModId(ID_THERMAL_CULTIVATION)));
 
-        ITEMS.register(ID_SPRING_SALAD, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(SPRING_SALAD).rarity(Rarity.UNCOMMON)) {
-
-            @Override
-            public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
-
-                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
-                return entityLiving instanceof Player player && player.abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
-            }
-        }.setModId(ID_THERMAL_CULTIVATION));
-
-        ITEMS.register(ID_HEARTY_STEW, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(HEARTY_STEW).rarity(Rarity.UNCOMMON)) {
-
-            @Override
-            public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
-
-                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
-                return entityLiving instanceof Player player && player.abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
-            }
-        }.setModId(ID_THERMAL_CULTIVATION));
-
-        ITEMS.register(ID_XP_STEW, () -> new ItemCoFH(new Item.Properties().stacksTo(1).tab(group).food(XP_STEW).rarity(Rarity.UNCOMMON)) {
-
-            @Override
-            public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
-
-                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
-                return entityLiving instanceof Player player && player.abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
-            }
-        }.setModId(ID_THERMAL_CULTIVATION));
+        registerBowlFoodItem(ID_SPRING_SALAD, SPRING_SALAD, Rarity.UNCOMMON);
+        registerBowlFoodItem(ID_HEARTY_STEW, HEARTY_STEW, Rarity.UNCOMMON);
+        registerBowlFoodItem(ID_XP_STEW, XP_STEW, Rarity.UNCOMMON);
     }
 
     private static void registerTools() {
 
-        CreativeModeTab group = THERMAL_TOOLS;
-
-        ITEMS.register(ID_WATERING_CAN, () -> new WateringCanItem(new Item.Properties().stacksTo(1).tab(group), 8000).setModId(ID_THERMAL_CULTIVATION));
+        toolsTab(registerItem(ID_WATERING_CAN, () -> new WateringCanItem(new Item.Properties().stacksTo(1), 8000).setModId(ID_THERMAL_CULTIVATION)));
     }
-
+    // endregion
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "E": {
       "item": "minecraft:egg"
@@ -24,5 +25,6 @@
   ],
   "result": {
     "item": "thermal:green_bean_pie"
-  }
+  },
+  "show_notification": true
 }

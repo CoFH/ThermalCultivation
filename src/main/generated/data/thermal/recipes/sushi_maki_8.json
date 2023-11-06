@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "F": {
       "tag": "forge:foods/fish/raw"
@@ -19,5 +20,6 @@
   "result": {
     "count": 8,
     "item": "thermal:sushi_maki"
-  }
+  },
+  "show_notification": true
 }

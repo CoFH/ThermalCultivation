@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "#": {
       "tag": "forge:crops/flax"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "thermal:flax_block"
-  }
+  },
+  "show_notification": true
 }

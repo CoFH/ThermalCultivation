@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "item": "thermal:cheese_wedge"
@@ -24,5 +25,6 @@
   ],
   "result": {
     "item": "thermal:stuffed_pepper"
-  }
+  },
+  "show_notification": true
 }

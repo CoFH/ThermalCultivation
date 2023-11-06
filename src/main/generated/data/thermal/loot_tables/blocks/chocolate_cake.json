@@ -1,3 +1,4 @@
 {
-  "type": "minecraft:block"
+  "type": "minecraft:block",
+  "random_sequence": "thermal:blocks/chocolate_cake"
 }

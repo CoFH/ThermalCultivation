@@ -1,5 +1,6 @@
 {
   "type": "cofh_core:crafting_shaped_potion",
+  "category": "misc",
   "pattern": [
     "ADA",
     "BEB",

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "#": {
       "tag": "forge:crops/bell_pepper"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "thermal:bell_pepper_block"
-  }
+  },
+  "show_notification": true
 }

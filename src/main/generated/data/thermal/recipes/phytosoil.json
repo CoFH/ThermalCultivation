@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "C": {
       "item": "minecraft:charcoal"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "thermal:phytosoil"
-  }
+  },
+  "show_notification": true
 }

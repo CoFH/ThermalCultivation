@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "#": {
       "tag": "forge:crops/sadiroot"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "thermal:sadiroot_block"
-  }
+  },
+  "show_notification": true
 }

@@ -1,11 +1,11 @@
 package cofh.thermal.cultivation;
 
-import cofh.thermal.cultivation.config.TCulToolConfig;
-import cofh.thermal.cultivation.config.ThermalCropConfig;
-import cofh.thermal.cultivation.init.TCulBlockEntities;
-import cofh.thermal.cultivation.init.TCulBlocks;
-import cofh.thermal.cultivation.init.TCulItems;
-import cofh.thermal.cultivation.loot.GrassLootModifier;
+import cofh.thermal.cultivation.common.config.TCulToolConfig;
+import cofh.thermal.cultivation.common.config.ThermalCropConfig;
+import cofh.thermal.cultivation.common.loot.GrassLootModifier;
+import cofh.thermal.cultivation.init.registries.TCulBlockEntities;
+import cofh.thermal.cultivation.init.registries.TCulBlocks;
+import cofh.thermal.cultivation.init.registries.TCulItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -16,9 +16,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.*;
-import static cofh.thermal.cultivation.init.TCulIDs.*;
-import static cofh.thermal.lib.common.ThermalFlags.*;
-import static cofh.thermal.lib.common.ThermalIDs.*;
+import static cofh.thermal.cultivation.init.registries.TCulIDs.*;
+import static cofh.thermal.lib.init.ThermalFlags.*;
+import static cofh.thermal.lib.init.ThermalIDs.*;
 
 @Mod (ID_THERMAL_CULTIVATION)
 public class ThermalCultivation {

@@ -17,8 +17,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.*;
 import static cofh.thermal.cultivation.init.registries.TCulIDs.*;
-import static cofh.thermal.lib.init.ThermalFlags.*;
-import static cofh.thermal.lib.init.ThermalIDs.*;
+import static cofh.thermal.lib.util.ThermalFlags.*;
+import static cofh.thermal.lib.util.ThermalIDs.*;
 
 @Mod (ID_THERMAL_CULTIVATION)
 public class ThermalCultivation {

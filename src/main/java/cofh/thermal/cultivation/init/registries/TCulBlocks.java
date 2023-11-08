@@ -29,11 +29,11 @@ import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.common.block.ChargedSoilBlock.CHARGED;
+import static cofh.thermal.core.init.registries.ThermalCreativeTabs.foodsTab;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.common.config.ThermalCropConfig.*;
 import static cofh.thermal.cultivation.init.registries.TCulFoods.*;
 import static cofh.thermal.cultivation.init.registries.TCulIDs.*;
-import static cofh.thermal.lib.init.ThermalCreativeTabs.foodsTab;
 import static net.minecraft.world.level.block.state.BlockBehaviour.Properties.of;
 import static net.minecraft.world.level.material.MapColor.*;
 

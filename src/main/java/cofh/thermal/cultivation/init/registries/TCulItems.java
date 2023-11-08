@@ -9,11 +9,11 @@ import net.minecraft.world.item.Rarity;
 
 import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
+import static cofh.thermal.core.init.registries.ThermalCreativeTabs.foodsTab;
+import static cofh.thermal.core.init.registries.ThermalCreativeTabs.toolsTab;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.init.registries.TCulFoods.*;
 import static cofh.thermal.cultivation.init.registries.TCulIDs.*;
-import static cofh.thermal.lib.init.ThermalCreativeTabs.foodsTab;
-import static cofh.thermal.lib.init.ThermalCreativeTabs.toolsTab;
 
 public class TCulItems {
 

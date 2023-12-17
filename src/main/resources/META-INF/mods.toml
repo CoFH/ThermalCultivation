@@ -21,7 +21,7 @@ Contains the "farm" of the Thermal Series - various crops, foods, and associated
 [[dependencies.thermal_cultivation]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[${mc_version},)"
+versionRange = "1.20.1"
 ordering = "AFTER"
 side = "BOTH"
 

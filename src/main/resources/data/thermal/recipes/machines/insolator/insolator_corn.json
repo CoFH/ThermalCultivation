@@ -14,5 +14,6 @@
     }
   ],
   "energy_mod": 1.5,
-  "water_mod": 1.5
+  "water_mod": 1.5,
+  "experience": 0.2
 }

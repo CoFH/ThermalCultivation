@@ -9,5 +9,6 @@
       "chance": 2.0
     }
   ],
-  "energy_mod": 3.0
+  "energy_mod": 3.0,
+  "experience": 0.25
 }

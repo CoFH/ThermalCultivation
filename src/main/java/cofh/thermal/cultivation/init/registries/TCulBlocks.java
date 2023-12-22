@@ -29,6 +29,7 @@ import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.common.block.ChargedSoilBlock.CHARGED;
+import static cofh.thermal.core.init.registries.ThermalCreativeTabs.blocksTab;
 import static cofh.thermal.core.init.registries.ThermalCreativeTabs.foodsTab;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.common.config.ThermalCropConfig.*;
@@ -246,8 +247,8 @@ public class TCulBlocks {
 
     private static void registerMisc() {
 
-        registerBlock(ID_PHYTOSOIL, () -> new ChargedSoilBlock(of().randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL_TILLED)), ID_THERMAL_CULTIVATION);
-        registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledChargedSoilBlock(of().randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION);
+        blocksTab(50, registerBlock(ID_PHYTOSOIL, () -> new ChargedSoilBlock(of().randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL_TILLED)), ID_THERMAL_CULTIVATION));
+        blocksTab(50, registerBlock(ID_PHYTOSOIL_TILLED, () -> new TilledChargedSoilBlock(of().randomTicks().strength(0.8F).sound(SoundType.GRAVEL).lightLevel((state) -> state.getValue(CHARGED) > 0 ? 7 : 0)).otherBlock(BLOCKS.getSup(ID_PHYTOSOIL)), ID_THERMAL_CULTIVATION));
     }
 
     private static void registerAmaranth(String id) {

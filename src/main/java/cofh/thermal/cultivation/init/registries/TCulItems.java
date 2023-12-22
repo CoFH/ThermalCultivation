@@ -101,7 +101,7 @@ public class TCulItems {
 
     private static void registerTools() {
 
-        toolsTab(registerItem(ID_WATERING_CAN, () -> new WateringCanItem(new Item.Properties().stacksTo(1), 8000).setModId(ID_THERMAL_CULTIVATION)));
+        toolsTab(20, registerItem(ID_WATERING_CAN, () -> new WateringCanItem(new Item.Properties().stacksTo(1), 8000).setModId(ID_THERMAL_CULTIVATION)));
     }
     // endregion
 }

@@ -207,42 +207,42 @@ public class TCulBlocks {
 
     private static void registerFoods() {
 
-        foodsTab(registerBlock(ID_CHEESE_WHEEL, () -> new CheeseWheelBlock(of().forceSolidOn().strength(1.0F).sound(SoundType.WOOL), CHEESE).serving(ITEMS.getSup(ID_CHEESE_WEDGE)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(ID_STUFFED_PUMPKIN, () -> new FeastBlock(of().mapColor(PLANT).forceSolidOn().strength(0.5F).sound(SoundType.WOOD), STUFFED_PUMPKIN), ID_THERMAL_CULTIVATION));
+        foodsTab(500, registerBlock(ID_CHEESE_WHEEL, () -> new CheeseWheelBlock(of().forceSolidOn().strength(1.0F).sound(SoundType.WOOL), CHEESE).serving(ITEMS.getSup(ID_CHEESE_WEDGE)), ID_THERMAL_CULTIVATION));
+        foodsTab(500, registerBlock(ID_STUFFED_PUMPKIN, () -> new FeastBlock(of().mapColor(PLANT).forceSolidOn().strength(0.5F).sound(SoundType.WOOD), STUFFED_PUMPKIN), ID_THERMAL_CULTIVATION));
 
-        foodsTab(registerBlock(ID_CARROT_CAKE, () -> new CakeBlockCoFH(of().forceSolidOn().strength(0.5F).sound(SoundType.WOOL), CARROT_CAKE).setTall(), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(ID_CHOCOLATE_CAKE, () -> new CakeBlockCoFH(of().forceSolidOn().strength(0.5F).sound(SoundType.WOOL), CHOCOLATE_CAKE), ID_THERMAL_CULTIVATION));
+        foodsTab(500, registerBlock(ID_CARROT_CAKE, () -> new CakeBlockCoFH(of().forceSolidOn().strength(0.5F).sound(SoundType.WOOL), CARROT_CAKE).setTall(), ID_THERMAL_CULTIVATION));
+        foodsTab(500, registerBlock(ID_CHOCOLATE_CAKE, () -> new CakeBlockCoFH(of().forceSolidOn().strength(0.5F).sound(SoundType.WOOL), CHOCOLATE_CAKE), ID_THERMAL_CULTIVATION));
 
-        foodsTab(registerBlock(ID_POTION_CAKE,
+        foodsTab(500, registerBlock(ID_POTION_CAKE,
                 () -> new PotionCakeBlock(of().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY), POTION_CAKE),
                 () -> new PotionCakeBlockItem(BLOCKS.get(ID_POTION_CAKE), new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
 
-        foodsTab(registerBlock(ID_SPICE_CAKE, () -> new CakeBlockCoFH(of().strength(0.5F).sound(SoundType.WOOL), SPICE_CAKE), ID_THERMAL_CULTIVATION));
+        foodsTab(500, registerBlock(ID_SPICE_CAKE, () -> new CakeBlockCoFH(of().strength(0.5F).sound(SoundType.WOOL), SPICE_CAKE), ID_THERMAL_CULTIVATION));
     }
 
     private static void registerStorage() {
 
-        foodsTab(registerBlock(block(ID_AMARANTH), () -> new HayBlock(of().mapColor(COLOR_RED).strength(0.5F).sound(SoundType.GRASS)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_BARLEY), () -> new HayBlock(of().mapColor(GOLD).strength(0.5F).sound(SoundType.GRASS)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_CORN), () -> new Block(of().mapColor(COLOR_YELLOW).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_FLAX), () -> new HayBlock(of().mapColor(COLOR_PURPLE).strength(0.5F).sound(SoundType.GRASS)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_ONION), () -> new Block(of().mapColor(TERRACOTTA_WHITE).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_RADISH), () -> new Block(of().mapColor(TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_SADIROOT), () -> new Block(of().mapColor(TERRACOTTA_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_SPINACH), () -> new Block(of().mapColor(COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_AMARANTH), () -> new HayBlock(of().mapColor(COLOR_RED).strength(0.5F).sound(SoundType.GRASS)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_BARLEY), () -> new HayBlock(of().mapColor(GOLD).strength(0.5F).sound(SoundType.GRASS)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_CORN), () -> new Block(of().mapColor(COLOR_YELLOW).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_FLAX), () -> new HayBlock(of().mapColor(COLOR_PURPLE).strength(0.5F).sound(SoundType.GRASS)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_ONION), () -> new Block(of().mapColor(TERRACOTTA_WHITE).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_RADISH), () -> new Block(of().mapColor(TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_SADIROOT), () -> new Block(of().mapColor(TERRACOTTA_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_SPINACH), () -> new Block(of().mapColor(COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
 
-        foodsTab(registerBlock(block(ID_BELL_PEPPER), () -> new Block(of().mapColor(TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_EGGPLANT), () -> new Block(of().mapColor(TERRACOTTA_PURPLE).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_GREEN_BEAN), () -> new Block(of().mapColor(COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_HOPS), () -> new Block(of().mapColor(COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_STRAWBERRY), () -> new Block(of().mapColor(TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_TOMATO), () -> new Block(of().mapColor(COLOR_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_BELL_PEPPER), () -> new Block(of().mapColor(TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_EGGPLANT), () -> new Block(of().mapColor(TERRACOTTA_PURPLE).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_GREEN_BEAN), () -> new Block(of().mapColor(COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_HOPS), () -> new Block(of().mapColor(COLOR_GREEN).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_STRAWBERRY), () -> new Block(of().mapColor(TERRACOTTA_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_TOMATO), () -> new Block(of().mapColor(COLOR_RED).strength(1.5F).sound(SoundType.SCAFFOLDING)), ID_THERMAL_CULTIVATION));
 
-        foodsTab(registerBlock(block(ID_RICE), () -> new DirectionalBlock4Way(of().mapColor(TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_PEANUT), () -> new DirectionalBlock4Way(of().mapColor(TERRACOTTA_BROWN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_RICE), () -> new DirectionalBlock4Way(of().mapColor(TERRACOTTA_WHITE).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_PEANUT), () -> new DirectionalBlock4Way(of().mapColor(TERRACOTTA_BROWN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION));
 
-        foodsTab(registerBlock(block(ID_COFFEE), () -> new DirectionalBlock4Way(of().mapColor(TERRACOTTA_RED).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION));
-        foodsTab(registerBlock(block(ID_TEA), () -> new DirectionalBlock4Way(of().mapColor(TERRACOTTA_GREEN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_COFFEE), () -> new DirectionalBlock4Way(of().mapColor(TERRACOTTA_RED).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION));
+        foodsTab(1000, registerBlock(block(ID_TEA), () -> new DirectionalBlock4Way(of().mapColor(TERRACOTTA_GREEN).strength(0.5F).sound(SoundType.WART_BLOCK)), ID_THERMAL_CULTIVATION));
     }
 
     private static void registerMisc() {

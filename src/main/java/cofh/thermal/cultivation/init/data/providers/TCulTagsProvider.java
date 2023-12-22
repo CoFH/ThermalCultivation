@@ -1,6 +1,6 @@
 package cofh.thermal.cultivation.init.data.providers;
 
-import cofh.lib.init.tags.ItemTagsCoFH;
+import cofh.thermal.cultivation.init.registries.TCulTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.FluidTagsProvider;
@@ -76,6 +76,46 @@ public class TCulTagsProvider {
                     BLOCKS.get(ID_FROST_MELON_STEM)
             );
 
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_AMARANTH).add(BLOCKS.get(block(ID_AMARANTH)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_BARLEY).add(BLOCKS.get(block(ID_BARLEY)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_BELL_PEPPER).add(BLOCKS.get(block(ID_BELL_PEPPER)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_COFFEE).add(BLOCKS.get(block(ID_COFFEE)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_CORN).add(BLOCKS.get(block(ID_CORN)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_EGGPLANT).add(BLOCKS.get(block(ID_EGGPLANT)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_FLAX).add(BLOCKS.get(block(ID_FLAX)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_GREEN_BEAN).add(BLOCKS.get(block(ID_GREEN_BEAN)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_HOPS).add(BLOCKS.get(block(ID_HOPS)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_ONION).add(BLOCKS.get(block(ID_ONION)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_PEANUT).add(BLOCKS.get(block(ID_PEANUT)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_RADISH).add(BLOCKS.get(block(ID_RADISH)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_RICE).add(BLOCKS.get(block(ID_RICE)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_SADIROOT).add(BLOCKS.get(block(ID_SADIROOT)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_SPINACH).add(BLOCKS.get(block(ID_SPINACH)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_STRAWBERRY).add(BLOCKS.get(block(ID_STRAWBERRY)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_TEA).add(BLOCKS.get(block(ID_TEA)));
+            tag(TCulTags.Blocks.STORAGE_BLOCKS_TOMATO).add(BLOCKS.get(block(ID_TOMATO)));
+
+            tag(Tags.Blocks.STORAGE_BLOCKS).addTags(
+                    TCulTags.Blocks.STORAGE_BLOCKS_AMARANTH,
+                    TCulTags.Blocks.STORAGE_BLOCKS_BARLEY,
+                    TCulTags.Blocks.STORAGE_BLOCKS_BELL_PEPPER,
+                    TCulTags.Blocks.STORAGE_BLOCKS_COFFEE,
+                    TCulTags.Blocks.STORAGE_BLOCKS_CORN,
+                    TCulTags.Blocks.STORAGE_BLOCKS_EGGPLANT,
+                    TCulTags.Blocks.STORAGE_BLOCKS_FLAX,
+                    TCulTags.Blocks.STORAGE_BLOCKS_GREEN_BEAN,
+                    TCulTags.Blocks.STORAGE_BLOCKS_HOPS,
+                    TCulTags.Blocks.STORAGE_BLOCKS_ONION,
+                    TCulTags.Blocks.STORAGE_BLOCKS_PEANUT,
+                    TCulTags.Blocks.STORAGE_BLOCKS_RADISH,
+                    TCulTags.Blocks.STORAGE_BLOCKS_RICE,
+                    TCulTags.Blocks.STORAGE_BLOCKS_SADIROOT,
+                    TCulTags.Blocks.STORAGE_BLOCKS_SPINACH,
+                    TCulTags.Blocks.STORAGE_BLOCKS_STRAWBERRY,
+                    TCulTags.Blocks.STORAGE_BLOCKS_TEA,
+                    TCulTags.Blocks.STORAGE_BLOCKS_TOMATO
+            );
+
             tag(BlockTags.DIRT).add(BLOCKS.get(ID_PHYTOSOIL));
         }
 
@@ -92,86 +132,126 @@ public class TCulTagsProvider {
         @Override
         protected void addTags(HolderLookup.Provider pProvider) {
 
-            tag(ItemTagsCoFH.CROPS_AMARANTH).add(ITEMS.get(ID_AMARANTH));
-            tag(ItemTagsCoFH.CROPS_BARLEY).add(ITEMS.get(ID_BARLEY));
-            tag(ItemTagsCoFH.CROPS_BELL_PEPPER).add(ITEMS.get(ID_BELL_PEPPER));
-            tag(ItemTagsCoFH.CROPS_COFFEE).add(ITEMS.get(ID_COFFEE));
-            tag(ItemTagsCoFH.CROPS_CORN).add(ITEMS.get(ID_CORN));
-            tag(ItemTagsCoFH.CROPS_EGGPLANT).add(ITEMS.get(ID_EGGPLANT));
-            tag(ItemTagsCoFH.CROPS_FLAX).add(ITEMS.get(ID_FLAX));
-            tag(ItemTagsCoFH.CROPS_GREEN_BEAN).add(ITEMS.get(ID_GREEN_BEAN));
-            tag(ItemTagsCoFH.CROPS_HOPS).add(ITEMS.get(ID_HOPS));
-            tag(ItemTagsCoFH.CROPS_ONION).add(ITEMS.get(ID_ONION));
-            tag(ItemTagsCoFH.CROPS_PEANUT).add(ITEMS.get(ID_PEANUT));
-            tag(ItemTagsCoFH.CROPS_RADISH).add(ITEMS.get(ID_RADISH));
-            tag(ItemTagsCoFH.CROPS_RICE).add(ITEMS.get(ID_RICE));
-            tag(ItemTagsCoFH.CROPS_SADIROOT).add(ITEMS.get(ID_SADIROOT));
-            tag(ItemTagsCoFH.CROPS_SPINACH).add(ITEMS.get(ID_SPINACH));
-            tag(ItemTagsCoFH.CROPS_STRAWBERRY).add(ITEMS.get(ID_STRAWBERRY));
-            tag(ItemTagsCoFH.CROPS_TEA).add(ITEMS.get(ID_TEA));
-            tag(ItemTagsCoFH.CROPS_TOMATO).add(ITEMS.get(ID_TOMATO));
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_AMARANTH, TCulTags.Items.STORAGE_BLOCKS_AMARANTH);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_BARLEY, TCulTags.Items.STORAGE_BLOCKS_BARLEY);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_BELL_PEPPER, TCulTags.Items.STORAGE_BLOCKS_BELL_PEPPER);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_COFFEE, TCulTags.Items.STORAGE_BLOCKS_COFFEE);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_CORN, TCulTags.Items.STORAGE_BLOCKS_CORN);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_EGGPLANT, TCulTags.Items.STORAGE_BLOCKS_EGGPLANT);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_FLAX, TCulTags.Items.STORAGE_BLOCKS_FLAX);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_GREEN_BEAN, TCulTags.Items.STORAGE_BLOCKS_GREEN_BEAN);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_HOPS, TCulTags.Items.STORAGE_BLOCKS_HOPS);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_ONION, TCulTags.Items.STORAGE_BLOCKS_ONION);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_PEANUT, TCulTags.Items.STORAGE_BLOCKS_PEANUT);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_RADISH, TCulTags.Items.STORAGE_BLOCKS_RADISH);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_RICE, TCulTags.Items.STORAGE_BLOCKS_RICE);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_SADIROOT, TCulTags.Items.STORAGE_BLOCKS_SADIROOT);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_SPINACH, TCulTags.Items.STORAGE_BLOCKS_SPINACH);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_STRAWBERRY, TCulTags.Items.STORAGE_BLOCKS_STRAWBERRY);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_TEA, TCulTags.Items.STORAGE_BLOCKS_TEA);
+            copy(TCulTags.Blocks.STORAGE_BLOCKS_TOMATO, TCulTags.Items.STORAGE_BLOCKS_TOMATO);
+
+            tag(TCulTags.Items.CROPS_AMARANTH).add(ITEMS.get(ID_AMARANTH));
+            tag(TCulTags.Items.CROPS_BARLEY).add(ITEMS.get(ID_BARLEY));
+            tag(TCulTags.Items.CROPS_BELL_PEPPER).add(ITEMS.get(ID_BELL_PEPPER));
+            tag(TCulTags.Items.CROPS_COFFEE).add(ITEMS.get(ID_COFFEE));
+            tag(TCulTags.Items.CROPS_CORN).add(ITEMS.get(ID_CORN));
+            tag(TCulTags.Items.CROPS_EGGPLANT).add(ITEMS.get(ID_EGGPLANT));
+            tag(TCulTags.Items.CROPS_FLAX).add(ITEMS.get(ID_FLAX));
+            tag(TCulTags.Items.CROPS_GREEN_BEAN).add(ITEMS.get(ID_GREEN_BEAN));
+            tag(TCulTags.Items.CROPS_HOPS).add(ITEMS.get(ID_HOPS));
+            tag(TCulTags.Items.CROPS_ONION).add(ITEMS.get(ID_ONION));
+            tag(TCulTags.Items.CROPS_PEANUT).add(ITEMS.get(ID_PEANUT));
+            tag(TCulTags.Items.CROPS_RADISH).add(ITEMS.get(ID_RADISH));
+            tag(TCulTags.Items.CROPS_RICE).add(ITEMS.get(ID_RICE));
+            tag(TCulTags.Items.CROPS_SADIROOT).add(ITEMS.get(ID_SADIROOT));
+            tag(TCulTags.Items.CROPS_SPINACH).add(ITEMS.get(ID_SPINACH));
+            tag(TCulTags.Items.CROPS_STRAWBERRY).add(ITEMS.get(ID_STRAWBERRY));
+            tag(TCulTags.Items.CROPS_TEA).add(ITEMS.get(ID_TEA));
+            tag(TCulTags.Items.CROPS_TOMATO).add(ITEMS.get(ID_TOMATO));
 
             tag(Tags.Items.CROPS).addTags(
-                    ItemTagsCoFH.CROPS_AMARANTH,
-                    ItemTagsCoFH.CROPS_BARLEY,
-                    ItemTagsCoFH.CROPS_BELL_PEPPER,
-                    ItemTagsCoFH.CROPS_COFFEE,
-                    ItemTagsCoFH.CROPS_CORN,
-                    ItemTagsCoFH.CROPS_EGGPLANT,
-                    ItemTagsCoFH.CROPS_FLAX,
-                    ItemTagsCoFH.CROPS_GREEN_BEAN,
-                    ItemTagsCoFH.CROPS_HOPS,
-                    ItemTagsCoFH.CROPS_ONION,
-                    ItemTagsCoFH.CROPS_PEANUT,
-                    ItemTagsCoFH.CROPS_RADISH,
-                    ItemTagsCoFH.CROPS_RICE,
-                    ItemTagsCoFH.CROPS_SADIROOT,
-                    ItemTagsCoFH.CROPS_SPINACH,
-                    ItemTagsCoFH.CROPS_STRAWBERRY,
-                    ItemTagsCoFH.CROPS_TEA,
-                    ItemTagsCoFH.CROPS_TOMATO
+                    TCulTags.Items.CROPS_AMARANTH,
+                    TCulTags.Items.CROPS_BARLEY,
+                    TCulTags.Items.CROPS_BELL_PEPPER,
+                    TCulTags.Items.CROPS_COFFEE,
+                    TCulTags.Items.CROPS_CORN,
+                    TCulTags.Items.CROPS_EGGPLANT,
+                    TCulTags.Items.CROPS_FLAX,
+                    TCulTags.Items.CROPS_GREEN_BEAN,
+                    TCulTags.Items.CROPS_HOPS,
+                    TCulTags.Items.CROPS_ONION,
+                    TCulTags.Items.CROPS_PEANUT,
+                    TCulTags.Items.CROPS_RADISH,
+                    TCulTags.Items.CROPS_RICE,
+                    TCulTags.Items.CROPS_SADIROOT,
+                    TCulTags.Items.CROPS_SPINACH,
+                    TCulTags.Items.CROPS_STRAWBERRY,
+                    TCulTags.Items.CROPS_TEA,
+                    TCulTags.Items.CROPS_TOMATO
             );
 
-            tag(ItemTagsCoFH.SEEDS_AMARANTH).add(ITEMS.get(seeds(ID_AMARANTH)));
-            tag(ItemTagsCoFH.SEEDS_BARLEY).add(ITEMS.get(seeds(ID_BARLEY)));
-            tag(ItemTagsCoFH.SEEDS_BELL_PEPPER).add(ITEMS.get(seeds(ID_BELL_PEPPER)));
-            tag(ItemTagsCoFH.SEEDS_COFFEE).add(ITEMS.get(seeds(ID_COFFEE)));
-            tag(ItemTagsCoFH.SEEDS_CORN).add(ITEMS.get(seeds(ID_CORN)));
-            tag(ItemTagsCoFH.SEEDS_EGGPLANT).add(ITEMS.get(seeds(ID_EGGPLANT)));
-            tag(ItemTagsCoFH.SEEDS_FLAX).add(ITEMS.get(seeds(ID_FLAX)));
-            tag(ItemTagsCoFH.SEEDS_FROST_MELON).add(ITEMS.get(seeds(ID_FROST_MELON)));
-            tag(ItemTagsCoFH.SEEDS_GREEN_BEAN).add(ITEMS.get(seeds(ID_GREEN_BEAN)));
-            tag(ItemTagsCoFH.SEEDS_HOPS).add(ITEMS.get(seeds(ID_HOPS)));
-            tag(ItemTagsCoFH.SEEDS_ONION).add(ITEMS.get(seeds(ID_ONION)));
-            tag(ItemTagsCoFH.SEEDS_PEANUT).add(ITEMS.get(seeds(ID_PEANUT)));
-            tag(ItemTagsCoFH.SEEDS_RADISH).add(ITEMS.get(seeds(ID_RADISH)));
-            tag(ItemTagsCoFH.SEEDS_RICE).add(ITEMS.get(seeds(ID_RICE)));
-            tag(ItemTagsCoFH.SEEDS_SADIROOT).add(ITEMS.get(seeds(ID_SADIROOT)));
-            tag(ItemTagsCoFH.SEEDS_SPINACH).add(ITEMS.get(seeds(ID_SPINACH)));
-            tag(ItemTagsCoFH.SEEDS_STRAWBERRY).add(ITEMS.get(seeds(ID_STRAWBERRY)));
-            tag(ItemTagsCoFH.SEEDS_TEA).add(ITEMS.get(seeds(ID_TEA)));
-            tag(ItemTagsCoFH.SEEDS_TOMATO).add(ITEMS.get(seeds(ID_TOMATO)));
+            tag(TCulTags.Items.SEEDS_AMARANTH).add(ITEMS.get(seeds(ID_AMARANTH)));
+            tag(TCulTags.Items.SEEDS_BARLEY).add(ITEMS.get(seeds(ID_BARLEY)));
+            tag(TCulTags.Items.SEEDS_BELL_PEPPER).add(ITEMS.get(seeds(ID_BELL_PEPPER)));
+            tag(TCulTags.Items.SEEDS_COFFEE).add(ITEMS.get(seeds(ID_COFFEE)));
+            tag(TCulTags.Items.SEEDS_CORN).add(ITEMS.get(seeds(ID_CORN)));
+            tag(TCulTags.Items.SEEDS_EGGPLANT).add(ITEMS.get(seeds(ID_EGGPLANT)));
+            tag(TCulTags.Items.SEEDS_FLAX).add(ITEMS.get(seeds(ID_FLAX)));
+            tag(TCulTags.Items.SEEDS_FROST_MELON).add(ITEMS.get(seeds(ID_FROST_MELON)));
+            tag(TCulTags.Items.SEEDS_GREEN_BEAN).add(ITEMS.get(seeds(ID_GREEN_BEAN)));
+            tag(TCulTags.Items.SEEDS_HOPS).add(ITEMS.get(seeds(ID_HOPS)));
+            tag(TCulTags.Items.SEEDS_ONION).add(ITEMS.get(seeds(ID_ONION)));
+            tag(TCulTags.Items.SEEDS_PEANUT).add(ITEMS.get(seeds(ID_PEANUT)));
+            tag(TCulTags.Items.SEEDS_RADISH).add(ITEMS.get(seeds(ID_RADISH)));
+            tag(TCulTags.Items.SEEDS_RICE).add(ITEMS.get(seeds(ID_RICE)));
+            tag(TCulTags.Items.SEEDS_SADIROOT).add(ITEMS.get(seeds(ID_SADIROOT)));
+            tag(TCulTags.Items.SEEDS_SPINACH).add(ITEMS.get(seeds(ID_SPINACH)));
+            tag(TCulTags.Items.SEEDS_STRAWBERRY).add(ITEMS.get(seeds(ID_STRAWBERRY)));
+            tag(TCulTags.Items.SEEDS_TEA).add(ITEMS.get(seeds(ID_TEA)));
+            tag(TCulTags.Items.SEEDS_TOMATO).add(ITEMS.get(seeds(ID_TOMATO)));
 
             tag(Tags.Items.SEEDS).addTags(
-                    ItemTagsCoFH.SEEDS_AMARANTH,
-                    ItemTagsCoFH.SEEDS_BARLEY,
-                    ItemTagsCoFH.SEEDS_BELL_PEPPER,
-                    ItemTagsCoFH.SEEDS_COFFEE,
-                    ItemTagsCoFH.SEEDS_CORN,
-                    ItemTagsCoFH.SEEDS_EGGPLANT,
-                    ItemTagsCoFH.SEEDS_FLAX,
-                    ItemTagsCoFH.SEEDS_FROST_MELON,
-                    ItemTagsCoFH.SEEDS_GREEN_BEAN,
-                    ItemTagsCoFH.SEEDS_HOPS,
-                    ItemTagsCoFH.SEEDS_ONION,
-                    ItemTagsCoFH.SEEDS_PEANUT,
-                    ItemTagsCoFH.SEEDS_RADISH,
-                    ItemTagsCoFH.SEEDS_RICE,
-                    ItemTagsCoFH.SEEDS_SADIROOT,
-                    ItemTagsCoFH.SEEDS_SPINACH,
-                    ItemTagsCoFH.SEEDS_STRAWBERRY,
-                    ItemTagsCoFH.SEEDS_TEA,
-                    ItemTagsCoFH.SEEDS_TOMATO
+                    TCulTags.Items.SEEDS_AMARANTH,
+                    TCulTags.Items.SEEDS_BARLEY,
+                    TCulTags.Items.SEEDS_BELL_PEPPER,
+                    TCulTags.Items.SEEDS_COFFEE,
+                    TCulTags.Items.SEEDS_CORN,
+                    TCulTags.Items.SEEDS_EGGPLANT,
+                    TCulTags.Items.SEEDS_FLAX,
+                    TCulTags.Items.SEEDS_FROST_MELON,
+                    TCulTags.Items.SEEDS_GREEN_BEAN,
+                    TCulTags.Items.SEEDS_HOPS,
+                    TCulTags.Items.SEEDS_ONION,
+                    TCulTags.Items.SEEDS_PEANUT,
+                    TCulTags.Items.SEEDS_RADISH,
+                    TCulTags.Items.SEEDS_RICE,
+                    TCulTags.Items.SEEDS_SADIROOT,
+                    TCulTags.Items.SEEDS_SPINACH,
+                    TCulTags.Items.SEEDS_STRAWBERRY,
+                    TCulTags.Items.SEEDS_TEA,
+                    TCulTags.Items.SEEDS_TOMATO
+            );
+
+            tag(Tags.Items.STORAGE_BLOCKS).addTags(
+                    TCulTags.Items.STORAGE_BLOCKS_AMARANTH,
+                    TCulTags.Items.STORAGE_BLOCKS_BARLEY,
+                    TCulTags.Items.STORAGE_BLOCKS_BELL_PEPPER,
+                    TCulTags.Items.STORAGE_BLOCKS_COFFEE,
+                    TCulTags.Items.STORAGE_BLOCKS_CORN,
+                    TCulTags.Items.STORAGE_BLOCKS_EGGPLANT,
+                    TCulTags.Items.STORAGE_BLOCKS_FLAX,
+                    TCulTags.Items.STORAGE_BLOCKS_GREEN_BEAN,
+                    TCulTags.Items.STORAGE_BLOCKS_HOPS,
+                    TCulTags.Items.STORAGE_BLOCKS_ONION,
+                    TCulTags.Items.STORAGE_BLOCKS_PEANUT,
+                    TCulTags.Items.STORAGE_BLOCKS_RADISH,
+                    TCulTags.Items.STORAGE_BLOCKS_RICE,
+                    TCulTags.Items.STORAGE_BLOCKS_SADIROOT,
+                    TCulTags.Items.STORAGE_BLOCKS_SPINACH,
+                    TCulTags.Items.STORAGE_BLOCKS_STRAWBERRY,
+                    TCulTags.Items.STORAGE_BLOCKS_TEA,
+                    TCulTags.Items.STORAGE_BLOCKS_TOMATO
             );
         }
 

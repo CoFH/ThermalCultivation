@@ -1,0 +1,22 @@
+{
+  "values": [
+    "#forge:storage_blocks/amaranth",
+    "#forge:storage_blocks/barley",
+    "#forge:storage_blocks/bell_pepper",
+    "#forge:storage_blocks/coffee",
+    "#forge:storage_blocks/corn",
+    "#forge:storage_blocks/eggplant",
+    "#forge:storage_blocks/flax",
+    "#forge:storage_blocks/green_bean",
+    "#forge:storage_blocks/hops",
+    "#forge:storage_blocks/onion",
+    "#forge:storage_blocks/peanut",
+    "#forge:storage_blocks/radish",
+    "#forge:storage_blocks/rice",
+    "#forge:storage_blocks/sadiroot",
+    "#forge:storage_blocks/spinach",
+    "#forge:storage_blocks/strawberry",
+    "#forge:storage_blocks/tea",
+    "#forge:storage_blocks/tomato"
+  ]
+}

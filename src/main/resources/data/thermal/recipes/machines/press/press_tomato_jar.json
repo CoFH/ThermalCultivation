@@ -14,5 +14,6 @@
       "item": "thermal:tomato_sauce"
     }
   ],
-  "energy": 800
+  "energy": 800,
+  "experience": 0.1
 }

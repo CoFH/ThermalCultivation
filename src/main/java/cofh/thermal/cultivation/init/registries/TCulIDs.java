@@ -45,6 +45,9 @@ public class TCulIDs {
     public static final String ID_DOUGH = "dough";
     public static final String ID_FLOUR = "flour";
 
+    public static final String ID_BREWED_LIGHT_TEA = "brewed_light_tea";
+    public static final String ID_BREWED_DARK_TEA = "_brewed_dark_tea";
+
     public static final String ID_JELLY = "jelly";
     public static final String ID_PEANUT_BUTTER = "peanut_butter";
     public static final String ID_TOMATO_SAUCE = "tomato_sauce";
@@ -79,5 +82,6 @@ public class TCulIDs {
 
     public static final String ID_WATERING_CAN = "watering_can";
     public static final String ID_JAR = "jar";
+    public static final String ID_MUG = "mug";
 
 }

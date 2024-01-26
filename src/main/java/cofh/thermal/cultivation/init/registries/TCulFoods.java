@@ -41,10 +41,16 @@ public class TCulFoods {
             .effect(() -> new MobEffectInstance(MOVEMENT_SPEED, 200, 0), 1.0F)
             .alwaysEat()
             .build();
-    //    public static final FoodProperties TEA = new FoodProperties.Builder().nutrition(0).saturationMod(0.2F)
-    //            .effect(() -> new EffectInstance(MOVEMENT_SPEED, 200, 0), 1.0F)
-    //            .alwaysEat()
-    //            .build();
+
+    public static final FoodProperties LIGHT_TEA = new FoodProperties.Builder().nutrition(0).saturationMod(0.2F)
+            .effect(() -> new MobEffectInstance(SATURATION, 5, 0), 1.0F)
+            .alwaysEat()
+            .build();
+
+    public static final FoodProperties DARK_TEA = new FoodProperties.Builder().nutrition(0).saturationMod(0.2F)
+            .effect(() -> new MobEffectInstance(PANACEA.get(), 10, 0), 1.0F)
+            .alwaysEat()
+            .build();
 
     // MEALS
     public static final FoodProperties COOKED_CORN = new FoodProperties.Builder().nutrition(5).saturationMod(0.6F).build();

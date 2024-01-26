@@ -20,6 +20,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
 
@@ -122,7 +123,6 @@ public class TCulBlocks {
     protected static final ResourceKey<DamageType> SADIROOT_DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(ID_THERMAL, "sadiroot"));
 
     // region HELPERS
-
     private static void registerPlants() {
 
         // ANNUAL
@@ -256,6 +256,16 @@ public class TCulBlocks {
         BLOCKS.register(id, () -> new AmaranthCrop(of().mapColor(PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
     }
 
+    public static void registerAnnual(String id) {
+
+        BLOCKS.register(id, () -> new CropBlockCoFH(of().mapColor(MapColor.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
+    }
+
+    private static void registerTallAnnual(String id) {
+
+        BLOCKS.register(id, () -> new CropBlockTall(of().mapColor(MapColor.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
+    }
+
     private static void registerFlax(String id) {
 
         BLOCKS.register(id, () -> new FlaxCrop(of().mapColor(PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
@@ -264,6 +274,16 @@ public class TCulBlocks {
     private static void registerMushroom(String id) {
 
         BLOCKS.register(id, () -> new CropBlockMushroom(of().mapColor(PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.NETHER_WART)).seed(ITEMS.getSup(spores(id))));
+    }
+
+    private static void registerPerennial(String id) {
+
+        registerPerennial(id, CropBlockPerennial.DEFAULT_POST_HARVEST_AGE);
+    }
+
+    private static void registerPerennial(String id, int postHarvestAge) {
+
+        BLOCKS.register(id, () -> new CropBlockPerennial(of().mapColor(MapColor.PLANT).noCollission().randomTicks().strength(0.0F, 0.0F).sound(SoundType.CROP)).postHarvestAge(postHarvestAge).crop(ITEMS.getSup(id)).seed(ITEMS.getSup(seeds(id))));
     }
     // endregion
 }

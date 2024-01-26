@@ -4,9 +4,16 @@ import cofh.core.common.item.BlockNamedItemCoFH;
 import cofh.core.common.item.ItemCoFH;
 import cofh.thermal.cultivation.common.item.JarredItem;
 import cofh.thermal.cultivation.common.item.WateringCanItem;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.Level;
 
+import static cofh.lib.util.Utils.itemProperties;
 import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.init.registries.ThermalCreativeTabs.foodsTab;
@@ -76,9 +83,6 @@ public class TCulItems {
         //        ITEMS.register("dough", () -> new ItemCoFH(new Item.Properties().group(group).food(DOUGH)));
         //        ITEMS.register("flour", () -> new ItemCoFH(new Item.Properties().group(group)));
 
-        //        ITEMS.register("coffee", () -> new ItemCoFH(new Item.Properties().group(group).food(COFFEE)));
-        //        ITEMS.register("tea", () -> new ItemCoFH(new Item.Properties().group(group).food(TEA)));
-
         foodsTab(registerItem(ID_JAR, () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
         foodsTab(registerItem(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
         foodsTab(registerItem(ID_JELLY, () -> new JarredItem(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
@@ -97,11 +101,60 @@ public class TCulItems {
         registerBowlFoodItem(ID_SPRING_SALAD, SPRING_SALAD, Rarity.UNCOMMON);
         registerBowlFoodItem(ID_HEARTY_STEW, HEARTY_STEW, Rarity.UNCOMMON);
         registerBowlFoodItem(ID_XP_STEW, XP_STEW, Rarity.UNCOMMON);
+
+        //        registerBottleFoodItem(ID_BREWED_LIGHT_TEA, LIGHT_TEA, Rarity.COMMON);
+        //        registerBottleFoodItem(ID_BREWED_DARK_TEA, DARK_TEA, Rarity.COMMON);
     }
 
     private static void registerTools() {
 
         toolsTab(20, registerItem(ID_WATERING_CAN, () -> new WateringCanItem(new Item.Properties().stacksTo(1), 8000).setModId(ID_THERMAL_CULTIVATION)));
+    }
+
+    private static void registerCropAndSeed(String id) {
+
+        registerCropAndSeed(id, null);
+    }
+
+    private static void registerCropAndSeed(String id, FoodProperties food) {
+
+        if (food != null) {
+            foodsTab(registerItem(id, () -> new ItemCoFH(itemProperties().food(food)).setModId(ID_THERMAL_CULTIVATION)));
+        } else {
+            foodsTab(registerItem(id, () -> new ItemCoFH(itemProperties()).setModId(ID_THERMAL_CULTIVATION)));
+        }
+        foodsTab(registerItem(seeds(id), () -> new BlockNamedItemCoFH(BLOCKS.get(id), itemProperties()).setModId(ID_THERMAL_CULTIVATION)));
+    }
+
+    private static void registerBowlFoodItem(String id, FoodProperties food, Rarity rarity) {
+
+        foodsTab(registerItem(id, () -> new ItemCoFH(itemProperties().stacksTo(1).food(food).rarity(rarity)) {
+
+            @Override
+            public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
+
+                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
+                return entityLiving instanceof Player player && player.abilities.instabuild ? itemstack : new ItemStack(Items.BOWL);
+            }
+        }.setModId(ID_THERMAL_CULTIVATION)));
+    }
+
+    private static void registerBottleFoodItem(String id, FoodProperties food, Rarity rarity) {
+
+        foodsTab(registerItem(id, () -> new ItemCoFH(itemProperties().stacksTo(16).food(food).rarity(rarity)) {
+
+            @Override
+            public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
+
+                ItemStack itemstack = super.finishUsingItem(stack, worldIn, entityLiving);
+                return entityLiving instanceof Player player && player.abilities.instabuild ? itemstack : new ItemStack(Items.GLASS_BOTTLE);
+            }
+        }.setModId(ID_THERMAL_CULTIVATION)));
+    }
+
+    private static void registerSpores(String id) {
+
+        foodsTab(registerItem(spores(id), () -> new BlockNamedItemCoFH(BLOCKS.get(id), itemProperties()).setModId(ID_THERMAL_CULTIVATION)));
     }
     // endregion
 }

@@ -52,6 +52,9 @@ public class TCulTags {
 
     public static class Items {
 
+        public static final TagKey<Item> DOUGH = forgeTag("dough");
+        public static final TagKey<Item> FLOUR = forgeTag("flour");
+
         public static final TagKey<Item> CROPS_AMARANTH = forgeTag("crops/amaranth");
         public static final TagKey<Item> CROPS_BARLEY = forgeTag("crops/barley");
         public static final TagKey<Item> CROPS_BELL_PEPPER = forgeTag("crops/bell_pepper");

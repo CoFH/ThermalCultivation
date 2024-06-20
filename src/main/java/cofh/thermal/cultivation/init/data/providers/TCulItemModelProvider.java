@@ -71,8 +71,8 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         generated(reg.getSup(spores(ID_REDSTONE_MUSHROOM)));
         generated(reg.getSup(spores(ID_SLIME_MUSHROOM)));
 
-        // generated(reg.getSup("dough"));
-        // generated(reg.getSup("flour"));
+        generated(reg.getSup(ID_DOUGH));
+        generated(reg.getSup(ID_FLOUR));
 
         generated(reg.getSup(ID_JAR));
         generated(reg.getSup(ID_PEANUT_BUTTER));
@@ -85,6 +85,7 @@ public class TCulItemModelProvider extends ItemModelProviderCoFH {
         generated(reg.getSup(ID_COOKED_MUSHROOM));
 
         generated(reg.getSup(ID_CHEESE_WEDGE));
+        generated(reg.getSup(ID_FORTUNE_COOKIE));
         generated(reg.getSup(ID_FROST_MELON_SLICE));
         generated(reg.getSup(ID_GREEN_BEAN_PIE));
         generated(reg.getSup(ID_PBJ_SANDWICH));

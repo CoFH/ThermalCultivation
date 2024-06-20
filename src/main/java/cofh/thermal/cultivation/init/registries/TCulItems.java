@@ -2,6 +2,7 @@ package cofh.thermal.cultivation.init.registries;
 
 import cofh.core.common.item.BlockNamedItemCoFH;
 import cofh.core.common.item.ItemCoFH;
+import cofh.thermal.cultivation.common.item.FortuneCookieItem;
 import cofh.thermal.cultivation.common.item.JarredItem;
 import cofh.thermal.cultivation.common.item.WateringCanItem;
 import net.minecraft.world.entity.LivingEntity;
@@ -79,20 +80,21 @@ public class TCulItems {
 
     private static void registerFoods() {
 
-        //        ITEMS.register("butter", () -> new ItemCoFH(new Item.Properties().group(group)));
-        //        ITEMS.register("dough", () -> new ItemCoFH(new Item.Properties().group(group).food(DOUGH)));
-        //        ITEMS.register("flour", () -> new ItemCoFH(new Item.Properties().group(group)));
+        // foodsTab(registerItem(ID_BUTTER, () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_DOUGH, () -> new ItemCoFH(new Item.Properties().food(DOUGH)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_FLOUR, () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
 
         foodsTab(registerItem(ID_JAR, () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
-        foodsTab(registerItem(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
-        foodsTab(registerItem(ID_JELLY, () -> new JarredItem(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
-        foodsTab(registerItem(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_PEANUT_BUTTER, () -> new JarredItem(new Item.Properties().food(PEANUT_BUTTER)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_JELLY, () -> new JarredItem(new Item.Properties().food(JELLY)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_TOMATO_SAUCE, () -> new JarredItem(new Item.Properties().food(TOMATO_SAUCE)).setModId(ID_THERMAL_CULTIVATION)));
 
         foodsTab(registerItem(ID_COOKED_MUSHROOM, () -> new ItemCoFH(new Item.Properties().food(COOKED_MUSHROOM)).setModId(ID_THERMAL_CULTIVATION)));
         foodsTab(registerItem(ID_COOKED_CORN, () -> new ItemCoFH(new Item.Properties().food(COOKED_CORN)).setModId(ID_THERMAL_CULTIVATION)));
         foodsTab(registerItem(ID_COOKED_EGGPLANT, () -> new ItemCoFH(new Item.Properties().food(COOKED_EGGPLANT)).setModId(ID_THERMAL_CULTIVATION)));
 
         foodsTab(registerItem(ID_CHEESE_WEDGE, () -> new ItemCoFH(new Item.Properties().food(CHEESE)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(registerItem(ID_FORTUNE_COOKIE, () -> new FortuneCookieItem(new Item.Properties().food(FORTUNE_COOKIE)).setModId(ID_THERMAL_CULTIVATION)));
         foodsTab(registerItem(ID_GREEN_BEAN_PIE, () -> new ItemCoFH(new Item.Properties().food(GREEN_BEAN_PIE)).setModId(ID_THERMAL_CULTIVATION)));
         foodsTab(registerItem(ID_PBJ_SANDWICH, () -> new ItemCoFH(new Item.Properties().food(PBJ_SANDWICH)).setModId(ID_THERMAL_CULTIVATION)));
         foodsTab(registerItem(ID_STUFFED_PEPPER, () -> new ItemCoFH(new Item.Properties().food(STUFFED_PEPPER)).setModId(ID_THERMAL_CULTIVATION)));

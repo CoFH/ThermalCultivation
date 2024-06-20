@@ -151,6 +151,9 @@ public class TCulTagsProvider {
             copy(TCulTags.Blocks.STORAGE_BLOCKS_TEA, TCulTags.Items.STORAGE_BLOCKS_TEA);
             copy(TCulTags.Blocks.STORAGE_BLOCKS_TOMATO, TCulTags.Items.STORAGE_BLOCKS_TOMATO);
 
+            tag(TCulTags.Items.DOUGH).add(ITEMS.get(ID_DOUGH));
+            tag(TCulTags.Items.FLOUR).add(ITEMS.get(ID_FLOUR));
+
             tag(TCulTags.Items.CROPS_AMARANTH).add(ITEMS.get(ID_AMARANTH));
             tag(TCulTags.Items.CROPS_BARLEY).add(ITEMS.get(ID_BARLEY));
             tag(TCulTags.Items.CROPS_BELL_PEPPER).add(ITEMS.get(ID_BELL_PEPPER));

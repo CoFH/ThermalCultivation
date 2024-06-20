@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "tag": "forge:crops/wheat"
+      },
+      {
+        "tag": "forge:crops/amaranth"
+      },
+      {
+        "tag": "forge:crops/barley"
+      }
+    ],
+    [
+      {
+        "tag": "forge:crops/wheat"
+      },
+      {
+        "tag": "forge:crops/amaranth"
+      },
+      {
+        "tag": "forge:crops/barley"
+      }
+    ],
+    {
+      "item": "thermal:wrench"
+    }
+  ],
+  "result": {
+    "item": "thermal:flour"
+  }
+}

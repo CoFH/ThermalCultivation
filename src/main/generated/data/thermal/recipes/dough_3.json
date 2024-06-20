@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "thermal:flour"
+    },
+    {
+      "item": "thermal:flour"
+    },
+    {
+      "item": "thermal:flour"
+    },
+    [
+      {
+        "item": "minecraft:water_bucket"
+      },
+      {
+        "item": "minecraft:egg"
+      }
+    ]
+  ],
+  "result": {
+    "count": 3,
+    "item": "thermal:dough"
+  }
+}

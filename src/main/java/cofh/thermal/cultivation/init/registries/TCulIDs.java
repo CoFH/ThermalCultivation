@@ -57,6 +57,7 @@ public class TCulIDs {
     public static final String ID_COOKED_MUSHROOM = "cooked_mushroom";
 
     public static final String ID_CHEESE_WEDGE = "cheese_wedge";
+    public static final String ID_FORTUNE_COOKIE = "fortune_cookie";
     public static final String ID_GREEN_BEAN_PIE = "green_bean_pie";
     public static final String ID_PBJ_SANDWICH = "pbj_sandwich";
     public static final String ID_STUFFED_PEPPER = "stuffed_pepper";
@@ -83,5 +84,7 @@ public class TCulIDs {
     public static final String ID_WATERING_CAN = "watering_can";
     public static final String ID_JAR = "jar";
     public static final String ID_MUG = "mug";
+
+    public static final String ID_EFFECT_FORTUNE_REVEALED = "fortune_revealed";
 
 }

@@ -1,6 +1,7 @@
 package cofh.thermal.cultivation.init.registries;
 
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 
 import static cofh.core.init.CoreMobEffects.CLARITY;
@@ -32,9 +33,12 @@ public class TCulFoods {
 
     // INGREDIENTS
     public static final FoodProperties CHEESE = new FoodProperties.Builder().nutrition(4).saturationMod(0.4F).build();
-    //    public static final FoodProperties JELLY = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
-    //    public static final FoodProperties PEANUT_BUTTER = new FoodProperties.Builder().nutrition(4).saturationMod(0.4F).build();
-    //    public static final FoodProperties TOMATO_SAUCE = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
+    public static final FoodProperties DOUGH = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 400, 0), 0.4F)
+            .build();
+    public static final FoodProperties JELLY = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
+    public static final FoodProperties PEANUT_BUTTER = new FoodProperties.Builder().nutrition(5).saturationMod(0.5F).build();
+    public static final FoodProperties TOMATO_SAUCE = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).build();
 
     // DRINKS
     public static final FoodProperties COFFEE = new FoodProperties.Builder().nutrition(0).saturationMod(0.2F)
@@ -57,6 +61,7 @@ public class TCulFoods {
     public static final FoodProperties COOKED_EGGPLANT = new FoodProperties.Builder().nutrition(4).saturationMod(0.5F).build();
     public static final FoodProperties COOKED_MUSHROOM = new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).build();
 
+    public static final FoodProperties FORTUNE_COOKIE = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).fast().alwaysEat().build();
     public static final FoodProperties GREEN_BEAN_PIE = new FoodProperties.Builder().nutrition(8).saturationMod(0.8F).build();
     public static final FoodProperties PBJ_SANDWICH = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F).build();
     public static final FoodProperties STUFFED_PEPPER = new FoodProperties.Builder().nutrition(9).saturationMod(0.8F).build();

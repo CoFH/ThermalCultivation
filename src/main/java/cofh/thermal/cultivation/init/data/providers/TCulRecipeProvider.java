@@ -10,6 +10,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
@@ -19,6 +20,7 @@ import static cofh.lib.util.constants.ModIds.ID_THERMAL;
 import static cofh.thermal.core.ThermalCore.ITEMS;
 import static cofh.thermal.core.util.RegistrationHelper.*;
 import static cofh.thermal.cultivation.init.registries.TCulIDs.*;
+import static cofh.thermal.lib.util.ThermalIDs.ID_WRENCH;
 import static net.minecraft.data.recipes.RecipeCategory.*;
 
 public class TCulRecipeProvider extends RecipeProviderCoFH {
@@ -52,7 +54,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .pattern("GG")
                 .pattern("GG")
                 .unlockedBy("has_glass", has(Tags.Items.GLASS))
-                .save(consumer, ID_THERMAL + ":jar_4");
+                .save(consumer, ID_THERMAL + ":jar_8");
 
 
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, reg.get(ID_PHYTOSOIL))
@@ -120,10 +122,6 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
         generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_REDSTONE_MUSHROOM)), Items.REDSTONE, 0.1F, "smelting", "_spores");
         generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_SLIME_MUSHROOM)), Items.SLIME_BALL, 0.1F, "smelting", "_spores");
 
-        generateSmeltingAndCookingRecipes(reg, consumer, Tags.Items.MUSHROOMS, "has_mushroom", reg.get(ID_COOKED_MUSHROOM), 0.35F, "smelting");
-        generateSmeltingAndCookingRecipes(reg, consumer, TCulTags.Items.CROPS_CORN, "has_corn", reg.get(ID_COOKED_CORN), 0.35F, "smelting");
-        generateSmeltingAndCookingRecipes(reg, consumer, TCulTags.Items.CROPS_EGGPLANT, "has_eggplant", reg.get(ID_COOKED_EGGPLANT), 0.35F, "smelting");
-
         generateStorageRecipes(consumer, reg.get(block(ID_AMARANTH)), reg.get(ID_AMARANTH), TCulTags.Items.CROPS_AMARANTH);
         generateStorageRecipes(consumer, reg.get(block(ID_BARLEY)), reg.get(ID_BARLEY), TCulTags.Items.CROPS_BARLEY);
         generateStorageRecipes(consumer, reg.get(block(ID_BELL_PEPPER)), reg.get(ID_BELL_PEPPER), TCulTags.Items.CROPS_BELL_PEPPER);
@@ -148,6 +146,26 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
     private void generateFoodRecipes(Consumer<FinishedRecipe> consumer) {
 
         var reg = ITEMS;
+
+        generateSmeltingAndCookingRecipes(reg, consumer, TCulTags.Items.DOUGH, "has_dough", Items.BREAD, 0.35F, "smelting");
+        generateSmeltingAndCookingRecipes(reg, consumer, Tags.Items.MUSHROOMS, "has_mushroom", reg.get(ID_COOKED_MUSHROOM), 0.35F, "smelting");
+        generateSmeltingAndCookingRecipes(reg, consumer, TCulTags.Items.CROPS_CORN, "has_corn", reg.get(ID_COOKED_CORN), 0.35F, "smelting");
+        generateSmeltingAndCookingRecipes(reg, consumer, TCulTags.Items.CROPS_EGGPLANT, "has_eggplant", reg.get(ID_COOKED_EGGPLANT), 0.35F, "smelting");
+
+        ShapelessRecipeBuilder.shapeless(FOOD, reg.get(ID_FLOUR))
+                .requires(fromTags(Tags.Items.CROPS_WHEAT, TCulTags.Items.CROPS_AMARANTH, TCulTags.Items.CROPS_BARLEY))
+                .requires(fromTags(Tags.Items.CROPS_WHEAT, TCulTags.Items.CROPS_AMARANTH, TCulTags.Items.CROPS_BARLEY))
+                .requires(reg.get(ID_WRENCH))
+                .unlockedBy("has_flour", has(TCulTags.Items.FLOUR))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(FOOD, reg.get(ID_DOUGH), 3)
+                .requires(reg.get(ID_FLOUR))
+                .requires(reg.get(ID_FLOUR))
+                .requires(reg.get(ID_FLOUR))
+                .requires(Ingredient.of(Items.WATER_BUCKET, Items.EGG))
+                .unlockedBy("has_flour", has(TCulTags.Items.FLOUR))
+                .save(consumer, ID_THERMAL + ":dough_3");
 
         ShapelessRecipeBuilder.shapeless(FOOD, ITEMS.get(ID_JELLY))
                 .requires(TCulTags.Items.CROPS_STRAWBERRY)
@@ -192,6 +210,16 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .requires(reg.get(ID_CHEESE_WHEEL))
                 .unlockedBy("has_cheese_wheel", has(reg.get(ID_CHEESE_WHEEL)))
                 .save(consumer, ID_THERMAL + ":cheese_wedge_from_wheel");
+
+        ShapelessRecipeBuilder.shapeless(FOOD, reg.get(ID_FORTUNE_COOKIE), 4)
+                .requires(TCulTags.Items.FLOUR)
+                .requires(Items.PAPER)
+                .requires(TCulTags.Items.FLOUR)
+                .requires(Items.SUGAR)
+                .requires(Tags.Items.EGGS)
+                .requires(Items.SUGAR)
+                .unlockedBy("has_flour", has(TCulTags.Items.FLOUR))
+                .save(consumer, ID_THERMAL + ":fortune_cookie_4");
 
         ShapedRecipeBuilder.shaped(FOOD, reg.get(ID_GREEN_BEAN_PIE))
                 .define('E', Items.EGG)

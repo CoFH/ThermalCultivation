@@ -2,9 +2,11 @@ package cofh.thermal.cultivation;
 
 import cofh.thermal.cultivation.common.config.TCulToolConfig;
 import cofh.thermal.cultivation.common.config.ThermalCropConfig;
+import cofh.thermal.cultivation.common.config.ThermalFoodConfig;
 import cofh.thermal.cultivation.common.loot.GrassLootModifier;
 import cofh.thermal.cultivation.init.registries.TCulBlockEntities;
 import cofh.thermal.cultivation.init.registries.TCulBlocks;
+import cofh.thermal.cultivation.init.registries.TCulEffects;
 import cofh.thermal.cultivation.init.registries.TCulItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -31,6 +33,7 @@ public class ThermalCultivation {
 
         CONFIG_MANAGER.register(modEventBus)
                 .addServerConfig(new ThermalCropConfig())
+                .addServerConfig(new ThermalFoodConfig())
                 .addServerConfig(new TCulToolConfig());
 
         modEventBus.addListener(this::commonSetup);
@@ -40,6 +43,7 @@ public class ThermalCultivation {
         TCulItems.register();
 
         TCulBlockEntities.register();
+        TCulEffects.register();
 
         LOOT_SERIALIZERS.register("seeds_from_grass", () -> GrassLootModifier.CODEC);
     }

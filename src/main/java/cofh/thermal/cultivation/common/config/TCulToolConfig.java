@@ -2,7 +2,7 @@ package cofh.thermal.cultivation.common.config;
 
 import cofh.core.common.config.IBaseConfig;
 import cofh.thermal.cultivation.common.item.WateringCanItem;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.function.Supplier;
 
@@ -12,7 +12,7 @@ import static cofh.thermal.cultivation.init.registries.TCulIDs.ID_WATERING_CAN;
 public class TCulToolConfig implements IBaseConfig {
 
     @Override
-    public void apply(ForgeConfigSpec.Builder builder) {
+    public void apply(ModConfigSpec.Builder builder) {
 
         builder.push("Tools");
 

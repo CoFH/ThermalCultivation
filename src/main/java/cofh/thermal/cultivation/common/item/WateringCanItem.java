@@ -36,8 +36,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.common.IPlantable;
+import net.neoforged.neoforge.fluids.FluidStack;
 import org.apache.commons.lang3.tuple.Triple;
 
 import javax.annotation.Nullable;

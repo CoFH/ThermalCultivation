@@ -1,7 +1,7 @@
 package cofh.thermal.cultivation.common.config;
 
 import cofh.core.common.config.IBaseConfig;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.function.Supplier;
 
@@ -10,7 +10,7 @@ import static cofh.lib.util.Constants.TRUE;
 public class ThermalCropConfig implements IBaseConfig {
 
     @Override
-    public void apply(ForgeConfigSpec.Builder builder) {
+    public void apply(ModConfigSpec.Builder builder) {
 
         builder.push("Crops");
 

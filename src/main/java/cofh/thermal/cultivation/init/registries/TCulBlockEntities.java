@@ -2,7 +2,7 @@ package cofh.thermal.cultivation.init.registries;
 
 import cofh.thermal.cultivation.common.block.entity.PotionCakeBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.RegistryObject;
 
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.BLOCK_ENTITIES;

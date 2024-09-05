@@ -2,7 +2,8 @@ package cofh.thermal.cultivation.init.registries;
 
 import cofh.thermal.cultivation.common.block.entity.PotionCakeBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.neoforged.neoforge.registries.RegistryObject;
+
+import java.util.function.Supplier;
 
 import static cofh.thermal.core.ThermalCore.BLOCKS;
 import static cofh.thermal.core.ThermalCore.BLOCK_ENTITIES;
@@ -18,6 +19,6 @@ public class TCulBlockEntities {
 
     }
 
-    public static final RegistryObject<BlockEntityType<?>> POTION_CAKE_TILE = BLOCK_ENTITIES.register(ID_POTION_CAKE, () -> BlockEntityType.Builder.of(PotionCakeBlockEntity::new, BLOCKS.get(ID_POTION_CAKE)).build(null));
+    public static final Supplier<BlockEntityType<?>> POTION_CAKE_TILE = BLOCK_ENTITIES.register(ID_POTION_CAKE, () -> BlockEntityType.Builder.of(PotionCakeBlockEntity::new, BLOCKS.get(ID_POTION_CAKE)).build(null));
 
 }

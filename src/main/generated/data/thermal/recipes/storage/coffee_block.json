@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/coffee"
+      "tag": "c:crops/coffee"
     },
     "I": {
       "item": "thermal:coffee"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:coffee_block"
-  },
-  "show_notification": true
+  }
 }

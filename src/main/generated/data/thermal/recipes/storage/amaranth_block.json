@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/amaranth"
+      "tag": "c:crops/amaranth"
     },
     "I": {
       "item": "thermal:amaranth"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:amaranth_block"
-  },
-  "show_notification": true
+  }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mushroom": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:mushrooms"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thermal:smelting/cooked_mushroom_from_campfire_cooking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mushroom"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thermal:smelting/cooked_mushroom_from_campfire_cooking"
+    ]
+  }
+}

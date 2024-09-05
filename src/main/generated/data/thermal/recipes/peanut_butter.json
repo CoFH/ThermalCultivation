@@ -3,22 +3,22 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     },
     {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     },
     {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     },
     {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     },
     {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     },
     {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     },
     {
       "item": "thermal:jar"

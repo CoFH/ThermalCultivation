@@ -6,13 +6,13 @@
       "item": "minecraft:egg"
     },
     "G": {
-      "tag": "forge:crops/green_bean"
+      "tag": "c:crops/green_bean"
     },
     "M": {
       "item": "minecraft:brown_mushroom"
     },
     "O": {
-      "tag": "forge:crops/onion"
+      "tag": "c:crops/onion"
     },
     "W": {
       "tag": "forge:crops/wheat"
@@ -25,6 +25,5 @@
   ],
   "result": {
     "item": "thermal:green_bean_pie"
-  },
-  "show_notification": true
+  }
 }

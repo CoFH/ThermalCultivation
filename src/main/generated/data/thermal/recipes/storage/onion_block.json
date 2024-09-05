@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/onion"
+      "tag": "c:crops/onion"
     },
     "I": {
       "item": "thermal:onion"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:onion_block"
-  },
-  "show_notification": true
+  }
 }

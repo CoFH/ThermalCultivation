@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/rice"
+      "tag": "c:crops/rice"
     },
     "I": {
       "item": "thermal:rice"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:rice_block"
-  },
-  "show_notification": true
+  }
 }

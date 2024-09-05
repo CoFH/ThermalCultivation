@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/strawberry"
+      "tag": "c:crops/strawberry"
     },
     "I": {
       "item": "thermal:strawberry"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:strawberry_block"
-  },
-  "show_notification": true
+  }
 }

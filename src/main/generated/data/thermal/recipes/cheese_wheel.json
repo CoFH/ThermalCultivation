@@ -6,7 +6,7 @@
       "item": "minecraft:milk_bucket"
     },
     {
-      "tag": "forge:crops/sadiroot"
+      "tag": "c:crops/sadiroot"
     }
   ],
   "result": {

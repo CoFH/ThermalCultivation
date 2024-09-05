@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:flour"
+      "tag": "c:flour"
     },
     {
       "item": "minecraft:paper"
     },
     {
-      "tag": "forge:flour"
+      "tag": "c:flour"
     },
     {
       "item": "minecraft:sugar"

@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/corn"
+      "tag": "c:crops/corn"
     },
     "I": {
       "item": "thermal:corn"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:corn_block"
-  },
-  "show_notification": true
+  }
 }

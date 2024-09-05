@@ -1,5 +1,13 @@
 package cofh.thermal.cultivation.init.registries;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+
+import static cofh.thermal.core.util.RegistrationHelper.seeds;
+
 public class TCulIDs {
 
     private TCulIDs() {
@@ -86,5 +94,21 @@ public class TCulIDs {
     public static final String ID_MUG = "mug";
 
     public static final String ID_EFFECT_FORTUNE_REVEALED = "fortune_revealed";
+
+    public static final ResourceKey<Block> FROST_MELON = createBlockKey(ID_FROST_MELON);
+    public static final ResourceKey<Block> FROST_MELON_STEM = createBlockKey(ID_FROST_MELON_STEM);
+    public static final ResourceKey<Block> ATTACHED_FROST_MELON_STEM = createBlockKey(ID_FROST_MELON_STEM_ATTACHED);
+
+    public static final ResourceKey<Item> FROST_MELON_SEEDS = createItemKey(seeds(ID_FROST_MELON));
+
+    private static ResourceKey<Block> createBlockKey(String key) {
+
+        return ResourceKey.create(Registries.BLOCK, new ResourceLocation(key));
+    }
+
+    private static ResourceKey<Item> createItemKey(String key) {
+
+        return ResourceKey.create(Registries.ITEM, new ResourceLocation(key));
+    }
 
 }

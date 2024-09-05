@@ -3,19 +3,19 @@
   "category": "misc",
   "key": {
     "C": {
-      "tag": "forge:pumpkins/carved"
+      "tag": "c:pumpkins/carved"
     },
     "M": {
-      "tag": "forge:foods/meat/cooked"
+      "tag": "c:foods/meat/cooked"
     },
     "O": {
-      "tag": "forge:crops/onion"
+      "tag": "c:crops/onion"
     },
     "P": {
-      "tag": "forge:crops/bell_pepper"
+      "tag": "c:crops/bell_pepper"
     },
     "R": {
-      "tag": "forge:crops/rice"
+      "tag": "c:crops/rice"
     },
     "T": {
       "item": "thermal:tomato_sauce"
@@ -28,6 +28,5 @@
   ],
   "result": {
     "item": "thermal:stuffed_pumpkin"
-  },
-  "show_notification": true
+  }
 }

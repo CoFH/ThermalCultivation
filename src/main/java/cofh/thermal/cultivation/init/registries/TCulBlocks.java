@@ -201,8 +201,9 @@ public class TCulBlocks {
 
         // STEM
         registerBlock(ID_FROST_MELON, () -> new FrostMelonBlock(of().mapColor(COLOR_CYAN).randomTicks().strength(1.0F).sound(SoundType.SNOW)), Rarity.UNCOMMON, ID_THERMAL_CULTIVATION);
-        registerBlockOnly(ID_FROST_MELON_STEM, () -> new StemBlockCoFH(of().mapColor(PLANT).randomTicks().noCollission().strength(0.0F).sound(SoundType.WOOD), ITEMS.getSup(seeds(ID_FROST_MELON))).crop(BLOCKS.getSup(ID_FROST_MELON)));
-        registerBlockOnly(ID_FROST_MELON_STEM_ATTACHED, () -> new AttachedStemBlockCoFH(of().mapColor(PLANT).noCollission().strength(0.0F).sound(SoundType.HARD_CROP), ITEMS.getSup(seeds(ID_FROST_MELON))).crop(BLOCKS.getSup(ID_FROST_MELON)));
+
+        registerBlockOnly(ID_FROST_MELON_STEM, () -> new StemBlock(FROST_MELON, ATTACHED_FROST_MELON_STEM, FROST_MELON_SEEDS, of().mapColor(PLANT).randomTicks().noCollission().strength(0.0F).sound(SoundType.WOOD)));
+        registerBlockOnly(ID_FROST_MELON_STEM_ATTACHED, () -> new AttachedStemBlock(FROST_MELON_STEM, FROST_MELON, FROST_MELON_SEEDS, of().mapColor(PLANT).noCollission().strength(0.0F).sound(SoundType.HARD_CROP)));
     }
 
     private static void registerFoods() {

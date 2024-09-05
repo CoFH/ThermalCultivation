@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/tomato"
+      "tag": "c:crops/tomato"
     },
     "I": {
       "item": "thermal:tomato"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:tomato_block"
-  },
-  "show_notification": true
+  }
 }

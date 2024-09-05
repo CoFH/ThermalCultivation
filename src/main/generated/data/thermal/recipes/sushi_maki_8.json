@@ -3,13 +3,13 @@
   "category": "misc",
   "key": {
     "F": {
-      "tag": "forge:foods/fish/raw"
+      "tag": "c:foods/fish/raw"
     },
     "K": {
       "item": "minecraft:dried_kelp"
     },
     "R": {
-      "tag": "forge:crops/rice"
+      "tag": "c:crops/rice"
     }
   },
   "pattern": [
@@ -20,6 +20,5 @@
   "result": {
     "count": 8,
     "item": "thermal:sushi_maki"
-  },
-  "show_notification": true
+  }
 }

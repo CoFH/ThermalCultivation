@@ -4,7 +4,7 @@
   "cookingtime": 200,
   "experience": 0.35,
   "ingredient": {
-    "tag": "forge:crops/eggplant"
+    "tag": "c:crops/eggplant"
   },
   "result": "thermal:cooked_eggplant"
 }

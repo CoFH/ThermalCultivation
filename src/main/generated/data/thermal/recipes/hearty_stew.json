@@ -9,13 +9,13 @@
       "tag": "forge:crops/potato"
     },
     {
-      "tag": "forge:crops/barley"
+      "tag": "c:crops/barley"
     },
     {
-      "tag": "forge:crops/onion"
+      "tag": "c:crops/onion"
     },
     {
-      "tag": "forge:crops/radish"
+      "tag": "c:crops/radish"
     },
     {
       "item": "thermal:tomato_sauce"

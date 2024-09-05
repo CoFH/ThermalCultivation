@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eggplant": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/eggplant"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thermal:smelting/cooked_eggplant_from_smoking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_eggplant"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thermal:smelting/cooked_eggplant_from_smoking"
+    ]
+  }
+}

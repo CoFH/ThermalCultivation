@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/barley"
+      "tag": "c:crops/barley"
     },
     "I": {
       "item": "thermal:barley"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:barley_block"
-  },
-  "show_notification": true
+  }
 }

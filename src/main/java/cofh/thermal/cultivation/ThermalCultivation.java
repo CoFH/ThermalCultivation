@@ -11,11 +11,12 @@ import cofh.thermal.cultivation.init.registries.TCulItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import static cofh.lib.util.FlagManager.setFlag;
 import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 import static cofh.thermal.core.ThermalCore.*;
 import static cofh.thermal.cultivation.init.registries.TCulIDs.*;
@@ -25,11 +26,9 @@ import static cofh.thermal.lib.util.ThermalIDs.*;
 @Mod (ID_THERMAL_CULTIVATION)
 public class ThermalCultivation {
 
-    public ThermalCultivation() {
+    public ThermalCultivation(ModContainer modContainer, IEventBus modEventBus) {
 
         setFeatureFlags();
-
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         CONFIG_MANAGER.register(modEventBus)
                 .addServerConfig(new ThermalCropConfig())

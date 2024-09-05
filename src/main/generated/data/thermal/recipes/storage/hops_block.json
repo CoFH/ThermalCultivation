@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/hops"
+      "tag": "c:crops/hops"
     },
     "I": {
       "item": "thermal:hops"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:hops_block"
-  },
-  "show_notification": true
+  }
 }

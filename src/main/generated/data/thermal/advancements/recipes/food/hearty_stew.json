@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_radish": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/radish"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thermal:hearty_stew"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_radish"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thermal:hearty_stew"
+    ]
+  }
+}

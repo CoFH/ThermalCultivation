@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/sadiroot"
+      "tag": "c:crops/sadiroot"
     },
     "I": {
       "item": "thermal:sadiroot"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:sadiroot_block"
-  },
-  "show_notification": true
+  }
 }

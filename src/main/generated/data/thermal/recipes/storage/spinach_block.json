@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/spinach"
+      "tag": "c:crops/spinach"
     },
     "I": {
       "item": "thermal:spinach"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:spinach_block"
-  },
-  "show_notification": true
+  }
 }

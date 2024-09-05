@@ -3,22 +3,22 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:crops/strawberry"
+      "tag": "c:crops/strawberry"
     },
     {
-      "tag": "forge:crops/strawberry"
+      "tag": "c:crops/strawberry"
     },
     {
-      "tag": "forge:crops/strawberry"
+      "tag": "c:crops/strawberry"
     },
     {
-      "tag": "forge:crops/strawberry"
+      "tag": "c:crops/strawberry"
     },
     {
-      "tag": "forge:crops/strawberry"
+      "tag": "c:crops/strawberry"
     },
     {
-      "tag": "forge:crops/strawberry"
+      "tag": "c:crops/strawberry"
     },
     {
       "item": "thermal:jar"

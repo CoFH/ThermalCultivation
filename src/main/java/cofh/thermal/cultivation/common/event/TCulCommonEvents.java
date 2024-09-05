@@ -1,9 +1,9 @@
 package cofh.thermal.cultivation.common.event;
 
 import cofh.thermal.cultivation.common.item.WateringCanItem;
-import net.neoforged.neoforge.event.TickEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.TickEvent;
 
 import static cofh.lib.util.constants.ModIds.ID_THERMAL_CULTIVATION;
 

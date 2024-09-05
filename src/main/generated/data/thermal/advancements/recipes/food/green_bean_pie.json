@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_green_bean": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/green_bean"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thermal:green_bean_pie"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_green_bean"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thermal:green_bean_pie"
+    ]
+  }
+}

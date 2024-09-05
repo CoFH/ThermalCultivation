@@ -3,9 +3,8 @@ package cofh.thermal.cultivation.init.data.providers;
 import cofh.lib.init.data.RecipeProviderCoFH;
 import cofh.lib.init.tags.ItemTagsCoFH;
 import cofh.thermal.cultivation.init.registries.TCulTags;
-import cofh.thermal.lib.util.ThermalFlags;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
@@ -13,8 +12,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
-
-import java.util.function.Consumer;
 
 import static cofh.lib.util.constants.ModIds.ID_THERMAL;
 import static cofh.thermal.core.ThermalCore.ITEMS;
@@ -28,13 +25,12 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
     public TCulRecipeProvider(PackOutput output) {
 
         super(output, ID_THERMAL);
-        manager = ThermalFlags.manager();
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(RecipeOutput recipeOutput) {
 
-        generateFoodRecipes(consumer);
+        generateFoodRecipes(recipeOutput);
 
         var reg = ITEMS;
 
@@ -45,7 +41,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .pattern("CBC")
                 .pattern(" C ")
                 .unlockedBy("has_bucket", has(Items.BUCKET))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(TOOLS, reg.get(ID_JAR), 8)
                 .define('G', Tags.Items.GLASS)
@@ -54,7 +50,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .pattern("GG")
                 .pattern("GG")
                 .unlockedBy("has_glass", has(Tags.Items.GLASS))
-                .save(consumer, ID_THERMAL + ":jar_8");
+                .save(recipeOutput, ID_THERMAL + ":jar_8");
 
 
         ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, reg.get(ID_PHYTOSOIL))
@@ -65,17 +61,17 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .pattern("PXP")
                 .pattern("CPC")
                 .unlockedBy("has_phytogro", has(reg.get("phytogro")))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(MISC, Items.STRING)
                 .requires(reg.get(ID_FLAX))
                 .unlockedBy("has_flax", has(reg.get(ID_FLAX)))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(FOOD, reg.get(seeds(ID_FROST_MELON)))
                 .requires(reg.get(ID_FROST_MELON_SLICE))
                 .unlockedBy("has_frost_melon", has(reg.get(ID_FROST_MELON_SLICE)))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(FOOD, reg.get(ID_FROST_MELON))
                 .define('M', reg.get(ID_FROST_MELON_SLICE))
@@ -83,7 +79,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .pattern("MMM")
                 .pattern("MMM")
                 .unlockedBy("has_frost_melon", has(reg.get(ID_FROST_MELON_SLICE)))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(MISC, reg.get(spores(ID_GLOWSTONE_MUSHROOM)))
                 .requires(Items.RED_MUSHROOM)
@@ -91,7 +87,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .requires(reg.get("phytogro"))
                 .requires(Items.EXPERIENCE_BOTTLE)
                 .unlockedBy("has_glowstone_dust", has(Tags.Items.DUSTS_GLOWSTONE))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(MISC, reg.get(spores(ID_GUNPOWDER_MUSHROOM)))
                 .requires(Items.BROWN_MUSHROOM)
@@ -99,7 +95,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .requires(reg.get("phytogro"))
                 .requires(Items.EXPERIENCE_BOTTLE)
                 .unlockedBy("has_gunpowder", has(Items.GUNPOWDER))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(MISC, reg.get(spores(ID_REDSTONE_MUSHROOM)))
                 .requires(Items.RED_MUSHROOM)
@@ -107,7 +103,7 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .requires(reg.get("phytogro"))
                 .requires(Items.EXPERIENCE_BOTTLE)
                 .unlockedBy("has_redstone_dust", has(Tags.Items.DUSTS_REDSTONE))
-                .save(consumer);
+                .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(MISC, reg.get(spores(ID_SLIME_MUSHROOM)))
                 .requires(Items.BROWN_MUSHROOM)
@@ -115,35 +111,35 @@ public class TCulRecipeProvider extends RecipeProviderCoFH {
                 .requires(reg.get("phytogro"))
                 .requires(Items.EXPERIENCE_BOTTLE)
                 .unlockedBy("has_slime_ball", has(Tags.Items.SLIMEBALLS))
-                .save(consumer);
+                .save(recipeOutput);
 
-        generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_GLOWSTONE_MUSHROOM)), Items.GLOWSTONE_DUST, 0.1F, "smelting", "_spores");
-        generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_GUNPOWDER_MUSHROOM)), Items.GUNPOWDER, 0.1F, "smelting", "_spores");
-        generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_REDSTONE_MUSHROOM)), Items.REDSTONE, 0.1F, "smelting", "_spores");
-        generateSmeltingRecipe(reg, consumer, reg.get(spores(ID_SLIME_MUSHROOM)), Items.SLIME_BALL, 0.1F, "smelting", "_spores");
+        generateSmeltingRecipe(reg, recipeOutput, reg.get(spores(ID_GLOWSTONE_MUSHROOM)), Items.GLOWSTONE_DUST, 0.1F, "smelting", "_spores");
+        generateSmeltingRecipe(reg, recipeOutput, reg.get(spores(ID_GUNPOWDER_MUSHROOM)), Items.GUNPOWDER, 0.1F, "smelting", "_spores");
+        generateSmeltingRecipe(reg, recipeOutput, reg.get(spores(ID_REDSTONE_MUSHROOM)), Items.REDSTONE, 0.1F, "smelting", "_spores");
+        generateSmeltingRecipe(reg, recipeOutput, reg.get(spores(ID_SLIME_MUSHROOM)), Items.SLIME_BALL, 0.1F, "smelting", "_spores");
 
-        generateStorageRecipes(consumer, reg.get(block(ID_AMARANTH)), reg.get(ID_AMARANTH), TCulTags.Items.CROPS_AMARANTH);
-        generateStorageRecipes(consumer, reg.get(block(ID_BARLEY)), reg.get(ID_BARLEY), TCulTags.Items.CROPS_BARLEY);
-        generateStorageRecipes(consumer, reg.get(block(ID_BELL_PEPPER)), reg.get(ID_BELL_PEPPER), TCulTags.Items.CROPS_BELL_PEPPER);
-        generateStorageRecipes(consumer, reg.get(block(ID_COFFEE)), reg.get(ID_COFFEE), TCulTags.Items.CROPS_COFFEE);
-        generateStorageRecipes(consumer, reg.get(block(ID_CORN)), reg.get(ID_CORN), TCulTags.Items.CROPS_CORN);
-        generateStorageRecipes(consumer, reg.get(block(ID_EGGPLANT)), reg.get(ID_EGGPLANT), TCulTags.Items.CROPS_EGGPLANT);
-        generateStorageRecipes(consumer, reg.get(block(ID_FLAX)), reg.get(ID_FLAX), TCulTags.Items.CROPS_FLAX);
-        generateStorageRecipes(consumer, reg.get(block(ID_GREEN_BEAN)), reg.get(ID_GREEN_BEAN), TCulTags.Items.CROPS_GREEN_BEAN);
-        generateStorageRecipes(consumer, reg.get(block(ID_HOPS)), reg.get(ID_HOPS), TCulTags.Items.CROPS_HOPS);
-        generateStorageRecipes(consumer, reg.get(block(ID_ONION)), reg.get(ID_ONION), TCulTags.Items.CROPS_ONION);
-        generateStorageRecipes(consumer, reg.get(block(ID_PEANUT)), reg.get(ID_PEANUT), TCulTags.Items.CROPS_PEANUT);
-        generateStorageRecipes(consumer, reg.get(block(ID_RADISH)), reg.get(ID_RADISH), TCulTags.Items.CROPS_RADISH);
-        generateStorageRecipes(consumer, reg.get(block(ID_RICE)), reg.get(ID_RICE), TCulTags.Items.CROPS_RICE);
-        generateStorageRecipes(consumer, reg.get(block(ID_SADIROOT)), reg.get(ID_SADIROOT), TCulTags.Items.CROPS_SADIROOT);
-        generateStorageRecipes(consumer, reg.get(block(ID_SPINACH)), reg.get(ID_SPINACH), TCulTags.Items.CROPS_SPINACH);
-        generateStorageRecipes(consumer, reg.get(block(ID_STRAWBERRY)), reg.get(ID_STRAWBERRY), TCulTags.Items.CROPS_STRAWBERRY);
-        generateStorageRecipes(consumer, reg.get(block(ID_TEA)), reg.get(ID_TEA), TCulTags.Items.CROPS_TEA);
-        generateStorageRecipes(consumer, reg.get(block(ID_TOMATO)), reg.get(ID_TOMATO), TCulTags.Items.CROPS_TOMATO);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_AMARANTH)), reg.get(ID_AMARANTH), TCulTags.Items.CROPS_AMARANTH);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_BARLEY)), reg.get(ID_BARLEY), TCulTags.Items.CROPS_BARLEY);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_BELL_PEPPER)), reg.get(ID_BELL_PEPPER), TCulTags.Items.CROPS_BELL_PEPPER);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_COFFEE)), reg.get(ID_COFFEE), TCulTags.Items.CROPS_COFFEE);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_CORN)), reg.get(ID_CORN), TCulTags.Items.CROPS_CORN);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_EGGPLANT)), reg.get(ID_EGGPLANT), TCulTags.Items.CROPS_EGGPLANT);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_FLAX)), reg.get(ID_FLAX), TCulTags.Items.CROPS_FLAX);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_GREEN_BEAN)), reg.get(ID_GREEN_BEAN), TCulTags.Items.CROPS_GREEN_BEAN);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_HOPS)), reg.get(ID_HOPS), TCulTags.Items.CROPS_HOPS);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_ONION)), reg.get(ID_ONION), TCulTags.Items.CROPS_ONION);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_PEANUT)), reg.get(ID_PEANUT), TCulTags.Items.CROPS_PEANUT);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_RADISH)), reg.get(ID_RADISH), TCulTags.Items.CROPS_RADISH);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_RICE)), reg.get(ID_RICE), TCulTags.Items.CROPS_RICE);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_SADIROOT)), reg.get(ID_SADIROOT), TCulTags.Items.CROPS_SADIROOT);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_SPINACH)), reg.get(ID_SPINACH), TCulTags.Items.CROPS_SPINACH);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_STRAWBERRY)), reg.get(ID_STRAWBERRY), TCulTags.Items.CROPS_STRAWBERRY);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_TEA)), reg.get(ID_TEA), TCulTags.Items.CROPS_TEA);
+        generateStorageRecipes(recipeOutput, reg.get(block(ID_TOMATO)), reg.get(ID_TOMATO), TCulTags.Items.CROPS_TOMATO);
     }
 
     // region HELPERS
-    private void generateFoodRecipes(Consumer<FinishedRecipe> consumer) {
+    private void generateFoodRecipes(RecipeOutput consumer) {
 
         var reg = ITEMS;
 

@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     },
     "I": {
       "item": "thermal:peanut"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:peanut_block"
-  },
-  "show_notification": true
+  }
 }

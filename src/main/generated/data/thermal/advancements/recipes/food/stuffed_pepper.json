@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bell_pepper": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:crops/bell_pepper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thermal:stuffed_pepper"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bell_pepper"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thermal:stuffed_pepper"
+    ]
+  }
+}

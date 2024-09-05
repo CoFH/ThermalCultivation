@@ -7,10 +7,10 @@
         "tag": "forge:crops/wheat"
       },
       {
-        "tag": "forge:crops/amaranth"
+        "tag": "c:crops/amaranth"
       },
       {
-        "tag": "forge:crops/barley"
+        "tag": "c:crops/barley"
       }
     ],
     [
@@ -18,10 +18,10 @@
         "tag": "forge:crops/wheat"
       },
       {
-        "tag": "forge:crops/amaranth"
+        "tag": "c:crops/amaranth"
       },
       {
-        "tag": "forge:crops/barley"
+        "tag": "c:crops/barley"
       }
     ],
     {

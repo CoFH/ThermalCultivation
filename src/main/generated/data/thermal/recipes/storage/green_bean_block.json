@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/green_bean"
+      "tag": "c:crops/green_bean"
     },
     "I": {
       "item": "thermal:green_bean"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:green_bean_block"
-  },
-  "show_notification": true
+  }
 }

@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/tea"
+      "tag": "c:crops/tea"
     },
     "I": {
       "item": "thermal:tea"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "thermal:tea_block"
-  },
-  "show_notification": true
+  }
 }

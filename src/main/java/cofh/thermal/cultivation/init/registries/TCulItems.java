@@ -64,7 +64,7 @@ public class TCulItems {
         // TODO: Implement Hops
         // registerCropAndSeed(ID_HOPS);
         foodsTab(registerItem(ID_HOPS, () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
-        foodsTab(registerItem(seeds(ID_HOPS), () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(50, registerItem(seeds(ID_HOPS), () -> new ItemCoFH(new Item.Properties()).setModId(ID_THERMAL_CULTIVATION)));
 
         registerCropAndSeed(ID_TEA);
 
@@ -75,7 +75,7 @@ public class TCulItems {
 
         // OTHER
         foodsTab(registerItem(ID_FROST_MELON_SLICE, () -> new ItemCoFH(new Item.Properties().food(FROST_MELON_SLICE).rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION)));
-        foodsTab(registerItem(seeds(ID_FROST_MELON), () -> new BlockNamedItemCoFH(BLOCKS.get(ID_FROST_MELON_STEM), new Item.Properties().rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(50, registerItem(seeds(ID_FROST_MELON), () -> new BlockNamedItemCoFH(BLOCKS.get(ID_FROST_MELON_STEM), new Item.Properties().rarity(Rarity.UNCOMMON)).setModId(ID_THERMAL_CULTIVATION)));
     }
 
     private static void registerFoods() {
@@ -125,7 +125,7 @@ public class TCulItems {
         } else {
             foodsTab(registerItem(id, () -> new ItemCoFH(itemProperties()).setModId(ID_THERMAL_CULTIVATION)));
         }
-        foodsTab(registerItem(seeds(id), () -> new BlockNamedItemCoFH(BLOCKS.get(id), itemProperties()).setModId(ID_THERMAL_CULTIVATION)));
+        foodsTab(50, registerItem(seeds(id), () -> new BlockNamedItemCoFH(BLOCKS.get(id), itemProperties()).setModId(ID_THERMAL_CULTIVATION)));
     }
 
     private static void registerBowlFoodItem(String id, FoodProperties food, Rarity rarity) {

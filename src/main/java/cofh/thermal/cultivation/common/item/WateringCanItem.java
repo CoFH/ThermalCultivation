@@ -79,7 +79,7 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
         ProxyUtils.registerColorable(this);
 
         numSlots = () -> ThermalCoreConfig.toolAugments;
-        augValidator = createAllowValidator(TAG_AUGMENT_TYPE_UPGRADE, TAG_AUGMENT_TYPE_FLUID, TAG_AUGMENT_TYPE_AREA_EFFECT);
+        augValidator = createAllowValidator(TAG_AUGMENT_TYPE_FLUID, TAG_AUGMENT_TYPE_AREA_EFFECT);
     }
 
     @Override
@@ -247,6 +247,12 @@ public class WateringCanItem extends FluidContainerItemAugmentable implements IC
         if (getMode(container) >= getNumModes(container)) {
             setMode(container, getNumModes(container) - 1);
         }
+    }
+
+    @Override
+    public boolean hasFilterSlot() {
+
+        return false;
     }
     // endregion
 

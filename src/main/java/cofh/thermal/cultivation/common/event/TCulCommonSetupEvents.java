@@ -71,10 +71,10 @@ public class TCulCommonSetupEvents {
             apprenticeTrades.add(new BasicItemListing(cloneStack(Items.EMERALD), cloneStack(ITEMS.get(seeds(ID_TOMATO)), 2), 12, 5, 0.05F));
 
             List<VillagerTrades.ItemListing> journeymanTrades = trades.get(3);
-            journeymanTrades.add(new BasicItemListing(cloneStack(ITEMS.get(ID_FROST_MELON), 3), cloneStack(Items.EMERALD, 1), 12, 20, 0.05F));
+            journeymanTrades.add(new BasicItemListing(cloneStack(ITEMS.get(ID_FROST_MELON), 3), cloneStack(Items.EMERALD), 12, 20, 0.05F));
 
             List<VillagerTrades.ItemListing> expertTrades = trades.get(4);
-            expertTrades.add(new BasicItemListing(cloneStack(Items.MELON_SEEDS, 2), cloneStack(Items.EMERALD, 4), cloneStack(ITEMS.get(seeds(ID_FROST_MELON)), 2), 8, 15, 0.05F));
+            expertTrades.add(new BasicItemListing(cloneStack(Items.EMERALD, 4), cloneStack(ITEMS.get(seeds(ID_FROST_MELON)), 2), 8, 15, 0.05F));
         }
     }
 
@@ -84,7 +84,7 @@ public class TCulCommonSetupEvents {
         if (!ThermalCoreConfig.enableWandererTrades.get()) {
             return;
         }
-        event.getRareTrades().add(new BasicItemListing(cloneStack(Items.EMERALD, 4), cloneStack(ITEMS.get(seeds(ID_FROST_MELON))), 8, 1, 0.05F));
+        event.getRareTrades().add(new BasicItemListing(cloneStack(Items.EMERALD, 4), cloneStack(ITEMS.get(seeds(ID_FROST_MELON)), 2), 8, 15, 0.05F));
     }
 
 }
